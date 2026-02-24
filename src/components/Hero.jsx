@@ -43,7 +43,7 @@ export default function Hero() {
             </motion.p>
 
             <motion.a
-                href="#register"
+                href="https://forms.gle/DamccNwnjHAnsFuq5"
                 whileHover={{ scale: 1.0 }}
                 whileTap={{ scale: 0.96 }}
                 className="px-8 sm:px-12 py-4 border-2 border-neon-blue font-bold text-lg sm:text-xl rounded-xl glow ripple"
