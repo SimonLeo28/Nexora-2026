@@ -39,7 +39,7 @@ export default function Footer() {
                 </h2>
 
                 <p className="text-soft-blue-gray mb-4">
-                    Email: infonexora26@gmail.com
+                    Email: infonexora2026@gmail.com
                 </p>
 
                 <p className="text-soft-blue-gray mb-8">
