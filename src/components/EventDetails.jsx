@@ -85,12 +85,19 @@ import { motion } from "framer-motion";
 export default function EventDetails() {
 
     const themes = [
-        "AI Everywhere — Intelligence for Real Needs",
-        "Web3, Blockchain & Trust Infrastructure",
-        "VLSI & Embedded Systems",
-        "Climate Tech & Sustainable Systems",
-        "Human–Machine Collaboration & Assistive Tech",
-        "AI-Driven Data Analytics (AutoML & Augmented Analytics)"
+        // "AI Everywhere — Intelligence for Real Needs",
+        // "Web3, Blockchain & Trust Infrastructure",
+        // "VLSI & Embedded Systems",
+        // "Climate Tech & Sustainable Systems",
+        // "Human–Machine Collaboration & Assistive Tech",
+        // "AI-Driven Data Analytics (AutoML & Augmented Analytics)"
+
+        "Autonomous Intelligence & Agentic AI Systems",
+        "ClimateTech, Green Skills & Sustainable Infrastructure",
+        "Intelligent Robotics & Autonomous Systems",
+        "Bio-Digital Convergence & Future Healthcare Technologies",
+        "Smart Mobility, Autonomous Transportation & Future Logistics",
+        "Cyber-Physical Systems & Intelligent IoT Ecosystems"
     ];
 
     const timeline = [
