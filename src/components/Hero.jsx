@@ -243,7 +243,7 @@ export default function Hero() {
             </video>
 
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/70 -z-10"></div>
+            <div className="absolute inset-0 bg-black/35 -z-10"></div>
 
 
             {/* Logos */}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function CountdownTimer() {
     const [time, setTime] = useState({ d: '00', h: '00', m: '00', s: '00' });
@@ -24,7 +24,7 @@ export default function CountdownTimer() {
     }, []);
 
     return (
-        <div className="mt-12 sm:mt-16 flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-16 text-2xl sm:text-3xl md:text-4xl font-bold">
+        <div className="mt-12 sm:mt-2 flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-16 text-2xl sm:text-3xl md:text-4xl font-bold">
             <div className="flex flex-col items-center">
                 <span className="text-neon-blue">{time.d}</span>
                 <span className="text-base text-soft-blue-gray">Days</span>
