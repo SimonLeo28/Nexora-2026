@@ -43,6 +43,7 @@ export default function Footer() {
                 </p>
 
                 <p className="text-soft-blue-gray mb-8">
+                    Student Coordinator: Shivarama R | Harshavardhana Reddy
                     Phone: +91 9620907945 | +91 84317 44823
                 </p>
 
