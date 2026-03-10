@@ -130,7 +130,7 @@ export default function EventDetails() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
 
                     {[
-                        { title: "Date", value: "March 27-28, 2026" },
+                        { title: "Date", value: "April 24-25, 2026" },
                         { title: "Duration", value: "24 Hours" },
                         { title: "Venue", value: "Amruta Institute of Engineering and Management Sciences" },
                         { title: "Mode", value: "Offline" },

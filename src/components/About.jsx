@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import CustomCursor from './CustomCursor';
 
 const cardVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -10,7 +9,19 @@ export default function About() {
     return (
         <>
         {/* <CustomCursor /> */}
-        <section id="about" className="py-20 md:py-32 container mx-auto px-6">
+        <section id="about" className="relative min-h-screen py-20 md:py-32 container mx-auto px-6 overflow-hidden">
+            
+            {/* Background Video */}
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover -z-10"
+            >
+                <source src="/videos/about-video.mp4" type="video/mp4" />
+            </video>
+
             <motion.h2
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

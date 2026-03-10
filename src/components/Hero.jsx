@@ -239,7 +239,7 @@ export default function Hero() {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover -z-10"
             >
-                <source src="https://res.cloudinary.com/dnwj7plkk/video/upload/v1772985674/hackathon-bg_kircdg.mp4" type="video/mp4" />
+                <source src="/videos/bg-video6.mp4" type="video/mp4" />
             </video>
 
             {/* Dark Overlay */}
