@@ -167,18 +167,16 @@ export default function Footer() {
         ))}
       </motion.div>
 
-<<<<<<< Updated upstream
-                <p className="text-soft-blue-gray mb-8">
-                    Student Coordinator: Shivarama R | Harshavardhana Reddy<br></br>
-                    Phone: +91 9148672650 | +91 7019022248
-                </p>
-=======
       {/* Content */}
       <div className="relative container mx-auto px-6">
         <h2 className="text-3xl font-bold text-neon-blue mb-6">
           Get in Touch
         </h2>
->>>>>>> Stashed changes
+
+        <p className="text-soft-blue-gray mb-8">
+          Student Coordinator: Shivarama R | Harshavardhana Reddy<br></br>
+          Phone: +91 9148672650 | +91 7019022248
+        </p>
 
         <p className="text-soft-blue-gray mb-4">
           Email: infonexora2026@gmail.com
@@ -191,7 +189,7 @@ export default function Footer() {
         <p className="text-sm text-soft-blue-gray">
           © {new Date().getFullYear()} National Level Hackathon 2026 — All rights reserved.
         </p>
-      </div>
+        </div>
     </footer>
   );
 }
