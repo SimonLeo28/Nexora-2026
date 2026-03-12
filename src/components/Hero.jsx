@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 // import CountdownTimer from "./CountdownTimer";
+import { BackgroundPaths } from "./21stdevcomponent";
 import CounterDaisy from "./CounterDaisy";
 import NeonNodes from "./NeonNodes";
-import { BackgroundPaths } from "./21stdevcomponent";
 
 export default function Hero({ children }) {
   return (

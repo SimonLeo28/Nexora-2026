@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import About from './components/About';
+import CursorTrail from './components/CursorTrail';
 import CustomCursor from './components/CustomCursor';
 import EventDetails from './components/EventDetails';
 import Footer from './components/Footer';
@@ -94,7 +95,7 @@ export default function App() {
             <img className="h-8 md:h-10 lg:h-12 w-auto" src="nexora_logo.png" alt="Nexora Logo" />
             <p className="text-md text-gray-300 ml-2 hover:text-neon-blue transition-colors text-shadow-lg">NEXORA</p>
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden mr-8">
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-300">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
