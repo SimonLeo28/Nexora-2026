@@ -28,8 +28,8 @@ function FloatingPaths({ position }) {
                         d={path.d}
                         stroke="currentColor"
                         strokeWidth={path.width}
-                        strokeOpacity={0.02 + path.id * 0.01}
-                        strokeDasharray="0.5 1.5"
+                        strokeOpacity={0.02 + path.id * 0.02}
+                        strokeDasharray="0.46 1.5"
                         pathLength="1"
                         initial={{ strokeDashoffset: 0 }}
                         animate={{ strokeDashoffset: -2 }}

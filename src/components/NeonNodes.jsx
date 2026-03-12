@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function NeonNodes({ children }) {
   const canvasRef = useRef(null);
@@ -64,7 +64,7 @@ export default function NeonNodes({ children }) {
                     ctx.lineTo(other.x, other.y);
                     const alpha = 1 - (distance / maxDistance);
                     // INCREASE OPACITY HERE: Change 0.8 to higher/lower (max 1.0)
-                    ctx.strokeStyle = `rgba(0, 191, 255, ${alpha * 1.3})`;
+                    ctx.strokeStyle = `rgba(0, 191, 255, ${alpha * 10})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
