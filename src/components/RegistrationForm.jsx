@@ -198,8 +198,10 @@
 //         </section>
 //     );
 // }
-import { useState } from 'react';
+
+
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export default function RegistrationForm() {
     const [teamName, setTeamName] = useState('');
