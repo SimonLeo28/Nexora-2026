@@ -12,7 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.9",
     "@tsparticles/slim": "^3.9.1",
-    "framer-motion": "^12.34.2",
+    "framer-motion": "^12.35.2",
     "gsap": "^3.14.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"

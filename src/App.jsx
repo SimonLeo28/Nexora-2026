@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';  
+import { motion } from 'framer-motion';
 import Hero from './components/Hero';
 import About from './components/About';
 import EventDetails from './components/EventDetails';
@@ -8,68 +9,7 @@ import Prizes from './components/Prizes';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import CustomCursor from './components/CustomCursor';
-
-// function App() {
-//   useEffect(() => {
-//     document.documentElement.style.scrollBehavior = 'smooth';
-//   }, []);
-
-//   return (
-//     <div className="relative">
-//       <ParticleBackground />
-
-//       {/* <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 py-4">
-//         <div className="container mx-auto px-6 flex justify-center gap-6 md:gap-10 flex-wrap text-sm md:text-base">
-//           {['Home', 'About', 'Details', 'Register', 'Rules', 'Prizes', 'Contact'].map(item => (
-//             <a
-//               key={item}
-//               href={`#${item.toLowerCase()}`}
-//               className="hover:text-neon-blue transition-colors"
-//             >
-//               {item}
-//             </a>
-//           ))}
-//         </div>
-//       </nav> */}
-//       <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 py-4">
-//   <div className="container mx-auto px-6 flex justify-center gap-6 md:gap-10 flex-wrap text-sm md:text-base">
-//     {['Home', 'About', 'Details', 'Register', 'Rules', 'Prizes', 'Contact'].map(item => (
-//       item === 'Register' ? (
-//         <a
-//           key={item}
-//           href="https://forms.gle/DamccNwnjHAnsFuq5"   // 🔥 Replace with your actual form link
-//           target="_blank"
-//           rel="noopener noreferrer"
-//           className="hover:text-neon-blue transition-colors"
-//         >
-//           {item}
-//         </a>
-//       ) : (
-//         <a
-//           key={item}
-//           href={`#${item.toLowerCase()}`}
-//           className="hover:text-neon-blue transition-colors"
-//         >
-//           {item}
-//         </a>
-//       )
-//     ))}
-//   </div>
-// </nav>
-
-//       <main>
-//         <Hero />
-//         <About />
-//         <EventDetails />
-//         <Rules />
-//         <Prizes />
-//         <Footer />
-//       </main>
-//     </div>
-//   );
-// }
-
-import { motion } from 'framer-motion';
+import CursorTrail from './components/CursorTrail';
 
 // ... other imports
 
@@ -87,6 +27,7 @@ export default function App() {
   return (
     <div className="relative">
       <CustomCursor />
+      <CursorTrail />
       <ParticleBackground />
       <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 py-4">
         <div className="container mx-auto px-6 flex items-center justify-between">
