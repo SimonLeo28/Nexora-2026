@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        orbitron: ['Orbitron', 'sans-serif'],
+        sans: ['"Space Grotesk"', 'sans-serif'],
       },
       colors: {
         'neon-blue': '#00BFFF',

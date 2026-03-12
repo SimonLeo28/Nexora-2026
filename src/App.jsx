@@ -86,6 +86,7 @@ export default function App() {
   return (
     <div className="relative">
       <CustomCursor />
+      <CursorTrail />
       <ParticleBackground />
       <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 py-4">
         <div className="container mx-auto px-6 flex items-center justify-between">
