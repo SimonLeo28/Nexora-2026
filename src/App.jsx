@@ -84,6 +84,7 @@ export default function App() {
               Register Now
             </motion.a>
           )}
+        
         </Hero>
         <About />
         <EventDetails />
