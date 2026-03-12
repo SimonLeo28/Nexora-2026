@@ -8,6 +8,7 @@ import Hero from './components/Hero';
 import ParticleBackground from './components/ParticleBackground';
 import Prizes from './components/Prizes';
 import Rules from './components/Rules';
+import CursorTrail from './components/CursorTrail';
 
 // function App() {
 //   useEffect(() => {
