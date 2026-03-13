@@ -4,9 +4,16 @@ import { BackgroundPaths } from "./21stdevcomponent";
 import CounterDaisy from "./CounterDaisy";
 import NeonNodes from "./NeonNodes";
 
+import bvvlogo from "../logos/BVVS logo222.png";
+import vtulogo from "../logos/VTU-Logo.png";
+import aiemslogo from "../logos/aiemslogo.jpg";
+
 export default function Hero({ children }) {
+
+  const logos = [bvvlogo, vtulogo, aiemslogo];
+
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black text-white">
+    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black text-white">
       <NeonNodes>
         {/* Background paths rendering strictly behind text but in front of Neon background */}
         <div className="absolute inset-0 z-[1] w-full h-full opacity-60 pointer-events-none mix-blend-screen">
@@ -16,7 +23,26 @@ export default function Hero({ children }) {
         {/* Optional overlay to ensure text legibility */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/20 via-black/40 to-black pointer-events-none" />
 
+
+
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
+          {/* Logos */}
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative mt-12 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2 sm:gap-4 items-center justify-items-center max-w-5xl mx-auto mb-8"
+          >
+            {logos.map((logo, index) => (
+              <img
+                key={index}
+                src={logo}
+                alt={`logo-${index}`}
+                className="h-8 sm:h-10 md:h-12 lg:h-14 object-contain opacity-80 hover:opacity-100 hover:scale-105 transition duration-300"
+              />
+            ))}
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,8 +75,8 @@ export default function Hero({ children }) {
               Code <span className="mx-3 text-neon-blue">•</span> Innovate <span className="mx-3 text-neon-blue">•</span> Conquer
             </span>
           </motion.p>
-          
-          <div className="w-full max-w-6xl mt-8 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 px-4">
+
+          <div className="w-full max-w-6xl mt-4 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 px-4">
             {/* Register Button (passed as children from App) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -58,15 +84,15 @@ export default function Hero({ children }) {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="relative z-20 flex-shrink-0"
             >
-               {children}
+              {children}
             </motion.div>
 
             {/* Countdown */}
             <motion.div
-               initial={{ opacity: 0, x: 20 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ duration: 0.8, delay: 0.8 }}
-               className="w-full md:w-auto"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="w-full md:w-auto"
             >
               {/* <CountdownTimer /> */}
               <CounterDaisy />
