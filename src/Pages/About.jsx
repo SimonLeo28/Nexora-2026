@@ -113,7 +113,7 @@ export default function About() {
                     className="mt-20 flex justify-center"
                 >
                     <a
-                        href="#themes"
+                        href="/themes"
                         className="px-10 py-4 rounded-xl bg-neon-blue text-white font-semibold text-lg hover:scale-105 transition transform shadow-lg"
                     >
                         Explore Hackathon Themes
