@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Footer from '../components/Footer';
 
 export default function Rules() {
     const [open, setOpen] = useState({});
@@ -40,61 +41,64 @@ export default function Rules() {
     ];
 
     return (
-        <section
-            id="rules"
-            className="relative py-20 md:py-32 container mx-auto px-6 overflow-hidden"
-        >
-
-            {/* Background Video */}
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover -z-10"
+        <>
+            <section
+                id="rules"
+                className="relative py-20 md:py-32 container mx-auto px-6 overflow-hidden"
             >
-                <source src="/videos/rules-bg-1.mp4" type="video/mp4" />
-            </video>
 
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/70 -z-10"></div>
+                {/* Background Video */}
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover -z-10"
+                >
+                    <source src="/videos/rules-bg-1.mp4" type="video/mp4" />
+                </video>
 
-            <motion.h2
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 0.5 }}
-                className="text-4xl md:text-5xl font-bold text-center text-neon-blue mb-16"
-            >
-                Rules & Guidelines
-            </motion.h2>
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/70 -z-10"></div>
 
-            <div className="max-w-4xl mx-auto space-y-6">
-                {sections.map(sec => (
-                    <div key={sec.id} className="glass overflow-hidden glow">
-                        <button
-                            onClick={() => toggle(sec.id)}
-                            className="w-full p-6 text-left flex justify-between items-center text-xl font-medium"
-                        >
-                            {sec.title}
-                            <span className="text-2xl">{open[sec.id] ? '−' : '+'}</span>
-                        </button>
+                <motion.h2
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 0.5 }}
+                    className="text-4xl md:text-5xl font-bold text-center text-neon-blue mb-16"
+                >
+                    Rules & Guidelines
+                </motion.h2>
 
-                        {open[sec.id] && (
-                            <motion.div
-                                initial={{ height: 0 }}
-                                animate={{ height: 'auto' }}
-                                className="px-6 pb-6 text-soft-blue-gray"
+                <div className="max-w-4xl mx-auto space-y-6">
+                    {sections.map(sec => (
+                        <div key={sec.id} className="glass overflow-hidden glow">
+                            <button
+                                onClick={() => toggle(sec.id)}
+                                className="w-full p-6 text-left flex justify-between items-center text-xl font-medium"
                             >
-                                <ul className="list-disc pl-5 space-y-2">
-                                    {sec.content.map((line, i) => (
-                                        <li key={i}>{line}</li>
-                                    ))}
-                                </ul>
-                            </motion.div>
-                        )}
-                    </div>
-                ))}
-            </div>
+                                {sec.title}
+                                <span className="text-2xl">{open[sec.id] ? '−' : '+'}</span>
+                            </button>
 
-        </section>
+                            {open[sec.id] && (
+                                <motion.div
+                                    initial={{ height: 0 }}
+                                    animate={{ height: 'auto' }}
+                                    className="px-6 pb-6 text-soft-blue-gray"
+                                >
+                                    <ul className="list-disc pl-5 space-y-2">
+                                        {sec.content.map((line, i) => (
+                                            <li key={i}>{line}</li>
+                                        ))}
+                                    </ul>
+                                </motion.div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+
+            </section>
+            <Footer />
+        </>
     );
 }

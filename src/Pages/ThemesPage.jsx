@@ -1,8 +1,9 @@
-import React from 'react';
+import Footer from '../components/Footer';
 import { ShootingStars } from '../components/ShootingStars';
 import { StarsBackground } from '../components/StarsBackground';
 const ThemesPage = () => {
   return (
+    <>
     <div className="min-h-screen pt-24 px-6 relative flex flex-col items-center justify-center overflow-hidden bg-neutral-950">
         {/* Background Layer: Stars & Shooting Stars */}
         <div className="absolute inset-0 z-0">
@@ -79,6 +80,8 @@ const ThemesPage = () => {
 
         </div>
     </div>
+    <Footer />
+    </>
   );
 }
 
