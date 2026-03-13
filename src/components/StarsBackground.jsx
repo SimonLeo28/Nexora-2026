@@ -89,3 +89,5 @@ export const StarsBackground = ({
     />
   );
 };
+
+export default StarsBackground
