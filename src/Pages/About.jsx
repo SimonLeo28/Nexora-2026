@@ -1,21 +1,9 @@
 import { motion } from 'framer-motion';
-<<<<<<< HEAD
-import ThemesPage from './ThemesPage';
-import Footer from "../components/Footer";
-import GridPattern from '../components/GridPattern';
-import Header from "../components/Header";
-import {   ShootingStars} from '../components/ShootingStars';
-import {StarsBackground} from '../components/StarsBackground'
-import {  Link} from 'react-router-dom';
-
-// const navigate = useNavigate();
-=======
 import { Link } from 'react-router-dom';
 import Footer from "../components/Footer";
 import GridPattern from '../components/GridPattern';
 import { ShootingStars } from '../components/ShootingStars';
 import { StarsBackground } from '../components/StarsBackground';
->>>>>>> 1aa73209aed73663e61a03266e9d7408d1f6b31a
 
 const cardVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -41,24 +29,11 @@ export default function About() {
                     <source src="/videos/about-video.mp4" type="video/mp4" />
                 </video> */}
 
-<<<<<<< HEAD
-
-
-{/* shooting stars background   */}
-
-<div className="absolute inset-0 z-0">
-       <StarsBackground/>   
-     <ShootingStars />
-        </div>
-
-
-=======
                 {/* this is a background comign from the 21st dev  */}
                 <div className="absolute inset-0 z-0">
                     <StarsBackground />
                     <ShootingStars />
                 </div>
->>>>>>> 1aa73209aed73663e61a03266e9d7408d1f6b31a
 
                 {/* Grid Background */}
                 <GridPattern
@@ -72,11 +47,7 @@ export default function About() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-<<<<<<< HEAD
-                    className="text-4xl md:text-5xl font-bold text-center text-neon-white mb-16"
-=======
                     className="text-4xl md:text-5xl font-bold text-center text-neon-white    mb-16"
->>>>>>> 1aa73209aed73663e61a03266e9d7408d1f6b31a
                 >
                     About the Hackathon
                 </motion.h2>
@@ -149,20 +120,12 @@ export default function About() {
                     transition={{ duration: 0.8 }}
                     className="mt-20 flex justify-center"
                 >
-<<<<<<< HEAD
-                  <Link to="/themes">
-  <button className="px-10 py-4 rounded-xl bg-neon-blue text-white font-semibold text-lg hover:scale-105 transition transform shadow-lg">
-    Explore Hackathon Themes
-  </button>
-</Link>
-=======
                     <Link
                         to="/themes"
                         className="px-10 py-4 rounded-xl bg-neon-blue text-white font-semibold text-lg hover:scale-105 transition transform shadow-lg"
                     >
                         Explore Hackathon Themes
                     </Link>
->>>>>>> 1aa73209aed73663e61a03266e9d7408d1f6b31a
                 </motion.div>
 
                 {/* Team Section */}
