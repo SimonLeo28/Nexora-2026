@@ -12,6 +12,7 @@ import EventDetails from './components/EventDetails';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Prizes from './components/Prizes';
+import About from './pages/About';
 import ThemesPage from './Pages/ThemesPage';
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -53,13 +54,12 @@ const Home = () => {
 
 // --- MOCK COMPONENTS ---
 // You will replace these with real component imports later (e.g., Theme.jsx, About.jsx)
-const About = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <h1 className="text-4xl md:text-6xl font-bold text-white text-shadow-lg">About Page (Mock)</h1>
-  </div>
-);
 
-
+// const About = () => (
+//   <div className="min-h-screen flex items-center justify-center">
+//     <h1 className="text-4xl md:text-6xl font-bold text-white text-shadow-lg">About Page (Mock)</h1>
+//   </div>
+// );
 
 const RulesPage = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -87,7 +87,7 @@ function Navbar() {
   }, []);
 
 
-  // links on navbar 
+  // links on navbar
 
   const navLinks = [
     { name: 'Home', path: '/' },
