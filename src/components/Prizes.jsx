@@ -12,7 +12,7 @@ export default function Prizes() {
             <motion.h2
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-4xl md:text-5xl font-bold text-center text-neon-blue mb-16"
+                className="text-5xl md:text-5xl font-bold text-center text-neon-white mb-16"
             >
                 Prizes & Perks
             </motion.h2>
