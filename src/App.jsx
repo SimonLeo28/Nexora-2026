@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -172,7 +171,6 @@ export default function App() {
         </main>
       </div>
     </BrowserRouter>
-=======
 // import { useEffect, useState } from 'react';
 // // import About from './components/About';
 // import CursorTrail from './components/CursorTrail';
@@ -270,7 +268,7 @@ export default function App() {
 // }
 
 
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -278,7 +276,7 @@ import Home from "./pages/Home";
 
 export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
 
         {/* Home Page */}
@@ -290,7 +288,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
 
       </Routes>
-    </Router>
->>>>>>> Stashed changes
+    </BrowserRouter>
   );
+}
 }
