@@ -193,6 +193,7 @@ export default function Header() {
             );
           })}
 
+          {scrolled && (
           <motion.a
             href="https://forms.gle/DamccNwnjHAnsFuq5"
             target="_blank"
@@ -204,6 +205,7 @@ export default function Header() {
           >
             Register
           </motion.a>
+          )}
         </div>
       </div>
     </nav>
