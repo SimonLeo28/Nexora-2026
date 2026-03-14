@@ -35,18 +35,31 @@ export const StarsBackground = ({
   useEffect(() => {
     const updateCanvasSize = () => {
       const canvas = canvasRef.current;
-      if (canvas) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+      if (canvas && canvas.parentElement) {
+        // Use parent's dimensions to cover the whole section
+        const { offsetWidth, offsetHeight } = canvas.parentElement;
+        canvas.width = offsetWidth;
+        canvas.height = offsetHeight;
         generateStars(canvas.width, canvas.height);
       }
     };
 
     updateCanvasSize();
+    
+    // ResizeObserver is better for tracking element size changes
+    const resizeObserver = new ResizeObserver(() => {
+      updateCanvasSize();
+    });
+
+    if (canvasRef.current && canvasRef.current.parentElement) {
+      resizeObserver.observe(canvasRef.current.parentElement);
+    }
+
     window.addEventListener("resize", updateCanvasSize);
 
     return () => {
       window.removeEventListener("resize", updateCanvasSize);
+      resizeObserver.disconnect();
     };
   }, [generateStars]);
 

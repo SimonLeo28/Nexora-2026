@@ -1,17 +1,17 @@
 "use client";
 import React, { useEffect, useState, useRef, useCallback } from "react";
 
-const getRandomStartPoint = () => {
+const getRandomStartPoint = (width, height) => {
   const side = Math.floor(Math.random() * 4);
-  const offset = Math.random() * window.innerWidth;
+  const offset = Math.random() * (side % 2 === 0 ? width : height);
 
   switch (side) {
     case 0:
       return { x: offset, y: 0, angle: 45 };
     case 1:
-      return { x: window.innerWidth, y: offset, angle: 135 };
+      return { x: width, y: offset, angle: 135 };
     case 2:
-      return { x: offset, y: window.innerHeight, angle: 225 };
+      return { x: offset, y: height, angle: 225 };
     case 3:
       return { x: 0, y: offset, angle: 315 };
     default:
@@ -34,7 +34,10 @@ export const ShootingStars = ({
   const svgRef = useRef(null);
 
   const createStar = useCallback(() => {
-    const { x, y, angle } = getRandomStartPoint();
+    const width = svgRef.current?.parentElement?.offsetWidth || window.innerWidth;
+    const height = svgRef.current?.parentElement?.offsetHeight || window.innerHeight;
+
+    const { x, y, angle } = getRandomStartPoint(width, height);
     const newStar = {
       id: Date.now(),
       x,
@@ -69,11 +72,15 @@ export const ShootingStars = ({
             prevStar.speed * Math.sin((prevStar.angle * Math.PI) / 180);
           const newDistance = prevStar.distance + prevStar.speed;
           const newScale = 1 + newDistance / 100;
+          
+          const width = svgRef.current?.parentElement?.offsetWidth || window.innerWidth;
+          const height = svgRef.current?.parentElement?.offsetHeight || window.innerHeight;
+
           if (
             newX < -20 ||
-            newX > window.innerWidth + 20 ||
+            newX > width + 20 ||
             newY < -20 ||
-            newY > window.innerHeight + 20
+            newY > height + 20
           ) {
             return null;
           }
