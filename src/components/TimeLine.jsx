@@ -41,7 +41,7 @@ export default function TimeLine() {
             className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
             viewBox="0 0 1000 2200"
             preserveAspectRatio="none"
-            style={{ height: 'calc(100% + 100px)', top: '-50px' }}
+            style={{ height: 'calc(93% + 80px)', top: '-50px' }}
           >
             {/* Base White Curve */}
             <path
@@ -49,8 +49,8 @@ export default function TimeLine() {
                 M500 0
                 C650 200 350 400 500 600
                 C650 800 350 1000 500 1200
-                C650 1400 350 1500 500 1600
-                C650 1800 350 2000 500 2200
+                C650 1400 350 1600 500 1800
+                C650 2000 350 2200 500 3100
               "
               stroke="white"
               strokeWidth="3"
@@ -64,8 +64,8 @@ export default function TimeLine() {
                 M500 0
                 C650 200 350 400 500 600
                 C650 800 350 1000 500 1200
-                C650 1400 350 1500 500 1600
-                C650 1800 350 2000 500 2200
+                C650 1400 350 1600 500 1800
+                C650 2000 350 2200 500 3100
               "
               stroke="#00f7ff"
               strokeWidth="3"
