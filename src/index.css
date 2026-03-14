@@ -9,7 +9,7 @@
   --color-deep-black: #000814;
   --color-soft-blue-gray: #A0B3C2;
 
-  
+
   --shadow-neon: 0 0 10px #00BFFF, 0 0 20px #00BFFF;
   --shadow-neon-lg: 0 0 15px #00BFFF, 0 0 30px #00BFFF;
 
@@ -112,18 +112,37 @@ body {
 
 /* Custom Entry Animations */
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slide-up {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes zoom-in-95 {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .animate-in {
