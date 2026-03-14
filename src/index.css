@@ -9,10 +9,7 @@
   --color-deep-black: #000814;
   --color-soft-blue-gray: #A0B3C2;
 
-<<<<<<< Updated upstream
-=======
   
->>>>>>> Stashed changes
   --shadow-neon: 0 0 10px #00BFFF, 0 0 20px #00BFFF;
   --shadow-neon-lg: 0 0 15px #00BFFF, 0 0 30px #00BFFF;
 
@@ -22,7 +19,6 @@
   --animate-timeline-glow: timeline-glow 2s infinite;
 
   @keyframes pulse {
-<<<<<<< Updated upstream
 
     0%,
     100% {
@@ -71,23 +67,6 @@
     50% {
       opacity: 1;
     }
-=======
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-  @keyframes glitch {
-    2%, 64% { transform: translate(2px,0) skew(5deg); }
-    4%, 60% { transform: translate(-2px,0) skew(-5deg); }
-    62% { transform: translate(0,0) skew(5deg); }
-  }
-  @keyframes float {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100vh); }
-  }
-  @keyframes timeline-glow {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
->>>>>>> Stashed changes
   }
 }
 
@@ -128,7 +107,8 @@ body {
 .input-glow:focus {
   @apply border-neon-blue shadow-neon outline-none;
 }
-<<<<<<< Updated upstream
+
+
 
 /* Custom Entry Animations */
 @keyframes fade-in {
@@ -166,5 +146,3 @@ body {
 .duration-700 {
   animation-duration: 700ms;
 }
-=======
->>>>>>> Stashed changes

@@ -23,7 +23,7 @@ export default function TimeLine() {
   
 
   return (
-    <section className="relative py-24 container mx-auto px-6">
+    <section className="relative py-20 container mx-auto px-6">
 
       <h2 className="text-5xl font-bold text-center text-neon-white mb-20">
         Timeline
