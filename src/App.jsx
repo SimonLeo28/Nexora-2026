@@ -176,7 +176,7 @@
 // }
 
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import CursorTrail from "./components/CursorTrail";
 import CustomCursor from "./components/CustomCursor";
@@ -237,6 +237,16 @@ const Home = () => {
 
 
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -246,6 +256,7 @@ export default function App() {
         <CursorTrail />
         <ParticleBackground />
 
+        <ScrollToTop />
         <Header />
 
         <main className="relative z-10">

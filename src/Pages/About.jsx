@@ -227,7 +227,7 @@ export default function About() {
             />
 
             {/* Hero Section */}
-            <section className="relative min-h-[60vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-slate-900 to-slate-950">
+            <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-slate-900 to-transparent">
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
                     <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
@@ -235,14 +235,13 @@ export default function About() {
 
                 <div className="relative z-10 max-w-4xl mx-auto text-center">
                     <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                        <span className="text-transparent bg-clip-text bg-white">
                             About
                         </span>
                     </h1>
 
                     <p className="text-xl text-slate-300">
-                        The ultimate platform for innovators to showcase their skills and
-                        shape the future.
+                        National-level 24-hour innovation challenge bringing together students from across the country.
                     </p>
                 </div>
             </section>
@@ -253,7 +252,7 @@ export default function About() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
 
                         <div>
-                            <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                            <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-white">
                                 Our Vision
                             </h2>
 
@@ -271,7 +270,7 @@ export default function About() {
                         </div>
 
                         <div>
-                            <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                            <h2 className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-white">
                                 Our Mission
                             </h2>
 
@@ -288,21 +287,21 @@ export default function About() {
                             </p> */}
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
                             {[
-                                { label: "Founded", value: "2020" },
-                                { label: "Events Hosted", value: "12+" },
-                                { label: "Total Participants", value: "5000+" },
-                                { label: "Countries", value: "45" },
+                                { title: "Description", text: "National-level 24-hour innovation challenge bringing together students from across the country." },
+                                { title: "Eligibility", text: "Open nationwide\nInter-college participation\nAll academic levels allowed" },
+                                { title: "Team Size", text: "2–4 members per team" },
+                                { title: "Participation", text: "Students from any college in India can join" },
                             ].map((item) => (
-                                <div key={item.label} className="group">
-                                    <div className="relative p-6 bg-slate-900/50 border border-cyan-400/20 rounded-lg group-hover:border-cyan-400/50 transition-all duration-300">
+                                <div key={item.title} className="group">
+                                    <div className="relative h-full p-6 bg-slate-900/50 border border-cyan-400/20 rounded-lg group-hover:border-cyan-400/50 transition-all duration-300">
 
-                                        <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
-                                            {item.value}
-                                        </div>
+                                        <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 mb-2">
+                                            {item.title}
+                                        </h3>
 
-                                        <p className="text-slate-400 mt-2">{item.label}</p>
+                                        <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">{item.text}</p>
 
                                     </div>
                                 </div>
