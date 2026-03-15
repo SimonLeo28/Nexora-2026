@@ -1,29 +1,29 @@
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import Footer from "../components/Footer";
 import { ShootingStars } from "../components/ShootingStars";
 import { StarsBackground } from "../components/StarsBackground";
-import Footer from "../components/Footer";
 const problems = [
   {
     id: 1,
-    title: "Sustainable Urban Mobility",
+    title: "Agentic AI Systems & Data Analytics",
     description:
-      "Design a solution to reduce traffic congestion and carbon emissions in Bengaluru using smart technology.",
+      "Design an Agentic AI system that autonomously analyzes data, makes decisions, and solves real-world problems efficiently.",
     longDescription:
       "Participants are challenged to create innovative applications, hardware, or systems that improve daily commuting while being environmentally friendly. Think AI route optimization, shared mobility, EV infrastructure, last-mile solutions, predictive traffic management, or gamified public transport incentives.",
   },
   {
     id: 2,
-    title: "AI for Healthcare Access",
+    title: "Communication, VLSI & Embedded Systems",
     description:
-      "Build tools to make quality healthcare more accessible in tier-2/3 cities and rural areas.",
+      "Design innovative communication, VLSI, or embedded systems solutions addressing real-world challenges through efficient hardware and automation.",
     longDescription:
       "Focus on telemedicine platforms, AI-assisted diagnostics, low-cost wearable monitoring devices, multilingual symptom checkers, predictive outbreak models, medicine supply-chain transparency, or offline-first health record systems suitable for low-connectivity regions.",
   },
   {
     id: 3,
-    title: "Waste to Wealth",
+    title: "Robotics and Industrial Applications",
     description:
       "Transform waste materials into valuable products or energy sources.",
     longDescription:
@@ -31,7 +31,7 @@ const problems = [
   },
   {
     id: 4,
-    title: "Financial Inclusion 2.0",
+    title: " Imagining the Future of Infrastructure through Sustainable Design",
     description:
       "Create next-generation solutions for unbanked and underbanked populations.",
     longDescription:
@@ -39,7 +39,7 @@ const problems = [
   },
   {
     id: 5,
-    title: "Climate-Resilient Agriculture",
+    title: "Responsible AI & Deployable AI for Real-World Impact",
     description:
       "Develop tech to help farmers adapt to changing climate patterns.",
     longDescription:
@@ -47,7 +47,7 @@ const problems = [
   },
   {
     id: 6,
-    title: "EdTech for Vernacular Learning",
+    title: "ClimateTech, Green Skills & Sustainable Infrastructure",
     description:
       "Make quality education accessible in regional languages.",
     longDescription:
@@ -113,96 +113,133 @@ export default function Themes() {
 
   return (
     <>
-    <section ref={sectionRef} className="relative py-20 bg-neutral-950 overflow-hidden">
-      <StarsBackground />
-      <ShootingStars />
-      <div className="container mx-auto px-6 relative z-10">
-        <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-16 tracking-tight">
-          Problem <span className="text-[#00f7ff]">Statements</span>
-        </h2>
+      <section ref={sectionRef} className="relative py-20 bg-neutral-950 overflow-hidden">
+        <StarsBackground />
+        <ShootingStars />
+        <div className="container mx-auto px-6 relative z-10">
+          <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-16 tracking-tight">
+            Problem <span className="text-[#00f7ff]">Statements</span>
+          </h2>
 
-        {/* Cards grid */}
-        <div
-          ref={cardsRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20"
-        >
-          {problems.map((problem) => (
-            <motion.div
-              key={problem.id}
-              onClick={() => handleCardClick(problem.id)}
-              className={`group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer border-2 transition-all duration-500 ${
-                selectedId === problem.id
+          {/* Cards grid */}
+          <div
+            ref={cardsRef}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20"
+          >
+            {/* {problems.map((problem) => (
+              <motion.div
+                key={problem.id}
+                onClick={() => handleCardClick(problem.id)}
+                className={`group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer border-2 transition-all duration-500 ${selectedId === problem.id
+                    ? "border-[#00f7ff]/90 shadow-[0_0_40px_#00f7ff70] scale-[1.03]"
+                    : "border-white/30 hover:border-[#00f7ff]/70 hover:shadow-[0_0_30px_#00f7ff50]"
+                  }`}
+                whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <img
+                  src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
+                  alt={problem.title}
+                  className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  loading="lazy"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                  <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                    {problem.title}
+                  </h3>
+                  <p className="text-gray-200 text-base drop-shadow-md line-clamp-3">
+                    {problem.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))} */}
+            {problems.map((problem) => (
+              <motion.div
+                key={problem.id}
+                className={`group relative h-[420px] rounded-2xl overflow-hidden border-2 transition-all duration-500 ${selectedId === problem.id
                   ? "border-[#00f7ff]/90 shadow-[0_0_40px_#00f7ff70] scale-[1.03]"
                   : "border-white/30 hover:border-[#00f7ff]/70 hover:shadow-[0_0_30px_#00f7ff50]"
-              }`}
-              whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <img
-                src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
-                alt={problem.title}
-                className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
-                loading="lazy"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
-
-              <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                  {problem.title}
-                </h3>
-                <p className="text-gray-200 text-base drop-shadow-md line-clamp-3">
-                  {problem.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Detail container – no image, gradient bg, neon border stronger bottom-right */}
-        <AnimatePresence>
-          {selectedProblem && (
-            <motion.div
-              ref={detailRef}
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 30 }} 
-              transition={{ duration: 0.45, ease: "easeOut" }}
-              className="max-w-4xl mx-auto rounded-2xl overflow-hidden mb-24 relative"
-              style={{
-                background: "linear-gradient(to bottom, #0f172a 0%, transparent 70%)",
-                border: "2px solid #00f7ff",
-                boxShadow:
-                  "0 0 25px rgba(0,247,255,0.25),  -10px -10px 60px rgba(0,247,255,0.08),  60px 80px 100px rgba(0,247,255,0.12)",
-                // stronger glow bottom-right
-              }}
-            >
-              <button
-                onClick={handleClose}
-                className="absolute top-6 right-6 z-20 text-white/80 hover:text-[#00f7ff] bg-black/40 hover:bg-black/70 p-3 rounded-full transition-all duration-300"
-                aria-label="Close"
+                  }`}
+                whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
               >
-                <X size={28} />
-              </button>
+                <img
+                  src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
+                  alt={problem.title}
+                  className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  loading="lazy"
+                />
 
-              <div className="p-10 md:p-14 pt-20">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight drop-shadow-lg">
-                  {selectedProblem.title}
-                </h2>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
 
-                <p className="text-gray-200 text-lg md:text-xl leading-relaxed">
-                  {selectedProblem.longDescription}
-                </p>
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col gap-4">
+                  <h3 className="text-2xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                    {problem.title}
+                  </h3>
 
-                {/* You can add more structured content here later */}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </section>
-      <Footer /> 
-      </> 
-      
+                  <button
+                    onClick={() => handleCardClick(problem.id)}
+                    className="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-semibold text-[#00f7ff] border border-[#00f7ff]/60 rounded-lg group"
+                  >
+                    <span className="absolute inset-0 w-full h-full bg-[#00f7ff]/10 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+
+                    <span className="absolute inset-0 w-0 bg-[#00f7ff]/20 transition-all duration-500 group-hover:w-full"></span>
+
+                    <span className="relative z-10 tracking-wide">
+                      View Details →
+                    </span>
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Detail container – no image, gradient bg, neon border stronger bottom-right */}
+          <AnimatePresence>
+            {selectedProblem && (
+              <motion.div
+                ref={detailRef}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 30 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="max-w-4xl mx-auto rounded-2xl overflow-hidden mb-24 relative"
+                style={{
+                  background: "linear-gradient(to bottom, #0f172a 0%, transparent 70%)",
+                  border: "2px solid #00f7ff",
+                  boxShadow:
+                    "0 0 25px rgba(0,247,255,0.25),  -10px -10px 60px rgba(0,247,255,0.08),  60px 80px 100px rgba(0,247,255,0.12)",
+                  // stronger glow bottom-right
+                }}
+              >
+                <button
+                  onClick={handleClose}
+                  className="absolute top-6 right-6 z-20 text-white/80 hover:text-[#00f7ff] bg-black/40 hover:bg-black/70 p-3 rounded-full transition-all duration-300"
+                  aria-label="Close"
+                >
+                  <X size={28} />
+                </button>
+
+                <div className="p-10 md:p-14 pt-20">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight drop-shadow-lg">
+                    {selectedProblem.title}
+                  </h2>
+
+                  <p className="text-gray-200 text-lg md:text-xl leading-relaxed">
+                    {selectedProblem.longDescription}
+                  </p>
+
+                  {/* You can add more structured content here later */}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+      <Footer />
+    </>
+
   );
 }
