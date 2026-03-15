@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const getRandomStartPoint = (width, height) => {
   const side = Math.floor(Math.random() * 4);
@@ -130,3 +130,6 @@ export const ShootingStars = ({
     </svg>
   );
 };
+
+
+export default ShootingStars;
