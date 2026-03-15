@@ -1,14 +1,299 @@
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 
-const Contact = () => {
+// const Contact = () => {
+//   return (
+//     <>
+//     <div className="min-h-screen flex items-center justify-center">
+//     <h1 className="text-5xl text-white font-bold">Contact Page (Mock)</h1>
+//   </div>
+//   <Footer />
+//   </>
+//   )
+// }
+
+// export default Contact
+
+
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState } from "react";
+import Footer from "../components/Footer";
+import GridPattern from '../components/GridPattern';
+import { ShootingStars } from '../components/ShootingStars';
+import { StarsBackground } from '../components/StarsBackground';
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("idle");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setSubmitStatus("success");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+
+      setTimeout(() => setSubmitStatus("idle"), 3000);
+    } catch (error) {
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus("idle"), 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <>
-    <div className="min-h-screen flex items-center justify-center">
-    <h1 className="text-5xl text-white font-bold">Contact Page (Mock)</h1>
-  </div>
-  <Footer />
-  </>
-  )
-}
+    <div className="w-full overflow-hidden">
 
-export default Contact
+      {/* this is a background comign from the 21st dev  */}
+      <div className="absolute inset-0 z-0">
+        <StarsBackground />
+        <ShootingStars />
+      </div>
+
+      {/* Grid Background */}
+      <GridPattern
+        width={60}
+        height={60}
+        strokeDasharray="4 2"
+        className="opacity-40 -z-10"
+      />
+
+      {/* Hero Section */}
+      <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-slate-900 to-slate-transparent overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+        </div>
+        
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            <span className="text-transparent bg-clip-text bg-white">
+              Get In Touch
+            </span>
+          </h1>
+
+          <p className="text-xl text-slate-300">
+            Have questions? We'd love to hear from you. Contact us anytime.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="relative py-20 px-4">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-16">
+
+          {/* Contact Info */}
+          <div className="md:col-span-1 space-y-6">
+
+            {/* Email */}
+            <div className="group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300" />
+                <div className="relative p-6 bg-slate-900/50 border border-cyan-400/20 rounded-lg group-hover:border-cyan-400/50 transition-all duration-300">
+
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-purple-400/20 flex items-center justify-center mb-4">
+                    <Mail className="text-cyan-400" size={24} />
+                  </div>
+
+                  <h3 className="font-bold text-slate-100 mb-2">Email</h3>
+
+                  <a
+                    href="mailto:infonexora2026@gmail.com"
+                    className="text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    infonexora2026@gmail.com
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
+            {/* Phone */}
+            <div className="group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                <div className="relative p-6 bg-slate-900/50 border border-cyan-400/20 rounded-lg group-hover:border-cyan-400/50 transition-all duration-300">
+
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-purple-400/20 flex items-center justify-center mb-4">
+                    <Phone className="text-cyan-400" size={24} />
+                  </div>
+
+                  <h3 className="font-bold text-slate-100 mb-2">Phone</h3>
+
+                  <a
+                    href="tel:+91 9148672650"
+                    className="text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    +91 9148672650
+                  </a>
+
+                  <br />
+
+                  <a
+                    href="tel:+91 7019022248"
+                    className="text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    +91 7019022248
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
+            {/* Address */}
+            <div className="group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                <div className="relative p-6 bg-slate-900/50 border border-cyan-400/20 rounded-lg group-hover:border-cyan-400/50 transition-all duration-300">
+
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-purple-400/20 flex items-center justify-center mb-4">
+                    <MapPin className="text-cyan-400" size={24} />
+                  </div>
+
+                  <h3 className="font-bold text-slate-100 mb-2">Address</h3>
+
+                  <a
+                    href="https://maps.app.goo.gl/1rv2HBu46vJLD4Gj8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 text-sm hover:text-cyan-400 transition-colors"
+                  >
+                    Amruta Institute of Engineering and Management Sciences <br />
+                    Bidadi Industrial Town, <br />
+                    Near Toyota Kirloskar Motors Road, <br />
+                    Bengaluru - 562109
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Contact Form */}
+          <div className="md:col-span-2">
+            <form onSubmit={handleSubmit} className="relative">
+
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-lg blur opacity-100" />
+
+              <div className="relative p-8 bg-slate-900/50 border border-cyan-400/20 rounded-lg">
+
+                <h3 className="text-2xl font-bold text-slate-100 mb-6">
+                  Send us a Message
+                </h3>
+
+                <div className="space-y-4">
+
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    required
+                    className="w-full px-4 py-2 bg-slate-800/50 border border-cyan-400/20 rounded-lg text-slate-100"
+                  />
+
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                    required
+                    className="w-full px-4 py-2 bg-slate-800/50 border border-cyan-400/20 rounded-lg text-slate-100"
+                  />
+
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Subject"
+                    required
+                    className="w-full px-4 py-2 bg-slate-800/50 border border-cyan-400/20 rounded-lg text-slate-100"
+                  />
+
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    placeholder="Your message..."
+                    required
+                    className="w-full px-4 py-2 bg-slate-800/50 border border-cyan-400/20 rounded-lg text-slate-100 resize-none"
+                  />
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="relative inline-block px-6 py-3 font-semibold overflow-hidden rounded-lg group w-full"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400" />
+
+                    <span className="relative flex items-center justify-center gap-2 text-slate-900 font-bold">
+                      <Send size={18} />
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </span>
+                  </button>
+
+                  {submitStatus === "success" && (
+                    <div className="p-4 bg-green-500/10 border border-green-500/50 rounded-lg text-green-300">
+                      Thank you! Your message has been sent successfully.
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-red-300">
+                      Something went wrong. Please try again.
+                    </div>
+                  )}
+
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div className="md:col-span-3 mt-8">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.85111795663!2d77.40834647464695!3d12.761884887534574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae48a631204f4d%3A0x348b5d90aaf6705d!2sAmruta%20Institute%20of%20Engineering%20and%20Management%20Sciences!5e1!3m2!1sen!2sin!4v1773510436526!5m2!1sen!2sin"
+              width="100%"
+              height="350"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full rounded-xl border border-cyan-400/20 shadow-lg"
+            />
+          </div>
+
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+}
