@@ -86,7 +86,7 @@ export default function TimeLine() {
               className={`flex items-center mb-32 ${i % 2 === 0 ? "md:flex-row-reverse" : ""}`}
             >
               {/* Text Card */}
-              <div className="w-full md:w-1/2 p-4">
+              <div className="w-full md:w-1/2 p-4 bg-transparent">
                 <div className="glass p-8 hover:scale-[1.02] transition-all duration-300 border border-white/10 hover:border-neon-blue/50 group">
                   <div className="flex items-center gap-4 mb-4">
                     <span className="text-neon-blue font-mono text-sm tracking-widest uppercase bg-neon-blue/10 px-3 py-1 rounded-full">

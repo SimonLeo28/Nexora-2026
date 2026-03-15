@@ -1,214 +1,208 @@
-import { useState, useRef, useEffect } from 'react';
-import Footer from '../components/Footer';
-import { ShootingStars } from '../components/ShootingStars';
-import { StarsBackground } from '../components/StarsBackground';
-import { X } from 'lucide-react';
-
-const THEMES = [
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import { ShootingStars } from "../components/ShootingStars";
+import { StarsBackground } from "../components/StarsBackground";
+import Footer from "../components/Footer";
+const problems = [
   {
     id: 1,
-    title: "Autonomous Intelligence & Agentic AI Systems",
-    description: "Developing sustainable technology for a greener planet.",
-    problems: [
-      "AI-driven waste management systems for urban areas.",
-      "Low-cost, portable water purification using renewable energy.",
-      "Optimizing EV charging networks with real-time data.",
-      "Biodegradable alternative materials for electronics packaging."
-    ]
+    title: "Sustainable Urban Mobility",
+    description:
+      "Design a solution to reduce traffic congestion and carbon emissions in Bengaluru using smart technology.",
+    longDescription:
+      "Participants are challenged to create innovative applications, hardware, or systems that improve daily commuting while being environmentally friendly. Think AI route optimization, shared mobility, EV infrastructure, last-mile solutions, predictive traffic management, or gamified public transport incentives.",
   },
   {
     id: 2,
-    title: "ClimateTech, Green Skills & Sustainable Infrastructure",
-    description: "Revolutionizing patient care through advanced diagnostics.",
-    problems: [
-      "Wearable devices for early detection of neurological disorders.",
-      "Blockchain-based secure patient data sharing across hospitals.",
-      "Telemedicine platforms for rural and underserved communities.",
-      "AI models to predict viral outbreaks in densely populated zones."
-    ]
+    title: "AI for Healthcare Access",
+    description:
+      "Build tools to make quality healthcare more accessible in tier-2/3 cities and rural areas.",
+    longDescription:
+      "Focus on telemedicine platforms, AI-assisted diagnostics, low-cost wearable monitoring devices, multilingual symptom checkers, predictive outbreak models, medicine supply-chain transparency, or offline-first health record systems suitable for low-connectivity regions.",
   },
   {
     id: 3,
-    title: "Intelligent Robotics & Autonomous Systems",
-    description: "Building the cities of tomorrow with intelligent infrastructure.",
-    problems: [
-      "Smart traffic management to reduce congestion and emissions.",
-      "Energy-efficient street lighting using motion sensors.",
-      "Citizen engagement platforms for local governance.",
-      "Automated emergency response systems for urban disasters."
-    ]
+    title: "Waste to Wealth",
+    description:
+      "Transform waste materials into valuable products or energy sources.",
+    longDescription:
+      "Ideas can include plastic upcycling into building materials, large-scale organic waste composting systems, innovative e-waste recovery techniques, small-scale waste-to-energy units, circular economy marketplaces, AI-powered waste sorting, or community-level recycling reward apps.",
   },
   {
     id: 4,
-    title: "Bio-Digital Convergence & Future Healthcare Technologies",
-    description: "Protecting digital frontiers against evolving threats.",
-    problems: [
-      "Biometric authentication without storing sensitive data.",
-      "AI-powered phishing detection for enterprise emails.",
-      "Secure IoT communication protocols for smart homes.",
-      "Real-time ransomware mitigation for critical infrastructure."
-    ]
+    title: "Financial Inclusion 2.0",
+    description:
+      "Create next-generation solutions for unbanked and underbanked populations.",
+    longDescription:
+      "Explore micro-lending platforms with alternative credit scoring, blockchain-based digital identity, voice-first / UPI-first banking interfaces, parametric insurance for gig workers & farmers, decentralized savings groups, crypto literacy & onboarding tools, or fraud detection for low-literacy users.",
   },
   {
     id: 5,
-    title: "Smart Mobility, Autonomous Transportation & Future Logistics",
-    description: "Empowering learners through personalized AI tutoring.",
-    problems: [
-      "Gamified learning platforms for primary education.",
-      "Adaptive testing systems that adjust difficulty in real-time.",
-      "Virtual Reality labs for remote science education.",
-      "Skill-gap analysis tools for vocational training."
-    ]
+    title: "Climate-Resilient Agriculture",
+    description:
+      "Develop tech to help farmers adapt to changing climate patterns.",
+    longDescription:
+      "Precision agriculture tools, AI-powered drought & flood prediction, smart & water-efficient irrigation systems, satellite + IoT based crop health monitoring, affordable soil nutrient sensors, index-based crop insurance, direct farmer-to-buyer digital marketplaces, or climate-adaptive seed recommendation engines.",
   },
   {
     id: 6,
-    title: "Cyber-Physical Systems & Intelligent IoT Ecosystems",
-    description: "Expanding human presence beyond Earth's orbit.",
-    problems: [
-      "Autonomous rovers for mapping subterranean lunar caves.",
-      "Life support monitoring systems for long-duration missions.",
-      "Efficient satellite debris collection and disposal.",
-      "3D printing habitats using local Martian resources."
-    ]
-  }
+    title: "EdTech for Vernacular Learning",
+    description:
+      "Make quality education accessible in regional languages.",
+    longDescription:
+      "AI tutors supporting Kannada, Tamil, Telugu, Malayalam, Hindi & other languages, gamified learning experiences, offline-first video & interactive content delivery, AR/VR modules for science and history, voice-based assessments, teacher training & content creation tools, or personalized learning paths based on regional curriculum.",
+  },
 ];
 
-const ThemesPage = () => {
-  const [selectedTheme, setSelectedTheme] = useState(null);
-  const problemRef = useRef(null);
-  const containerRef = useRef(null);
+export default function Themes() {
+  const [selectedId, setSelectedId] = useState(null);
+  const cardsRef = useRef(null);
+  const detailRef = useRef(null);
+  const sectionRef = useRef(null);
 
+  const selectedProblem = problems.find((p) => p.id === selectedId);
+
+  // Scroll to detail when it appears — position it with comfortable padding from the top
   useEffect(() => {
-    if (selectedTheme && problemRef.current) {
-      problemRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (selectedId && detailRef.current) {
+      // Wait a tick for the DOM to render the detail container
+      requestAnimationFrame(() => {
+        const rect = detailRef.current.getBoundingClientRect();
+        const offset = 100; // px padding above the detail container
+        const targetScrollY = window.scrollY + rect.top - offset;
+        window.scrollTo({ top: targetScrollY, behavior: "smooth" });
+      });
     }
-  }, [selectedTheme]);
+  }, [selectedId]);
 
-  // Handle click outside to close
+  const handleCardClick = (id) => {
+    if (selectedId === id) {
+      setSelectedId(null);
+      // Scroll to the very top of the section/page
+      const sectionTop = sectionRef.current?.getBoundingClientRect().top + window.scrollY || 0;
+      window.scrollTo({ top: sectionTop, behavior: "smooth" });
+    } else {
+      setSelectedId(id);
+    }
+  };
+
+  const handleClose = () => {
+    setSelectedId(null);
+    // Scroll to the very top of the section/page
+    const sectionTop = sectionRef.current?.getBoundingClientRect().top + window.scrollY || 0;
+    window.scrollTo({ top: sectionTop, behavior: "smooth" });
+  };
+
+  // Click outside detail container → close
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
-        // If the user clicks outside the modal content but within the overlay area
-        // or if they click the overlay itself.
-        // We only want to close if it's NOT a click on one of the theme buttons.
-        if (!event.target.closest('.theme-card-button')) {
-          setSelectedTheme(null);
-        }
+    const handleClickOutside = (e) => {
+      if (
+        selectedId &&
+        detailRef.current &&
+        !detailRef.current.contains(e.target) &&
+        cardsRef.current &&
+        !cardsRef.current.contains(e.target)
+      ) {
+        handleClose();
       }
     };
-
-    if (selectedTheme) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [selectedTheme]);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [selectedId]);
 
   return (
     <>
-      <div className="min-h-screen pt-24 pb-20 px-6 relative flex flex-col items-center overflow-x-hidden bg-neutral-950">
-        {/* Background Layer: Stars & Shooting Stars */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <StarsBackground />
-          <ShootingStars />
-        </div>
+    <section ref={sectionRef} className="relative py-20 bg-neutral-950 overflow-hidden">
+      <StarsBackground />
+      <ShootingStars />
+      <div className="container mx-auto px-6 relative z-10">
+        <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-16 tracking-tight">
+          Problem <span className="text-[#00f7ff]">Statements</span>
+        </h2>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto">
-          <header className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-white">
-               Themes
-            </h1>
-            <p className="text-soft-blue-gray text-lg md:text-xl max-w-2xl mx-auto">
-              Choose a theme to explore specific problem statements and start your journey towards Nexora.
-            </p>
-          </header>
-
-          {/* Cards Grid - 3 cards below other 3 cards on desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-            {THEMES.map((theme) => (
-              <div 
-                key={theme.id}
-                className="glass glow p-8 flex flex-col items-center text-center group hover:border-neon-blue transition-all duration-500 hover:-translate-y-2"
-              >
-                <div className="w-16 h-16 rounded-full bg-neon-blue/10 flex items-center justify-center mb-6 border border-neon-blue/20 group-hover:bg-neon-blue/20 group-hover:border-neon-blue/50 transition-all duration-300">
-                  <span className="text-2xl font-bold text-neon-blue">{theme.id}</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-neon-blue transition-colors">
-                  {theme.title}
-                </h3>
-                <p className="text-soft-blue-gray mb-8 line-clamp-2">
-                  {theme.description}
-                </p>
-                <button 
-                  onClick={() => setSelectedTheme(theme)}
-                  className="theme-card-button mt-auto px-6 py-3 bg-neon-blue/10 hover:bg-neon-blue text-neon-blue hover:text-white border border-neon-blue/50 rounded-lg font-semibold transition-all duration-300 ripple"
-                >
-                  See Problem Statements
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {/* Problem Statements Container - In-flow with scroll effect */}
-          {selectedTheme && (
-            <div 
-              ref={problemRef}
-              className="w-full max-w-5xl mx-auto mb-20 relative pt-20"
+        {/* Cards grid */}
+        <div
+          ref={cardsRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20"
+        >
+          {problems.map((problem) => (
+            <motion.div
+              key={problem.id}
+              onClick={() => handleCardClick(problem.id)}
+              className={`group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer border-2 transition-all duration-500 ${
+                selectedId === problem.id
+                  ? "border-[#00f7ff]/90 shadow-[0_0_40px_#00f7ff70] scale-[1.03]"
+                  : "border-white/30 hover:border-[#00f7ff]/70 hover:shadow-[0_0_30px_#00f7ff50]"
+              }`}
+              whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div 
-                ref={containerRef}
-                className="glass p-8 md:p-12 animate-in fade-in slide-up duration-700 relative shadow-2xl border-neon-blue/40"
-              >
-                <button 
-                  onClick={() => setSelectedTheme(null)}
-                  className="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-full transition-colors text-soft-blue-gray hover:text-white z-10"
-                >
-                  <X size={24} />
-                </button>
-                
-                <div className="mb-10 text-center md:text-left">
-                  <span className="text-neon-blue font-mono mb-2 block uppercase tracking-widest text-sm">Theme {selectedTheme.id}</span>
-                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                    Problem Statements: <span className="text-neon-blue">{selectedTheme.title}</span>
-                  </h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-neon-blue to-purple-500 rounded-full mx-auto md:mx-0"></div>
-                </div>
+              <img
+                src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
+                alt={problem.title}
+                className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
+                loading="lazy"
+              />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {selectedTheme.problems.map((problem, index) => (
-                    <div 
-                      key={index}
-                      className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-neon-blue/50 transition-all hover:bg-white/10 duration-300 flex items-start gap-5 group/item cursor-default"
-                    >
-                      <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-neon-blue/10 text-neon-blue flex items-center justify-center font-bold border border-neon-blue/20 group-hover/item:bg-neon-blue group-hover/item:text-white transition-colors">
-                        {index + 1}
-                      </span>
-                      <p className="text-lg text-white/90 leading-relaxed pt-1">
-                        {problem}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
 
-                <div className="mt-12 flex justify-center">
-                  <button 
-                    onClick={() => setSelectedTheme(null)}
-                    className="px-8 py-3 bg-white/5 hover:bg-white/10 text-white border border-white/20 rounded-xl font-semibold transition-all duration-300"
-                  >
-                    Hide Problems
-                  </button>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  {problem.title}
+                </h3>
+                <p className="text-gray-200 text-base drop-shadow-md line-clamp-3">
+                  {problem.description}
+                </p>
               </div>
-            </div>
-          )}
+            </motion.div>
+          ))}
         </div>
-      </div>
 
-      <Footer />
-    </>
+        {/* Detail container – no image, gradient bg, neon border stronger bottom-right */}
+        <AnimatePresence>
+          {selectedProblem && (
+            <motion.div
+              ref={detailRef}
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 30 }} 
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              className="max-w-4xl mx-auto rounded-2xl overflow-hidden mb-24 relative"
+              style={{
+                background: "linear-gradient(to bottom, #0f172a 0%, transparent 70%)",
+                border: "2px solid #00f7ff",
+                boxShadow:
+                  "0 0 25px rgba(0,247,255,0.25),  -10px -10px 60px rgba(0,247,255,0.08),  60px 80px 100px rgba(0,247,255,0.12)",
+                // stronger glow bottom-right
+              }}
+            >
+              <button
+                onClick={handleClose}
+                className="absolute top-6 right-6 z-20 text-white/80 hover:text-[#00f7ff] bg-black/40 hover:bg-black/70 p-3 rounded-full transition-all duration-300"
+                aria-label="Close"
+              >
+                <X size={28} />
+              </button>
+
+              <div className="p-10 md:p-14 pt-20">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight drop-shadow-lg">
+                  {selectedProblem.title}
+                </h2>
+
+                <p className="text-gray-200 text-lg md:text-xl leading-relaxed">
+                  {selectedProblem.longDescription}
+                </p>
+
+                {/* You can add more structured content here later */}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+      <Footer /> 
+      </> 
+      
   );
 }
-
-export default ThemesPage;
-
