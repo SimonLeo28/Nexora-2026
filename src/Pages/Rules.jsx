@@ -71,10 +71,10 @@ export default function Rules() {
                 <div className="absolute inset-0 bg-black/70 -z-10"></div> */}
 
             {/* Hero Section */}
-            <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-slate-900 to-slate-transparent overflow-hidden">
+            <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-orange-900/80 to-slate-transparent overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
-                    <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+                    <div className="absolute top-0 left-1/4 w-96 h-96 bg-yellow-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
+                    <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -99,10 +99,10 @@ export default function Rules() {
                     >
 
                         {/* Animated Border */}
-                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-slate-900 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition duration-500"></div>
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-900/50 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition duration-500"></div>
 
                         {/* Card */}
-                        <div className="relative bg-black/40 backdrop-blur-md border border-gray-700 rounded-xl overflow-hidden">
+                        <div className="relative bg-black/40 backdrop-blur-md border border-yellow-900 rounded-xl overflow-hidden">
                             <button
                                 onClick={() => toggle(sec.id)}
                                 className="w-full p-6 text-left flex justify-between items-center text-xl font-medium"

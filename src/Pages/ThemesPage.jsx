@@ -8,20 +8,18 @@ import { StarsBackground } from "../components/StarsBackground";
 const problems = [
   {
     id: 1,
-    title: "Agentic AI Systems & Data Analytics",
-    image: "/images/agentic ai.png",
+    title: "Responsible AI & Deployable AI for Real-World Impact",
+    image: "/images/ai.png",
     description:
-      "Design an Agentic AI system that autonomously analyzes data, makes decisions, and solves real-world problems efficiently.",
+      "Develop tech to help farmers adapt to changing climate patterns.",
     longDescription:
-      `Agentic AI systems represent the next evolution of artificial intelligence, where AI agents can
-      independently perceive environments, make decisions, and perform actions to achieve defined
-      goals. This theme encourages participants to design intelligent systems that combine
-      autonomous decision-making with data analytics to solve real-world challenges.
-      Participants may explore solutions that analyze large datasets, automate workflows, provide
-      predictive insights, or develop AI agents capable of interacting with digital systems and users.
-      Projects should demonstrate how intelligent agents can improve efficiency, decision-making,
-      and automation in industries such as healthcare, finance, education, logistics, and smart
-      infrastructure.`,
+      `Artificial Intelligence is transforming industries, but with great power comes great
+      responsibility. AI systems must be ethical, fair, transparent, secure, and beneficial to
+      society.
+
+      This theme challenges participants to build deployable AI solutions that solve real societal
+      or industrial problems while adhering to responsible AI principles. Teams should focus on
+      developing solutions that are not only innovative but also practical and scalable.`,
   },
   {
     id: 2,
@@ -41,6 +39,24 @@ const problems = [
   },
   {
     id: 3,
+    title: "Cyber Security & Blockchain Technology",
+    image: "/images/agentic ai.png",
+    description:
+      "Design an Agentic AI system that autonomously analyzes data, makes decisions, and solves real-world problems efficiently.",
+    longDescription:
+      `Cybersecurity and blockchain technology are critical areas for securing digital systems,
+      protecting sensitive data, and ensuring trust in decentralized environments. This theme
+      challenges participants to develop innovative solutions that leverage blockchain’s immutable
+      ledger, smart contracts, and decentralized frameworks alongside advanced cybersecurity
+      practices to safeguard information and digital assets.
+      Participants may explore solutions such as secure transaction systems, threat detection and
+      prevention, privacy-preserving data management, identity verification, or blockchain-based
+      auditing systems. Projects should demonstrate how blockchain and cybersecurity principles
+      can enhance trust, transparency, and resilience in industries like finance, healthcare, supply
+      chain, government, and IoT networks.`,
+  },
+  {
+    id: 4,
     title: "Robotics and Industrial Applications",
     image: "/images/robotics-industries.png",
     description:
@@ -55,7 +71,7 @@ const problems = [
       collaboration in industrial environments.`,
   },
   {
-    id: 4,
+    id: 5,
     title: "Imagining the Future of Infrastructure through Sustainable Design",
     image: "/images/future-design.png",
     description:
@@ -68,36 +84,22 @@ const problems = [
       bridges, dams, buildings, transportation systems, and water management systems can be
       designed for the future while minimizing environmental impact.`,
   },
-  {
-    id: 5,
-    title: "Responsible AI & Deployable AI for Real-World Impact",
-    image: "/images/ai.png",
-    description:
-      "Develop tech to help farmers adapt to changing climate patterns.",
-    longDescription:
-      `Artificial Intelligence is transforming industries, but with great power comes great
-      responsibility. AI systems must be ethical, fair, transparent, secure, and beneficial to
-      society.
 
-      This theme challenges participants to build deployable AI solutions that solve real societal
-      or industrial problems while adhering to responsible AI principles. Teams should focus on
-      developing solutions that are not only innovative but also practical and scalable.`,
-  },
-  {
-    id: 6,
-    title: "ClimateTech, Green Skills & Sustainable Infrastructure",
-    image: "/images/infrastructure.png",
-    description:
-      "Make quality education accessible in regional languages.",
-    longDescription:
-      `Climate change is one of the most pressing global challenges. This theme encourages
-      participants to develop technology-driven solutions that promote sustainability,
-      environmental protection, and climate resilience.
-      Projects may address issues such as renewable energy management, waste reduction, carbon
-      footprint monitoring, smart water management, green transportation, or climate risk
-      assessment. The focus should be on building solutions that contribute to sustainable
-      development and environmental protection.`,
-  },
+  // {
+  //   id: 6,
+  //   title: "ClimateTech, Green Skills & Sustainable Infrastructure",
+  //   image: "/images/infrastructure.png",
+  //   description:
+  //     "Make quality education accessible in regional languages.",
+  //   longDescription:
+  //     `Climate change is one of the most pressing global challenges. This theme encourages
+  //     participants to develop technology-driven solutions that promote sustainability,
+  //     environmental protection, and climate resilience.
+  //     Projects may address issues such as renewable energy management, waste reduction, carbon
+  //     footprint monitoring, smart water management, green transportation, or climate risk
+  //     assessment. The focus should be on building solutions that contribute to sustainable
+  //     development and environmental protection.`,
+  // },
 ];
 
 export default function Themes() {
@@ -163,44 +165,15 @@ export default function Themes() {
         <ShootingStars />
         <div className="container mx-auto px-6 relative z-10">
           <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-16 tracking-tight">
-            Problem <span className="text-[#00f7ff]">Statements</span>
+            Problem <span className="text-[#ff5f00]">Statements</span>
           </h2>
 
           {/* Cards grid */}
-          <div
+          {/* <div
             ref={cardsRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20 justify-items-center"
           >
-            {/* {problems.map((problem) => (
-              <motion.div
-                key={problem.id}
-                onClick={() => handleCardClick(problem.id)}
-                className={`group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer border-2 transition-all duration-500 ${selectedId === problem.id
-                    ? "border-[#00f7ff]/90 shadow-[0_0_40px_#00f7ff70] scale-[1.03]"
-                    : "border-white/30 hover:border-[#00f7ff]/70 hover:shadow-[0_0_30px_#00f7ff50]"
-                  }`}
-                whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <img
-                  src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
-                  alt={problem.title}
-                  className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
-                  loading="lazy"
-                />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                  <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                    {problem.title}
-                  </h3>
-                  <p className="text-gray-200 text-base drop-shadow-md line-clamp-3">
-                    {problem.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))} */}
             {problems.map((problem) => (
               <motion.div
                 key={problem.id}
@@ -212,6 +185,52 @@ export default function Themes() {
               >
                 <img
                   // src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
+                  src={problem.image}
+                  alt={problem.title}
+                  className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-100 group-hover:brightness-100"
+                  loading="lazy"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col gap-4">
+                  <h3 className="text-2xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                    {problem.title}
+                  </h3>
+
+                  <button
+                    onClick={() => handleCardClick(problem.id)}
+                    className="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-semibold text-[#00f7ff] border border-[#00f7ff]/60 rounded-lg group"
+                  >
+                    <span className="absolute inset-0 w-full h-full bg-[#00f7ff]/10 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+
+                    <span className="absolute inset-0 w-0 bg-[#00f7ff]/20 transition-all duration-500 group-hover:w-full"></span>
+
+                    <span className="relative z-10 tracking-wide">
+                      View Details →
+                    </span>
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div> */}
+          
+          {/* Cards grid */}
+          <div
+            ref={cardsRef}
+            // className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20 justify-center"
+            className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto mb-20"
+          >
+            {problems.map((problem) => (
+              <motion.div
+                key={problem.id}
+                className={`w-full sm:w-[48%] lg:w-[31%] max-w-sm group relative h-[420px] rounded-2xl overflow-hidden border-2 transition-all duration-500 ${selectedId === problem.id
+                    ? "border-[#00f7ff]/90 shadow-[0_0_40px_#00f7ff70] scale-[1.03]"
+                    : "border-white/30 hover:border-[#00f7ff]/70 hover:shadow-[0_0_30px_#00f7ff50]"
+                  }`}
+                whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
+              >
+                <img
                   src={problem.image}
                   alt={problem.title}
                   className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-100 group-hover:brightness-100"
@@ -289,3 +308,35 @@ export default function Themes() {
 
   );
 }
+
+
+{/* {problems.map((problem) => (
+              <motion.div
+                key={problem.id}
+                onClick={() => handleCardClick(problem.id)}
+                className={`group relative h-[420px] rounded-2xl overflow-hidden cursor-pointer border-2 transition-all duration-500 ${selectedId === problem.id
+                    ? "border-[#00f7ff]/90 shadow-[0_0_40px_#00f7ff70] scale-[1.03]"
+                    : "border-white/30 hover:border-[#00f7ff]/70 hover:shadow-[0_0_30px_#00f7ff50]"
+                  }`}
+                whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <img
+                  src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
+                  alt={problem.title}
+                  className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  loading="lazy"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                  <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                    {problem.title}
+                  </h3>
+                  <p className="text-gray-200 text-base drop-shadow-md line-clamp-3">
+                    {problem.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))} */}

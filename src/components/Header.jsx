@@ -144,10 +144,10 @@ export default function Header() {
         >
           <img
             className="h-8 md:h-10 lg:h-12 w-auto"
-            src="/nexora_logo.png"
+            src="/nexora_logo1.png"
             alt="Nexora Logo"
           />
-          <p className="text-md text-gray-300 ml-2 hover:text-neon-blue">
+          <p className="text-md text-gray-300 ml-2 hover:text-orange-500 transition-colors duration-300">
             NEXORA
           </p>
         </Link>
@@ -183,8 +183,8 @@ export default function Header() {
                 to={item.path}
                 className={`text-lg transition-colors ${
                   isActive
-                    ? "text-neon-blue font-bold"
-                    : "text-gray-300 hover:text-neon-blue"
+                    ? "text-orange-500 font-bold"
+                    : "text-gray-300 hover:text-orange-500"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -199,7 +199,7 @@ export default function Header() {
             href="https://forms.gle/DamccNwnjHAnsFuq5"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-neon-blue text-white px-6 py-2 rounded-lg font-semibold"
+            className="bg-orange-500 text-black px-6 py-2 rounded-lg font-semibold"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}

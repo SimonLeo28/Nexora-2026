@@ -412,10 +412,10 @@ export default function Contact() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-slate-900 to-slate-transparent overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-orange-900/80 to-slate-transparent overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl opacity-20 animate-blob" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl opacity-20 animate-blob animation-delay-4000" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl opacity-20 animate-blob" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-400/20 rounded-full blur-3xl opacity-20 animate-blob animation-delay-4000" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -439,48 +439,48 @@ export default function Contact() {
           <div className="md:col-span-1 space-y-6">
 
             {/* Email */}
-            <div className="p-6 bg-slate-900/50 border border-cyan-400/20 rounded-lg">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-purple-400/20 flex items-center justify-center mb-4">
-                <Mail className="text-cyan-400" size={24} />
+            <div className="p-6 bg-orange-900/20 border border-orange-400/20 rounded-lg">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-400/20 to-yellow-400/20 flex items-center justify-center mb-4">
+                <Mail className="text-orange-400" size={24} />
               </div>
 
               <h3 className="font-bold text-slate-100 mb-2">Email</h3>
 
               <a
                 href="mailto:infonexora2026@gmail.com"
-                className="text-slate-400 hover:text-cyan-400 transition-colors"
+                className="text-slate-400 hover:text-orange-400 transition-colors"
               >
                 infonexora2026@gmail.com
               </a>
             </div>
 
             {/* Phone */}
-            <div className="p-6 bg-slate-900/50 border border-cyan-400/20 rounded-lg">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-purple-400/20 flex items-center justify-center mb-4">
-                <Phone className="text-cyan-400" size={24} />
+            <div className="p-6 bg-orange-900/20 border border-orange-400/20 rounded-lg">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-400/20 to-yellow-400/20 flex items-center justify-center mb-4">
+                <Phone className="text-orange-400" size={24} />
               </div>
 
               <h3 className="font-bold text-slate-100 mb-2">Phone</h3>
 
               <a
                 href="tel:+919148672650"
-                className="text-slate-400 hover:text-cyan-400 block"
+                className="text-slate-500 hover:text-orange-400 block"
               >
                 +91 9148672650
               </a>
 
               <a
                 href="tel:+917019022248"
-                className="text-slate-400 hover:text-cyan-400"
+                className="text-slate-500 hover:text-orange-400"
               >
                 +91 7019022248
               </a>
             </div>
 
             {/* Address */}
-            <div className="p-6 bg-slate-900/50 border border-cyan-400/20 rounded-lg">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-purple-400/20 flex items-center justify-center mb-4">
-                <MapPin className="text-cyan-400" size={24} />
+            <div className="p-6 bg-orange-900/20 border border-orange-400/20 rounded-lg">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-400/20 to-yellow-400/20 flex items-center justify-center mb-4">
+                <MapPin className="text-orange-500" size={24} />
               </div>
 
               <h3 className="font-bold text-slate-100 mb-2">Address</h3>
@@ -489,7 +489,7 @@ export default function Contact() {
                 href="https://maps.app.goo.gl/1rv2HBu46vJLD4Gj8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 text-sm hover:text-cyan-400"
+                className="text-slate-400 text-sm hover:text-orange-400"
               >
                 Amruta Institute of Engineering and Management Sciences <br />
                 Bidadi Industrial Town <br />
@@ -502,9 +502,9 @@ export default function Contact() {
           <div className="md:col-span-2">
             <form onSubmit={handleSubmit} className="relative">
 
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-400/20 rounded-lg blur opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-950/20 to-yellow-400/20 rounded-lg blur opacity-100" />
 
-              <div className="relative p-8 bg-slate-900/50 border border-cyan-400/20 rounded-lg">
+              <div className="relative p-8 bg-orange-900/10 border border-orange-500/20 rounded-lg">
 
                 <h3 className="text-2xl font-bold text-slate-100 mb-6">
                   Send us a Message
@@ -519,7 +519,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
-                    className="w-full px-4 py-2 bg-slate-800/50 border border-cyan-400/20 rounded-lg text-slate-100"
+                    className="w-full px-4 py-2 bg-orange-950/20 border border-orange-500/20 rounded-lg text-slate-100"
                   />
 
                   <input
@@ -529,7 +529,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="your@email.com"
                     required
-                    className="w-full px-4 py-2 bg-slate-800/50 border border-cyan-400/20 rounded-lg text-slate-100"
+                    className="w-full px-4 py-2 bg-orange-950/20 border border-orange-500/20 rounded-lg text-slate-100"
                   />
 
                   <input
@@ -539,7 +539,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Subject"
                     required
-                    className="w-full px-4 py-2 bg-slate-800/50 border border-cyan-400/20 rounded-lg text-slate-100"
+                    className="w-full px-4 py-2 bg-orange-950/20 border border-orange-500/20 rounded-lg text-slate-100"
                   />
 
                   <textarea
@@ -549,17 +549,17 @@ export default function Contact() {
                     rows={5}
                     placeholder="Your message..."
                     required
-                    className="w-full px-4 py-2 bg-slate-800/50 border border-cyan-400/20 rounded-lg text-slate-100 resize-none"
+                    className="w-full px-4 py-2 bg-orange-950/20 border border-orange-500/20 rounded-lg text-slate-100 resize-none"
                   />
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-semibold text-[#00f7ff] border border-[#00f7ff]/60 rounded-lg group w-full"
+                    className="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-semibold text-[#ff4d00] border border-[#ff5f00]/60 rounded-lg group w-full"
                   >
 
-                    <span className="absolute inset-0 w-full h-full bg-[#00f7ff]/10 opacity-0 group-hover:opacity-100 transition duration-300"></span>
-                    <span className="absolute inset-0 w-0 bg-[#00f7ff]/20 transition-all duration-500 group-hover:w-full"></span>
+                    <span className="absolute inset-0 w-full h-full bg-[#ff5f00]/10 opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                    <span className="absolute inset-0 w-0 bg-[#ff5f00]/20 transition-all duration-500 group-hover:w-full"></span>
                     
                     <span className="relative flex items-center justify-center gap-2 z-10 tracking wide">
                       <Send size={18} />
