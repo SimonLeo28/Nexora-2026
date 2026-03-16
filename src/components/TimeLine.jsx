@@ -34,7 +34,6 @@ export default function TimeLine() {
     offset: ["start end", "end start"]
   });
 
-<<<<<<< Updated upstream
   // Map scroll progress so the neon line starts filling when the section
   // enters the viewport and completes just as the last phase scrolls out.
   const pathLength = useTransform(scrollYProgress, [0.05, 0.85], [0, 1]);
@@ -47,9 +46,6 @@ export default function TimeLine() {
     C650 1400 350 1600 500 1800
     C650 2000 350 2400 500 2600
   `;
-=======
-  const pathLength = useTransform(scrollYProgress, [0.05, 0.85], [0, 1]);
->>>>>>> Stashed changes
 
   return (
     <section className="relative py-24 overflow-hidden bg-neutral-950">
@@ -74,9 +70,6 @@ export default function TimeLine() {
           >
             {/* Base White Curve */}
             <path
-<<<<<<< Updated upstream
-              d={curvePath}
-=======
               d="
                 M500 0
                 C650 200 350 400 500 600
@@ -84,7 +77,6 @@ export default function TimeLine() {
                 C650 1400 350 1600 500 1800
                 C650 2000 350 2400 500 2600
               "
->>>>>>> Stashed changes
               stroke="white"
               strokeWidth="3"
               fill="none"
