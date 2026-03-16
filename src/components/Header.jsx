@@ -135,7 +135,11 @@ export default function Header() {
   ];
 
   return (
+<<<<<<< Updated upstream
     <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 py-1 ">
+=======
+    <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 py-3">
+>>>>>>> Stashed changes
       <div className="container mx-auto px-6 flex items-center justify-between">
 
         <Link
