@@ -228,7 +228,11 @@ export default function About() {
             {/* Hero Section */}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-orange-900/80 to-transparent">
+=======
+            <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-orange-900/90 to-transparent">
+>>>>>>> Stashed changes
 =======
             <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-orange-900/90 to-transparent">
 >>>>>>> Stashed changes
