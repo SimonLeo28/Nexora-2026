@@ -188,10 +188,10 @@ import Prizes from "./components/Prizes";
 
 import Header from "./components/Header";
 
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Rules from "./pages/Rules";
-import ThemesPage from "./pages/ThemesPage";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Rules from "./Pages/Rules";
+import ThemesPage from "./Pages/ThemesPage";
 
 
 import { motion } from "framer-motion";
