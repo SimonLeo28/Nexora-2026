@@ -105,7 +105,7 @@
 //           <img className="h-8 md:h-10 lg:h-12 w-auto" src="nexora_logo.png" alt="Nexora Logo" />
 //           <p className="text-md text-gray-300 ml-2 hover:text-neon-blue transition-colors text-shadow-lg">NEXORA</p>
 //         </Link>
-        
+
 //         <div className="md:hidden mr-8">
 //           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-300 hover:text-white transition-colors">
 //             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -128,7 +128,7 @@
 //               </Link>
 //             )
 //           })}
-          
+
 //           {/* Show register globally or only on scroll */}
 //           <motion.a 
 //             href="https://forms.gle/DamccNwnjHAnsFuq5" 
@@ -188,15 +188,18 @@ import Prizes from "./components/Prizes";
 
 import Header from "./components/Header";
 
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import Rules from "./Pages/Rules";
-import ThemesPage from "./Pages/ThemesPage";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Rules from "./pages/Rules";
+import ThemesPage from "./pages/ThemesPage";
 
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+// import { Toaster } from "react-hot-toast";
 import TimeLine from "./components/TimeLine";
+import { ToastProvider } from "./components/ui/toast";
+
 
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -229,14 +232,6 @@ const Home = () => {
   );
 };
 
-// const RulesPage = () => (
-//   <div className="min-h-screen flex items-center justify-center">
-//     <h1 className="text-5xl text-white font-bold">Rules Page</h1>
-//   </div>
-// );
-
-
-
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -250,26 +245,29 @@ function ScrollToTop() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="relative min-h-screen bg-black overflow-hidden">
+      <ToastProvider >
+        <div className="relative min-h-screen bg-black overflow-hidden">
 
-        <CustomCursor />
-        <CursorTrail />
-        <ParticleBackground />
+          <CustomCursor />
+          <CursorTrail />
+          <ParticleBackground />
 
-        <ScrollToTop />
-        <Header />
+          <ScrollToTop />
+          <Header />
+          {/* <Toaster position="top-right-4" reverseOrder={false} /> */}
 
-        <main className="relative z-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/themes" element={<ThemesPage />} />
-            <Route path="/rules" element={<Rules />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
+          <main className="relative z-10">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/themes" element={<ThemesPage />} />
+              <Route path="/rules" element={<Rules />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
 
-      </div>
+        </div>
+      </ToastProvider>
     </BrowserRouter>
   );
 }

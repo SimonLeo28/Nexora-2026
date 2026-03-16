@@ -4,54 +4,99 @@ import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer";
 import { ShootingStars } from "../components/ShootingStars";
 import { StarsBackground } from "../components/StarsBackground";
+
 const problems = [
   {
     id: 1,
     title: "Agentic AI Systems & Data Analytics",
+    image: "/images/agentic ai.png",
     description:
       "Design an Agentic AI system that autonomously analyzes data, makes decisions, and solves real-world problems efficiently.",
     longDescription:
-      "Participants are challenged to create innovative applications, hardware, or systems that improve daily commuting while being environmentally friendly. Think AI route optimization, shared mobility, EV infrastructure, last-mile solutions, predictive traffic management, or gamified public transport incentives.",
+      `Agentic AI systems represent the next evolution of artificial intelligence, where AI agents can
+      independently perceive environments, make decisions, and perform actions to achieve defined
+      goals. This theme encourages participants to design intelligent systems that combine
+      autonomous decision-making with data analytics to solve real-world challenges.
+      Participants may explore solutions that analyze large datasets, automate workflows, provide
+      predictive insights, or develop AI agents capable of interacting with digital systems and users.
+      Projects should demonstrate how intelligent agents can improve efficiency, decision-making,
+      and automation in industries such as healthcare, finance, education, logistics, and smart
+      infrastructure.`,
   },
   {
     id: 2,
     title: "Communication, VLSI & Embedded Systems",
+    image: "/images/ec-vlsi-embeddings.png",
     description:
       "Design innovative communication, VLSI, or embedded systems solutions addressing real-world challenges through efficient hardware and automation.",
     longDescription:
-      "Focus on telemedicine platforms, AI-assisted diagnostics, low-cost wearable monitoring devices, multilingual symptom checkers, predictive outbreak models, medicine supply-chain transparency, or offline-first health record systems suitable for low-connectivity regions.",
+      `Modern technology relies heavily on efficient communication systems, advanced
+      semiconductor design, and embedded computing. This theme invites participants to build
+      innovative hardware or system-level solutions related to communication technologies, VLSI
+      design, and embedded systems.
+      Projects may include smart communication devices, embedded automation systems, IoT-based
+      solutions, FPGA or microcontroller-based innovations, signal processing applications, or low-
+      power electronic designs. The goal is to create practical and efficient systems that address real-
+      world technological challenges.`,
   },
   {
     id: 3,
     title: "Robotics and Industrial Applications",
+    image: "/images/robotics-industries.png",
     description:
       "Transform waste materials into valuable products or energy sources.",
     longDescription:
-      "Ideas can include plastic upcycling into building materials, large-scale organic waste composting systems, innovative e-waste recovery techniques, small-scale waste-to-energy units, circular economy marketplaces, AI-powered waste sorting, or community-level recycling reward apps.",
+      `Automation and robotics are revolutionizing industries by improving productivity, safety, and
+      operational efficiency. This theme challenges participants to develop robotic systems or
+      automation solutions that address real industrial challenges.
+      Participants may design autonomous robots, industrial automation tools, robotic arms,
+      inspection systems, or AI-driven robotics applications. The focus should be on building
+      systems that enhance manufacturing, logistics, inspection, maintenance, or human–robot
+      collaboration in industrial environments.`,
   },
   {
     id: 4,
-    title: " Imagining the Future of Infrastructure through Sustainable Design",
+    title: "Imagining the Future of Infrastructure through Sustainable Design",
+    image: "/images/future-design.png",
     description:
       "Create next-generation solutions for unbanked and underbanked populations.",
     longDescription:
-      "Explore micro-lending platforms with alternative credit scoring, blockchain-based digital identity, voice-first / UPI-first banking interfaces, parametric insurance for gig workers & farmers, decentralized savings groups, crypto literacy & onboarding tools, or fraud detection for low-literacy users.",
+      `Sustainable infrastructure is essential for building resilient and environmentally responsible
+      cities. Under this theme, participants will design scale models of civil infrastructure projects
+      that demonstrate innovation, sustainability, and engineering feasibility.
+      The competition encourages students to think creatively about how infrastructure such as
+      bridges, dams, buildings, transportation systems, and water management systems can be
+      designed for the future while minimizing environmental impact.`,
   },
   {
     id: 5,
     title: "Responsible AI & Deployable AI for Real-World Impact",
+    image: "/images/ai.png",
     description:
       "Develop tech to help farmers adapt to changing climate patterns.",
     longDescription:
-      "Precision agriculture tools, AI-powered drought & flood prediction, smart & water-efficient irrigation systems, satellite + IoT based crop health monitoring, affordable soil nutrient sensors, index-based crop insurance, direct farmer-to-buyer digital marketplaces, or climate-adaptive seed recommendation engines.",
+      `Artificial Intelligence is transforming industries, but with great power comes great
+      responsibility. AI systems must be ethical, fair, transparent, secure, and beneficial to
+      society.
+
+      This theme challenges participants to build deployable AI solutions that solve real societal
+      or industrial problems while adhering to responsible AI principles. Teams should focus on
+      developing solutions that are not only innovative but also practical and scalable.`,
   },
   {
     id: 6,
     title: "ClimateTech, Green Skills & Sustainable Infrastructure",
+    image: "/images/infrastructure.png",
     description:
       "Make quality education accessible in regional languages.",
     longDescription:
-      "AI tutors supporting Kannada, Tamil, Telugu, Malayalam, Hindi & other languages, gamified learning experiences, offline-first video & interactive content delivery, AR/VR modules for science and history, voice-based assessments, teacher training & content creation tools, or personalized learning paths based on regional curriculum.",
+      `Climate change is one of the most pressing global challenges. This theme encourages
+      participants to develop technology-driven solutions that promote sustainability,
+      environmental protection, and climate resilience.
+      Projects may address issues such as renewable energy management, waste reduction, carbon
+      footprint monitoring, smart water management, green transportation, or climate risk
+      assessment. The focus should be on building solutions that contribute to sustainable
+      development and environmental protection.`,
   },
 ];
 
@@ -113,7 +158,7 @@ export default function Themes() {
 
   return (
     <>
-      <section ref={sectionRef} className="relative py-20 bg-neutral-950 overflow-hidden">
+      <section ref={sectionRef} className="relative py-26 bg-neutral-950 overflow-hidden">
         <StarsBackground />
         <ShootingStars />
         <div className="container mx-auto px-6 relative z-10">
@@ -166,9 +211,10 @@ export default function Themes() {
                 whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
               >
                 <img
-                  src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
+                  // src={`https://images.unsplash.com/photo-${1550000000000 + problem.id * 10000000000}?w=800&q=80`}
+                  src={problem.image}
                   alt={problem.title}
-                  className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-100 group-hover:brightness-100"
                   loading="lazy"
                 />
 
