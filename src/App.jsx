@@ -219,7 +219,7 @@ const Home = () => {
             href="https://forms.gle/DamccNwnjHAnsFuq5"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-neon-blue text-white px-6 py-3 rounded-lg font-bold"
+            className="bg-orange-500 text-black px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-all duration-300 cursor-pointer"
           >
             Register Now
           </motion.a>
