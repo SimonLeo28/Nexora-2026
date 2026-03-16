@@ -17,10 +17,21 @@ export default function TimeLine() {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end end"]
+    offset: ["start end", "end start"]
   });
 
-  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // Map scroll progress so the neon line starts filling when the section
+  // enters the viewport and completes just as the last phase scrolls out.
+  const pathLength = useTransform(scrollYProgress, [0.05, 0.85], [0, 1]);
+
+  // The shared SVG path — fits entirely within the 0–2200 viewBox
+  const curvePath = `
+    M500 0
+    C650 200 350 400 500 600
+    C650 800 350 1000 500 1200
+    C650 1400 350 1600 500 1800
+    C650 2000 350 2400 500 2600
+  `;
 
   return (
     <section className="relative py-24 overflow-hidden bg-neutral-950">
@@ -41,17 +52,11 @@ export default function TimeLine() {
             className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
             viewBox="0 0 1000 2200"
             preserveAspectRatio="none"
-            style={{ height: 'calc(93% + 80px)', top: '-50px' }}
+            style={{ height: '94%', top: '0' }}
           >
             {/* Base White Curve */}
             <path
-              d="
-                M500 0
-                C650 200 350 400 500 600
-                C650 800 350 1000 500 1200
-                C650 1400 350 1600 500 1800
-                C650 2000 350 2200 500 3100
-              "
+              d={curvePath}
               stroke="white"
               strokeWidth="3"
               fill="none"
@@ -60,13 +65,7 @@ export default function TimeLine() {
 
             {/* Animated Neon Blue Curve */}
             <motion.path
-              d="
-                M500 0
-                C650 200 350 400 500 600
-                C650 800 350 1000 500 1200
-                C650 1400 350 1600 500 1800
-                C650 2000 350 2200 500 3100
-              "
+              d={curvePath}
               stroke="#00f7ff"
               strokeWidth="3"
               fill="none"

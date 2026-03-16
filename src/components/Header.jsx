@@ -135,7 +135,7 @@ export default function Header() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 py-4">
+    <nav className="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50 py-1 ">
       <div className="container mx-auto px-6 flex items-center justify-between">
 
         <Link
@@ -193,7 +193,8 @@ export default function Header() {
             );
           })}
 
-          {scrolled && (
+          {/* On home page: show Register only after scrolling. On other pages: always show it. */}
+          {(location.pathname !== "/" || scrolled) && (
           <motion.a
             href="https://forms.gle/DamccNwnjHAnsFuq5"
             target="_blank"

@@ -13,7 +13,7 @@ export default function Hero({ children }) {
   const logos = [bvvlogo, vtulogo, aiemslogo];
 
   return (
-    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black text-white">
+    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black text-white pt-6">
       <NeonNodes>
         {/* Background paths rendering strictly behind text but in front of Neon background */}
         <div className="absolute inset-0 z-[1] w-full h-full opacity-60 pointer-events-none mix-blend-screen">
