@@ -4,13 +4,27 @@ import { ShootingStars } from "./ShootingStars";
 import { StarsBackground } from "./StarsBackground";
 
 const timelineData = [
-  { phase: "01", title: "Registration", text: "Participants register and submit their ideas for the hackathon." },
-  { phase: "02", title: "Shortlisting", text: "Selected teams are shortlisted based on innovation and feasibility." },
-  { phase: "03", title: "Hackathon Day", text: "Teams collaborate and build solutions during the 24-hour hackathon." },
-  { phase: "04", title: "Mentoring", text: "Industry mentors guide teams and help refine their solutions." },
-  { phase: "05", title: "Final Pitch", text: "Teams present their projects before judges and audience." },
-  { phase: "06", title: "Results", text: "Top teams are awarded and recognized for their innovation." }
+  { phase: "01", title: "Registration", text: "Participants register and submit their ideas for the hackathon.", highlights: ["register", "ideas"] },
+  { phase: "02", title: "Shortlisting", text: "Selected teams are shortlisted based on innovation and feasibility.", highlights: ["shortlisted", "innovation"] },
+  { phase: "03", title: "Hackathon Day", text: "Teams collaborate and build solutions during the 24-hour hackathon.", highlights: ["collaborate", "24-hour"] },
+  { phase: "04", title: "Mentoring", text: "Industry mentors guide teams and help refine their solutions.", highlights: ["mentors", "refine"] },
+  { phase: "05", title: "Final Pitch", text: "Teams present their projects before judges and audience.", highlights: ["present", "judges"] },
+  { phase: "06", title: "Results", text: "Top teams are awarded and recognized for their innovation.", highlights: ["awarded", "innovation"] }
 ];
+
+// Helper: wraps specific words in orange highlight spans
+function highlightText(text, highlights = []) {
+  if (!highlights.length) return text;
+  const regex = new RegExp(`(${highlights.join("|")})`, "gi");
+  const parts = text.split(regex);
+  return parts.map((part, idx) =>
+    highlights.some((h) => h.toLowerCase() === part.toLowerCase()) ? (
+      <span key={idx} className="text-orange-500 font-semibold">{part}</span>
+    ) : (
+      part
+    )
+  );
+}
 
 export default function TimeLine() {
   const ref = useRef(null);
@@ -43,7 +57,7 @@ export default function TimeLine() {
 
       <div className="container mx-auto px-6 relative z-10">
         <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-24 tracking-tight">
-          Event <span className="text-neon-blue">Timeline</span>
+          Event <span className="text-orange-500">Timeline</span>
         </h2>
 
         <div ref={ref} className="relative max-w-6xl mx-auto">
@@ -66,12 +80,12 @@ export default function TimeLine() {
             {/* Animated Neon Blue Curve */}
             <motion.path
               d={curvePath}
-              stroke="#00f7ff"
+              stroke="#ff6200ff"
               strokeWidth="3"
               fill="none"
               strokeLinecap="round"
               style={{ pathLength }}
-              filter="drop-shadow(0 0 8px #00f7ff)"
+              filter="drop-shadow(0 0 8px #ff6200ff)"
             />
           </svg>
 
@@ -85,27 +99,27 @@ export default function TimeLine() {
               className={`flex items-center mb-32 ${i % 2 === 0 ? "md:flex-row-reverse" : ""}`}
             >
               {/* Text Card */}
-              <div className="w-full md:w-1/2 p-4 bg-transparent">
-                <div className="glass p-8 hover:scale-[1.02] transition-all duration-300 border border-white/10 hover:border-neon-blue/50 group">
+              <div className="w-full md:w-1/2 p-4">
+                <div className="bg-transparent p-8 hover:scale-[1.02] transition-all duration-300 border border-orange-500/40 hover:border-orange-500 rounded-xl group shadow-[0_0_15px_rgba(255,107,0,0.1)] hover:shadow-[0_0_25px_rgba(255,107,0,0.2)]">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="text-neon-blue font-mono text-sm tracking-widest uppercase bg-neon-blue/10 px-3 py-1 rounded-full">
+                    <span className="text-orange-500 font-mono text-sm tracking-widest uppercase bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/30">
                       Phase {item.phase}
                     </span>
                   </div>
 
-                  <h3 className="text-3xl font-bold text-white group-hover:text-neon-blue transition-colors">
+                  <h3 className="text-3xl font-bold text-white group-hover:text-orange-500 transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="text-soft-blue-gray mt-4 text-lg leading-relaxed">
-                    {item.text}
+                  <p className="text-white/80 mt-4 text-lg leading-relaxed">
+                    {highlightText(item.text, item.highlights)}
                   </p>
                 </div>
               </div>
 
               {/* Timeline Dot */}
               <div className="hidden md:flex items-center justify-center w-20">
-                <div className="w-6 h-6 rounded-full bg-neon-blue shadow-[0_0_20px_#00f7ff] z-10 border-4 border-black" />
+                <div className="w-6 h-6 rounded-full bg-orange-500 shadow-[0_0_20px_#ff6200ff] z-10 border-4 border-black" />
               </div>
 
               {/* Spacer */}

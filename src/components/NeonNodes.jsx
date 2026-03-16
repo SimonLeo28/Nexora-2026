@@ -45,9 +45,9 @@ export default function NeonNodes({ children }) {
             // Draw Node
             ctx.beginPath();
             ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(0, 191, 255, 0.8)"; 
+            ctx.fillStyle = "rgba(255, 225, 225, 0.96)"; 
             ctx.shadowBlur = 10;
-            ctx.shadowColor = "#00BFFF";
+            ctx.shadowColor = "#ff6f00ff";
          
             ctx.fill();
 
@@ -64,7 +64,7 @@ export default function NeonNodes({ children }) {
                     ctx.lineTo(other.x, other.y);
                     const alpha = 1 - (distance / maxDistance);
                     // INCREASE OPACITY HERE: Change 0.8 to higher/lower (max 1.0)
-                    ctx.strokeStyle = `rgba(0, 191, 255, ${alpha * 8})`;
+                    ctx.strokeStyle = `rgba(225, 106, 0, ${alpha * 2})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
