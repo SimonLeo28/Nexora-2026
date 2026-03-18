@@ -255,7 +255,7 @@ export default function Footer() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative mt-6 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 gap-4 sm:gap-6 items-center justify-items-center max-w-5xl mx-auto mb-8"
+        className="relative mt-6 grid grid-cols-5 sm:grid-cols-5 md:grid-cols-5 gap-4 sm:gap-6 items-center justify-items-center max-w-5xl mx-auto mb-8"
       >
         {logos.map((logo, index) => (
           <img

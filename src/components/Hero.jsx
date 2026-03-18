@@ -13,7 +13,7 @@ export default function Hero({ children }) {
   const logos = [bvvlogo, vtulogo, aiemslogo];
 
   return (
-    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black text-white pt-6">
+    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black text-white pt-4">
       <NeonNodes>
         {/* Background paths rendering strictly behind text but in front of Neon background */}
         <div className="absolute inset-0 z-[1] w-full h-full opacity-60 pointer-events-none mix-blend-screen">
@@ -31,7 +31,7 @@ export default function Hero({ children }) {
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative mt-12 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2 sm:gap-4 items-center justify-items-center max-w-5xl mx-auto mb-8"
+            className="relative mt-12 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2 sm:gap-4 items-center justify-items-center max-w-5xl mx-auto mb-6"
           >
             {logos.map((logo, index) => (
               <img
@@ -47,16 +47,34 @@ export default function Hero({ children }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-xs md:text-sm font-light tracking-[0.4em] mb-6 text-neon-blue uppercase text-orange-500 underline decoration-white underline-offset-8"
+            className="text-xs md:text-2xl font-light tracking-[0.4em] mb-2 uppercase text-orange-500 decoration-white"
           >
-            AIEMS Presents
+            AMRUTA INSTITUTE OF ENGINEERING AND MANAGEMENT SCIENCES, <br/> Bidadi, BENGALURU - 562109
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-xs md:text-sm font-light tracking-[0.4em] mb-2 uppercase text-white pl-6 pr-6"
+          >
+            Recognized & Approved by Govt. of Karnataka, AICTE & UGC, New Delhi, <br/>Accredited by NAAC with B++
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-xs md:text-sm font-light tracking-[0.4em] mb-2 uppercase text-orange-500 underline decoration-white underline-offset-8"
+          >
+            Presents
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-6xl md:text-8xl lg:text-[10rem] font-bold mb-2 tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+            className="text-6xl md:text-8xl lg:text-[8rem] font-bold mb-2 tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
           >
             NEXORA
             <span className="block text-3xl md:text-5xl lg:text-7xl font-light text-orange-500 tracking-widest mt-2 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
@@ -68,15 +86,15 @@ export default function Hero({ children }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-sm md:text-xl font-light tracking-[0.2em] mb-12 text-gray-400 uppercase max-w-2xl leading-relaxed"
+            className="text-sm md:text-xl font-light tracking-[0.2em] mb-2 text-gray-400 uppercase max-w-2xl leading-relaxed"
           >
             National Level Hackathon
             <span className="block mt-4 text-xs md:text-sm font-medium tracking-widest">
-              Code <span className="mx-3 text-neon-blue">•</span> Innovate <span className="mx-3 text-neon-blue">•</span> Conquer
+              Code <span className="mx-3 text-orange-500">•</span> Innovate <span className="mx-3 text-orange-500">•</span> Conquer
             </span>
           </motion.p>
 
-          <div className="w-full max-w-6xl mt-4 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 px-4">
+          <div className="w-full max-w-6xl mt-4 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16 px-4">
             {/* Register Button (passed as children from App) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -106,7 +124,7 @@ export default function Hero({ children }) {
 
 
 
-// //  new code 
+// //  new code
 // import { motion } from "framer-motion";
 // import { BackgroundPaths } from "./21stdevcomponent"; // comment out if you don't want any background lines/rays
 // import CounterDaisy from "./CounterDaisy";

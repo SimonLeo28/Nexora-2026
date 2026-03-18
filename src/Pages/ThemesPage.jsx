@@ -24,7 +24,7 @@ const problems = [
   {
     id: 2,
     title: "Communication, VLSI & Embedded Systems",
-    image: "/images/ec-vlsi-embeddings.png",
+    image: "/images/communication-vlsi-embed.jpg",
     description:
       "Design innovative communication, VLSI, or embedded systems solutions addressing real-world challenges through efficient hardware and automation.",
     longDescription:
@@ -40,7 +40,7 @@ const problems = [
   {
     id: 3,
     title: "Cyber Security & Blockchain Technology",
-    image: "/images/agentic ai.png",
+    image: "/images/Blockchain-in-Cybersecurity-2.jpg",
     description:
       "Design an Agentic AI system that autonomously analyzes data, makes decisions, and solves real-world problems efficiently.",
     longDescription:
@@ -58,7 +58,7 @@ const problems = [
   {
     id: 4,
     title: "Robotics and Industrial Applications",
-    image: "/images/robotics-industries.png",
+    image: "/images/robotics-industry.jpg",
     description:
       "Transform waste materials into valuable products or energy sources.",
     longDescription:
@@ -73,7 +73,7 @@ const problems = [
   {
     id: 5,
     title: "Imagining the Future of Infrastructure through Sustainable Design",
-    image: "/images/future-design.png",
+    image: "/images/infrastructure12.png",
     description:
       "Create next-generation solutions for unbanked and underbanked populations.",
     longDescription:
