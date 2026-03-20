@@ -368,8 +368,10 @@ export default function Contact() {
     //     body: JSON.stringify(formData),
     //   });
 
+    const BASE_URL = "https://backend-nexora.onrender.com";
+
     try {
-      const res = await fetch("https://backend-nexora.onrender.com", {
+      const res = await fetch(`${BASE_URL}/backend/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

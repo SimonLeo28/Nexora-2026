@@ -328,7 +328,7 @@ export default function Footer() {
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.5, 0.8, 0.5],
+            opacity: [0.5, 0.8, 0.5].map(v => Number(v)),
           }}
           transition={{
             duration: 6,
