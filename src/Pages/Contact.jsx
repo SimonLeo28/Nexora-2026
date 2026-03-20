@@ -369,7 +369,7 @@ export default function Contact() {
     //   });
 
     try {
-      const res = await fetch("https://backend-nexora.onrender.com/backend/contact", {
+      const res = await fetch("https://backend-nexora.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
