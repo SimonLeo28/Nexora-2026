@@ -359,8 +359,19 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // try {
+    //   const res = await fetch("http://localhost:5000/backend/contact", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formData),
+    //   });
+
+    const BASE_URL = "https://backend-nexora.onrender.com/backend/contact";
+
     try {
-      const res = await fetch("http://localhost:5000/backend/contact", {
+      const res = await fetch(BASE_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
