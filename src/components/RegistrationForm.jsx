@@ -202,6 +202,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { apiFetch } from '../lib/api.js';
 
 export default function RegistrationForm() {
     const [teamName, setTeamName] = useState('');
@@ -241,19 +242,10 @@ export default function RegistrationForm() {
         };
 
         try {
-            const response = await fetch('http://localhost:3000/register', {
+            const data = await apiFetch('/api/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
                 body: JSON.stringify(formData),
             });
-
-            if (!response.ok) {
-                throw new Error(`Server error: ${response.status}`);
-            }
-
-            const data = await response.json();
             console.log(data)
             
             setLoading(false);

@@ -192,7 +192,8 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Rules from "./Pages/Rules";
 import ThemesPage from "./Pages/ThemesPage";
-
+import AdminLogin from "./Pages/admin/AdminLogin";
+import AdminDashboard from "./Pages/admin/AdminDashboard";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -263,6 +264,9 @@ export default function App() {
               <Route path="/themes" element={<ThemesPage />} />
               <Route path="/rules" element={<Rules />} />
               <Route path="/contact" element={<Contact />} />
+              {/* Admin — hidden routes, not in navbar */}
+              <Route path="/admin" element={<AdminLogin />} />
+              <Route path="/admin/dashboard" element={<AdminDashboard />} />
             </Routes>
           </main>
 
