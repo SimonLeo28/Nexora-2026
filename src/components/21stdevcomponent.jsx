@@ -26,7 +26,7 @@ function FloatingPaths({ position }) {
                     <motion.path
                         key={path.id}
                         d={path.d}
-                        stroke="#fff"
+                        stroke="#fffs"
                         shadowColor="#fff"
                         strokeWidth={path.width}
                         strokeOpacity={0.1 + path.id * 0.02}
