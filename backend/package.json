@@ -1,0 +1,39 @@
+{
+  "name": "nexoraai-backend",
+  "version": "1.0.0",
+  "description": "NexoraAI Hackathon Backend API - TypeScript + Express + Drizzle + Neon",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "hash-password": "node -e \"import('bcryptjs').then(b=>b.default.hash(process.argv[1],12).then(h=>{console.log('\\nHash:',h,'\\n')}))\" --"
+  },
+  "keywords": ["hackathon", "nexora", "express", "typescript", "drizzle"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.43.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "drizzle-kit": "^0.30.4",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
