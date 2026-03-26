@@ -8,13 +8,13 @@ import adminRoutes from './routes/admin.routes.js';
 
 const app = express();
 
-// ─── CORS ─────────────────────────────────────────────────────────────────────
+// CORS
 app.use(
   cors({
-    origin: [env.FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3001'],
+    origin: [env.FRONTEND_URL, 'http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    credentials: true, // this is for allowig cookies per request 
   })
 );
 
@@ -30,7 +30,7 @@ if (env.NODE_ENV === 'development') {
   });
 }
 
-// ─── Health Check ─────────────────────────────────────────────────────────────
+// ─── api Health Check ─────────────────────────────────────────────────────────────
 app.get('/api/health', (_req, res) => {
   res.json({
     status: 'ok',
