@@ -7,7 +7,7 @@ import { teams, teamLeaders, teamMembers, payments } from '../db/schema.js';
 import { env } from '../config/env.js';
 import type { AuthRequest } from '../middleware/auth.js';
 
-// ─── Admin Login ──────────────────────────────────────────────────────────────
+// admin logni
 
 export async function adminLogin(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
@@ -46,7 +46,7 @@ export async function adminLogin(req: Request, res: Response, next: NextFunction
   }
 }
 
-// ─── Dashboard Stats ──────────────────────────────────────────────────────────
+// dashboard stats
 
 export async function getStats(_req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
@@ -82,8 +82,7 @@ export async function getStats(_req: AuthRequest, res: Response, next: NextFunct
   }
 }
 
-// ─── Get All Teams ────────────────────────────────────────────────────────────
-
+// Get All Teams
 export async function getAllTeams(_req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
     const allTeams = await db
@@ -115,7 +114,7 @@ export async function getAllTeams(_req: AuthRequest, res: Response, next: NextFu
   }
 }
 
-// ─── Get All Payments ─────────────────────────────────────────────────────────
+// Get All Payments 
 
 export async function getAllPayments(_req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
