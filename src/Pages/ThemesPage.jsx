@@ -234,7 +234,7 @@ export default function Themes() {
                   src={problem.image}
                   alt={problem.title}
                   className="absolute inset-0 w-full h-full object-cover brightness-140 transition-transform duration-700 group-hover:scale-100 group-hover:brightness-100"
-                  loading="lazy"
+                  // loading="lazy"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
