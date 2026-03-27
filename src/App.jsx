@@ -194,7 +194,7 @@ import Rules from "./Pages/Rules";
 import ThemesPage from "./Pages/ThemesPage";
 import AdminDashboard from "./Pages/admin/AdminDashboard";
 import AdminLogin from "./Pages/admin/AdminLogin";
-import RegistrationComingSoon from "./pages/register/RegistrationComingSoon.jsx";
+import RegistrationComingSoon from "./pages/register/RegistrationComingSoon";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
