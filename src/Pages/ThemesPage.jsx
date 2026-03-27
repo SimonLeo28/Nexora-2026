@@ -9,7 +9,7 @@ const problems = [
   {
     id: 1,
     title: "Responsible AI & Deployable AI for Real-World Impact",
-    image: "/images/ai.png",
+    image: "/images/ResponsibleAI.png",
     description:
       "Develop tech to help farmers adapt to changing climate patterns.",
     longDescription:
@@ -24,7 +24,7 @@ const problems = [
   {
     id: 2,
     title: "Communication, VLSI & Embedded Systems",
-    image: "/images/communication-vlsi-embed.jpg",
+    image: "/images/VLSI.png",
     description:
       "Design innovative communication, VLSI, or embedded systems solutions addressing real-world challenges through efficient hardware and automation.",
     longDescription:
@@ -40,7 +40,7 @@ const problems = [
   {
     id: 3,
     title: "Cyber Security & Blockchain Technology",
-    image: "/images/Blockchain-in-Cybersecurity-2.jpg",
+    image: "/images/Cyber.png",
     description:
       "Design an Agentic AI system that autonomously analyzes data, makes decisions, and solves real-world problems efficiently.",
     longDescription:
@@ -58,7 +58,7 @@ const problems = [
   {
     id: 4,
     title: "Robotics and Industrial Applications",
-    image: "/images/robotics-industry.jpg",
+    image: "/images/infraStff.png",
     description:
       "Transform waste materials into valuable products or energy sources.",
     longDescription:
@@ -73,7 +73,7 @@ const problems = [
   {
     id: 5,
     title: "Imagining the Future of Infrastructure through Sustainable Design",
-    image: "/images/infrastructure12.png",
+    image: "/images/Civil.png",
     description:
       "Create next-generation solutions for unbanked and underbanked populations.",
     longDescription:
@@ -225,15 +225,15 @@ export default function Themes() {
               <motion.div
                 key={problem.id}
                 className={`w-full sm:w-[48%] lg:w-[31%] max-w-sm group relative h-[420px] rounded-2xl overflow-hidden border-2 transition-all duration-500 ${selectedId === problem.id
-                    ? "border-[#00f7ff]/90 shadow-[0_0_40px_#00f7ff70] scale-[1.03]"
-                    : "border-white/30 hover:border-[#00f7ff]/70 hover:shadow-[0_0_30px_#00f7ff50]"
+                    ? "border-[#ff6200]/  90 shadow-[0_0_40px_#ff620070] scale-[1.03]"
+                    : "border-white/30 hover:border-[#ff6200]/70 hover:shadow-[0_0_30px_#ff620050]"
                   }`}
                 whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
               >
                 <img
                   src={problem.image}
                   alt={problem.title}
-                  className="absolute inset-0 w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-100 group-hover:brightness-100"
+                  className="absolute inset-0 w-full h-full object-cover brightness-140 transition-transform duration-700 group-hover:scale-100 group-hover:brightness-100"
                   loading="lazy"
                 />
 
@@ -246,11 +246,11 @@ export default function Themes() {
 
                   <button
                     onClick={() => handleCardClick(problem.id)}
-                    className="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-semibold text-[#00f7ff] border border-[#00f7ff]/60 rounded-lg group"
+                    className="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-semibold text-[#fff] border border-[#ff6200ff]/60 rounded-lg group"
                   >
                     <span className="absolute inset-0 w-full h-full bg-[#00f7ff]/10 opacity-0 group-hover:opacity-100 transition duration-300"></span>
 
-                    <span className="absolute inset-0 w-0 bg-[#00f7ff]/20 transition-all duration-500 group-hover:w-full"></span>
+                    <span className="absolute inset-0 w-0 bg-[#ff6200ff]/60 transition-all duration-500 group-hover:w-full"></span>
 
                     <span className="relative z-10 tracking-wide">
                       View Details →
@@ -272,16 +272,16 @@ export default function Themes() {
                 transition={{ duration: 0.45, ease: "easeOut" }}
                 className="max-w-4xl mx-auto rounded-2xl overflow-hidden mb-24 relative"
                 style={{
-                  background: "linear-gradient(to bottom, #0f172a 0%, transparent 70%)",
-                  border: "2px solid #00f7ff",
+                  background: "transparent",
+                  border: "2px solid #ff6200ff",
                   boxShadow:
-                    "0 0 25px rgba(0,247,255,0.25),  -10px -10px 60px rgba(0,247,255,0.08),  60px 80px 100px rgba(0,247,255,0.12)",
+                    "0 0 25px rgba(255, 106, 0, 0.25),  -10px -10px 60px rgba(255, 106, 0, 0.08),  60px 80px 100px rgba(255, 106, 0, 0.12)",
                   // stronger glow bottom-right
                 }}
               >
                 <button
                   onClick={handleClose}
-                  className="absolute top-6 right-6 z-20 text-white/80 hover:text-[#00f7ff] bg-black/40 hover:bg-black/70 p-3 rounded-full transition-all duration-300"
+                  className="absolute top-6 right-6 z-20 text-white/80 hover:text-[#00f7ff] bg-black/40 hover:bg-transparent p-3 rounded-full transition-all duration-300"
                   aria-label="Close"
                 >
                   <X size={28} />

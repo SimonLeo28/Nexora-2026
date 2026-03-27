@@ -398,7 +398,7 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Team Section */}
+            {/* Team Section
             <section className="relative py-20 px-4">
                 <div className="max-w-6xl mx-auto">
 
@@ -452,7 +452,7 @@ export default function About() {
 
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <Footer />
 
