@@ -1,22 +1,34 @@
 // Central API helper for the Nexora frontend
 // All API calls go through here — handles base URL and auth headers automatically.
 
+
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 
 /**
  * Regular fetch with JSON content-type
  */
 export async function apiFetch(endpoint, options = {}) {
+  const token = localStorage.getItem('nexora_admin_token');
+
   const url = `${API_URL}${endpoint}`;
   const res = await fetch(url, {
+    method: options.method || 'GET',
+    Authorization: `Bearer ${token}`,
     headers: {
       'Content-Type': 'application/json',
-      ...options.headers,
+      ...(options.headers || {}),
     },
-    ...options,
+    body: options.body ? JSON.stringify(options.body) : undefined,
   });
 
-  const data = await res.json();
+  // const data = await res.json();
+  let data;
+  try {
+    data = await res.json();
+  } catch (err) {
+    throw new Error(`Invalid JSON response from server: ${err.message}`);
+  }
 
   if (!res.ok) {
     throw new Error(data.error || `Server error: ${res.status}`);
@@ -40,3 +52,4 @@ export async function authFetch(endpoint, options = {}) {
 }
 
 export { API_URL };
+

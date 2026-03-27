@@ -47,7 +47,7 @@ export default function CursorTrail() {
           
           // Fade out based on age
           const opacity = 1 - (p1.age / 20);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.3})`; 
+          ctx.strokeStyle = `rgba(255, 255, 255, ${opacity * 0.3})`;
           ctx.lineWidth = 3;
           ctx.lineCap = "round";
           ctx.lineJoin = "round";

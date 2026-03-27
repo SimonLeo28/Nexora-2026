@@ -202,7 +202,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { apiFetch } from '../lib/api.js';
+import { apiFetch } from '../../lib/api.js';
 
 export default function RegistrationForm() {
     const [teamName, setTeamName] = useState('');

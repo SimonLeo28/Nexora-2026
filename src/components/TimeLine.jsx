@@ -4,12 +4,12 @@ import { ShootingStars } from "./ShootingStars";
 import { StarsBackground } from "./StarsBackground";
 
 const timelineData = [
-  { phase: "01", title: "Registration", text: "Participants register and submit their ideas for the hackathon.", highlights: ["register", "ideas"] },
-  { phase: "02", title: "Shortlisting", text: "Selected teams are shortlisted based on innovation and feasibility.", highlights: ["shortlisted", "innovation"] },
-  { phase: "03", title: "Hackathon Day", text: "Teams collaborate and build solutions during the 24-hour hackathon.", highlights: ["collaborate", "24-hour"] },
-  { phase: "04", title: "Mentoring", text: "Industry mentors guide teams and help refine their solutions.", highlights: ["mentors", "refine"] },
-  { phase: "05", title: "Final Pitch", text: "Teams present their projects before judges and audience.", highlights: ["present", "judges"] },
-  { phase: "06", title: "Results", text: "Top teams are awarded and recognized for their innovation.", highlights: ["awarded", "innovation"] }
+  { phase: "01", title: "Registration", text: "Participants register and submit their abstract for the hackathon and complete the payment.", highlights: ["register", "ideas"] },
+  // { phase: "02", title: "Shortlisting", text: "Selected teams are shortlisted based on innovation and feasibility.", highlights: ["shortlisted", "innovation"] },
+  { phase: "02", title: "Hackathon Day", text: "Teams collaborate and build solutions during the 24-hour hackathon.", highlights: ["collaborate", "24-hour"] },
+  { phase: "03", title: "Mentoring", text: "Industry mentors guide teams and help refine their solutions.", highlights: ["mentors", "refine"] },
+  { phase: "04", title: "Final Pitch", text: "Teams present their projects before judges and audience.", highlights: ["present", "judges"] },
+  { phase: "05", title: "Results", text: "Top teams are awarded and recognized for their innovation.", highlights: ["awarded", "innovation"] }
 ];
 
 // Helper: wraps specific words in orange highlight spans

@@ -14,7 +14,13 @@
     "db:studio": "drizzle-kit studio",
     "hash-password": "node -e \"import('bcryptjs').then(b=>b.default.hash(process.argv[1],12).then(h=>{console.log('\\nHash:',h,'\\n')}))\" --"
   },
-  "keywords": ["hackathon", "nexora", "express", "typescript", "drizzle"],
+  "keywords": [
+    "hackathon",
+    "nexora",
+    "express",
+    "typescript",
+    "drizzle"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -25,6 +31,8 @@
     "drizzle-orm": "^0.43.1",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "pg": "^8.20.0",
+    "sequelize": "^6.37.8",
     "zod": "^3.24.2"
   },
   "devDependencies": {
@@ -32,7 +40,8 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.9",
-    "drizzle-kit": "^0.30.4",
+    "drizzle-kit": "^0.31.10",
+    "sequelize-cli": "^6.3.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3"
   }

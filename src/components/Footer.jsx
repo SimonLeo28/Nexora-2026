@@ -401,7 +401,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-16 pt-8 border-t border-white/5">
-            <p className="text-[10px] md:text-xs text-gray-600 uppercase tracking-[0.2em]">
+            <p className="text-[10px] md:text-xs text-gray-300 uppercase tracking-[0.2em]">
               © 2026 National Level Hackathon — All rights reserved.
             </p>
           </div>

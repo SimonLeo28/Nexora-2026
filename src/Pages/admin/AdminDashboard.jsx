@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { authFetch } from '../../lib/api.js';
 
 // ─── Stat Card ────────────────────────────────────────────────────────────────
@@ -59,6 +59,7 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [abstracts, setAbstracts] = useState([]);
 
   const adminUser = localStorage.getItem('nexora_admin_user') ?? 'Admin';
 
@@ -72,14 +73,16 @@ export default function AdminDashboard() {
     setLoading(true);
     setError('');
     try {
-      const [statsData, teamsData, paymentsData] = await Promise.all([
+      const [statsData, teamsData, paymentsData, abstractsData] = await Promise.all([
         authFetch('/api/admin/stats'),
         authFetch('/api/admin/teams'),
         authFetch('/api/admin/payments'),
+        authFetch('/api/abstracts'),
       ]);
       setStats(statsData.data);
       setTeams(teamsData.data);
       setPayments(paymentsData.data);
+      setAbstracts(abstractsData.data);
     } catch (err) {
       if (err.message?.includes('401') || err.message?.includes('Unauthorized') || err.message?.toLowerCase().includes('invalid') || err.message?.toLowerCase().includes('expired')) {
         logout();
@@ -102,7 +105,7 @@ export default function AdminDashboard() {
 
   const formatAmount = (paise) => {
     if (!paise) return '₹0';
-    return `₹${(paise / 100).toLocaleString('en-IN')}`;
+    return `₹${(paise / 1).toLocaleString('en-IN')}`;
   };
 
   const formatDate = (dateStr) => {
@@ -111,6 +114,7 @@ export default function AdminDashboard() {
       day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit',
     });
   };
+
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -196,15 +200,18 @@ export default function AdminDashboard() {
 
         {/* ── Tabs ── */}
         <div className="flex gap-1 mb-6 bg-white/5 border border-white/10 rounded-xl p-1 w-fit">
-          {[{ id: 'teams', label: 'Teams', count: teams.length }, { id: 'payments', label: 'Payments', count: payments.length }].map((tab) => (
+          {[
+            { id: 'teams', label: 'Teams', count: teams.length },
+            { id: 'payments', label: 'Payments', count: payments.length },
+            { id: 'abstracts', label: 'Abstracts', count: abstracts.length },
+          ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
-                activeTab === tab.id
-                  ? 'bg-orange-500 text-black shadow-lg shadow-orange-500/20'
-                  : 'text-gray-400 hover:text-white'
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 ${activeTab === tab.id
+                ? 'bg-orange-500 text-black shadow-lg shadow-orange-500/20'
+                : 'text-gray-400 hover:text-white'
+                }`}
             >
               {tab.label}
               <span className={`text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.id ? 'bg-black/20 text-black' : 'bg-white/10 text-gray-500'}`}>
@@ -235,46 +242,46 @@ export default function AdminDashboard() {
                 <tbody>
                   {loading
                     ? [...Array(5)].map((_, i) => (
-                        <tr key={i} className="border-b border-white/5">
-                          {[...Array(8)].map((_, j) => (
-                            <td key={j} className="px-4 py-3">
-                              <div className="h-4 bg-white/5 rounded animate-pulse w-24" />
-                            </td>
-                          ))}
-                        </tr>
-                      ))
+                      <tr key={i} className="border-b border-white/5">
+                        {[...Array(8)].map((_, j) => (
+                          <td key={j} className="px-4 py-3">
+                            <div className="h-4 bg-white/5 rounded animate-pulse w-24" />
+                          </td>
+                        ))}
+                      </tr>
+                    ))
                     : teams.length === 0
-                    ? (
-                      <tr>
-                        <td colSpan={8} className="px-4 py-16 text-center text-gray-600">
-                          No teams registered yet.
-                        </td>
-                      </tr>
-                    )
-                    : teams.map((team, i) => (
-                      <tr key={team.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                        <td className="px-4 py-3 text-gray-600 text-xs">{team.id}</td>
-                        <td className="px-4 py-3">
-                          <div className="font-medium text-white">{team.teamName}</div>
-                          <div className="text-gray-600 text-xs">{team.theme}</div>
-                        </td>
-                        <td className="px-4 py-3 text-gray-400 max-w-[150px] truncate">{team.collegeName}</td>
-                        <td className="px-4 py-3 text-gray-300 whitespace-nowrap">{team.leaderName}</td>
-                        <td className="px-4 py-3">
-                          <div className="text-gray-400 text-xs">{team.leaderEmail}</div>
-                          <div className="text-gray-500 text-xs">{team.leaderPhone}</div>
-                        </td>
-                        <td className="px-4 py-3 text-gray-500 text-xs whitespace-nowrap">
-                          {team.department}{team.year ? ` · ${team.year}` : ''}
-                        </td>
-                        <td className="px-4 py-3">
-                          <Badge status={team.paymentStatus} />
-                        </td>
-                        <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">
-                          {formatDate(team.createdAt)}
-                        </td>
-                      </tr>
-                    ))}
+                      ? (
+                        <tr>
+                          <td colSpan={8} className="px-4 py-16 text-center text-gray-600">
+                            No teams registered yet.
+                          </td>
+                        </tr>
+                      )
+                      : teams.map((team, i) => (
+                        <tr key={team.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                          <td className="px-4 py-3 text-gray-600 text-xs">{team.id}</td>
+                          <td className="px-4 py-3">
+                            <div className="font-medium text-white">{team.teamName}</div>
+                            <div className="text-gray-600 text-xs">{team.theme}</div>
+                          </td>
+                          <td className="px-4 py-3 text-gray-400 max-w-[150px] truncate">{team.collegeName}</td>
+                          <td className="px-4 py-3 text-gray-300 whitespace-nowrap">{team.leaderName}</td>
+                          <td className="px-4 py-3">
+                            <div className="text-gray-400 text-xs">{team.leaderEmail}</div>
+                            <div className="text-gray-500 text-xs">{team.leaderPhone}</div>
+                          </td>
+                          <td className="px-4 py-3 text-gray-500 text-xs whitespace-nowrap">
+                            {team.department}{team.year ? ` · ${team.year}` : ''}
+                          </td>
+                          <td className="px-4 py-3">
+                            <Badge status={team.paymentStatus} />
+                          </td>
+                          <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">
+                            {formatDate(team.createdAt)}
+                          </td>
+                        </tr>
+                      ))}
                 </tbody>
               </table>
             </div>
@@ -302,36 +309,93 @@ export default function AdminDashboard() {
                 <tbody>
                   {loading
                     ? [...Array(5)].map((_, i) => (
-                        <tr key={i} className="border-b border-white/5">
-                          {[...Array(8)].map((_, j) => (
-                            <td key={j} className="px-4 py-3">
-                              <div className="h-4 bg-white/5 rounded animate-pulse w-24" />
-                            </td>
-                          ))}
-                        </tr>
-                      ))
+                      <tr key={i} className="border-b border-white/5">
+                        {[...Array(8)].map((_, j) => (
+                          <td key={j} className="px-4 py-3">
+                            <div className="h-4 bg-white/5 rounded animate-pulse w-24" />
+                          </td>
+                        ))}
+                      </tr>
+                    ))
                     : payments.length === 0
-                    ? (
-                      <tr>
-                        <td colSpan={8} className="px-4 py-16 text-center text-gray-600">
-                          No payment records yet.
-                        </td>
-                      </tr>
-                    )
-                    : payments.map((p) => (
-                      <tr key={p.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                        <td className="px-4 py-3 text-gray-600 text-xs">{p.id}</td>
-                        <td className="px-4 py-3 text-gray-300 whitespace-nowrap">{p.teamName ?? `Team #${p.teamId}`}</td>
-                        <td className="px-4 py-3 text-gray-500 font-mono text-xs">{p.transactionId ?? '—'}</td>
-                        <td className="px-4 py-3 text-white font-semibold">{formatAmount(p.amount)}</td>
-                        <td className="px-4 py-3 text-gray-500 text-xs">{p.paymentMethod ?? '—'}</td>
-                        <td className="px-4 py-3">
-                          <Badge status={p.status} />
-                        </td>
-                        <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">{formatDate(p.paidAt)}</td>
-                        <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">{formatDate(p.createdAt)}</td>
-                      </tr>
+                      ? (
+                        <tr>
+                          <td colSpan={8} className="px-4 py-16 text-center text-gray-600">
+                            No payment records yet.
+                          </td>
+                        </tr>
+                      )
+                      : payments.map((p) => (
+                        <tr key={p.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                          <td className="px-4 py-3 text-gray-600 text-xs">{p.id}</td>
+                          <td className="px-4 py-3 text-gray-300 whitespace-nowrap">{p.teamName ?? `Team #${p.teamId}`}</td>
+                          <td className="px-4 py-3 text-gray-500 font-mono text-xs">{p.transactionId ?? '—'}</td>
+                          <td className="px-4 py-3 text-white font-semibold">{formatAmount(p.amount)}</td>
+                          <td className="px-4 py-3 text-gray-500 text-xs">{p.paymentMethod ?? '—'}</td>
+                          <td className="px-4 py-3">
+                            <Badge status={p.status} />
+                          </td>
+                          <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">{formatDate(p.paidAt)}</td>
+                          <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">{formatDate(p.createdAt)}</td>
+                        </tr>
+                      ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+        )}
+
+        {/* ── Abstract Table ── */}
+        {activeTab === 'abstracts' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="bg-white/[0.02] border border-white/8 rounded-2xl overflow-hidden"
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/8 bg-white/[0.03]">
+                    {['#', 'Team ID', 'Title', 'Description', 'Status', 'Submitted At'].map((h) => (
+                      <th key={h} className="text-left px-4 py-3 text-gray-500 text-xs uppercase tracking-wider font-medium whitespace-nowrap">
+                        {h}
+                      </th>
                     ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {loading
+                    ? [...Array(5)].map((_, i) => (
+                      <tr key={i} className="border-b border-white/5">
+                        {[...Array(6)].map((_, j) => (
+                          <td key={j} className="px-4 py-3">
+                            <div className="h-4 bg-white/5 rounded animate-pulse w-24" />
+                          </td>
+                        ))}
+                      </tr>
+                    ))
+                    : abstracts.length === 0
+                      ? (
+                        <tr>
+                          <td colSpan={6} className="px-4 py-16 text-center text-gray-600">
+                            No abstracts submitted yet.
+                          </td>
+                        </tr>
+                      )
+                      : abstracts.map((a) => (
+                        <tr key={a.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                          <td className="px-4 py-3 text-gray-600 text-xs">{a.id}</td>
+                          <td className="px-4 py-3 text-gray-400">{a.teamId}</td>
+                          <td className="px-4 py-3 text-white font-medium">{a.title}</td>
+                          <td className="px-4 py-3 text-gray-500 max-w-[250px] truncate">{a.description}</td>
+                          <td className="px-4 py-3">
+                            <Badge status={a.status} />
+                          </td>
+                          <td className="px-4 py-3 text-gray-600 text-xs">
+                            {formatDate(a.createdAt)}
+                          </td>
+                        </tr>
+                      ))}
                 </tbody>
               </table>
             </div>

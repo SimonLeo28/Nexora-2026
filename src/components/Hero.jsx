@@ -259,7 +259,7 @@ export default function Hero({ children }) {
     >
       <NeonNodes>
         {/* Background Layers */}
-        <div className="absolute inset-0 z-[1] w-full h-full opacity-40 pointer-events-none mix-blend-screen">
+        <div className="absolute inset-0 z-[-1] w-full h-full opacity-40 pointer-events-none mix-blend-screen">
           <BackgroundPaths />
         </div>
         <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-transparent to-black pointer-events-none" />
@@ -294,7 +294,7 @@ export default function Hero({ children }) {
                 Amruta Institute of Engineering and Management Sciences
               </h2>
               <p className="text-[10px] sm:text-xs md:text-sm font-medium tracking-[0.2em] text-gray-300 uppercase">
-                Bidadi, Bengaluru - 562109
+                Bidadi, Bengaluru - 562 109
               </p>
               <p className="text-[9px] sm:text-[11px] md:text-xs font-light tracking-widest text-white/80">
                 Recognized & Approved by Govt. of Karnataka, AICTE & UGC, New Delhi, Accredited by NAAC with <span className="text-orange-400 font-bold">B++</span>
@@ -340,7 +340,7 @@ export default function Hero({ children }) {
             </motion.div>
 
             {/* DATE ADDITION */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}

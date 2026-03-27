@@ -1,13 +1,14 @@
-import type { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcryptjs';
+import { count, eq, sql } from 'drizzle-orm';
+import type { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { eq, count, sql } from 'drizzle-orm';
-import { db } from '../db/index.js';
-import { teams, teamLeaders, teamMembers, payments } from '../db/schema.js';
 import { env } from '../config/env.js';
+import { db } from '../db/index.js';
+import { abstracts, payments, teamLeaders, teamMembers, teams } from '../db/schema.js';
 import type { AuthRequest } from '../middleware/auth.js';
 
-// admin logni
+
+// admin login
 
 export async function adminLogin(req: Request, res: Response, next: NextFunction): Promise<void> {
   try {
@@ -118,7 +119,7 @@ export async function getAllTeams(_req: AuthRequest, res: Response, next: NextFu
   }
 }
 
-// Get All Payments 
+// Get All Payments
 
 export async function getAllPayments(_req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
   try {
@@ -190,5 +191,29 @@ export async function updatePaymentStatus(req: AuthRequest, res: Response, next:
     res.json({ success: true, message: `Payment status updated to "${status}".` });
   } catch (err) {
     next(err);
+  }
+}
+
+// Get All Abstracts (Admin action)
+export async function getAllAbstracts(_req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const data = await db
+      .select({
+        id: abstracts.id,
+        teamId: abstracts.teamId,
+        title: abstracts.title,
+        description: abstracts.description,
+        status: abstracts.status,
+        createdAt: abstracts.createdAt,
+
+        // 🔥 ADD TEAM NAME
+        teamName: teams.teamName,
+      })
+      .from(abstracts)
+      .leftJoin(teams, eq(abstracts.teamId, teams.id));
+
+    res.json({ data });
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch abstracts' });
   }
 }

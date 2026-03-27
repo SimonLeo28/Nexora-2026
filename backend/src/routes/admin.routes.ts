@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import {
   adminLogin,
-  getStats,
-  getAllTeams,
   getAllPayments,
+  getAllTeams,
+  getStats,
   updatePaymentStatus,
 } from '../controllers/admin.controller.js';
 import { requireAdmin } from '../middleware/auth.js';

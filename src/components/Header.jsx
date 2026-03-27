@@ -196,7 +196,7 @@ export default function Header() {
           {/* On home page: show Register only after scrolling. On other pages: always show it. */}
           {(location.pathname !== "/" || scrolled) && (
           <motion.a
-            href="https://forms.gle/DamccNwnjHAnsFuq5"
+            href="https://forms.gle/WHKsA2tNqgnev9an7"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-orange-500 text-black px-6 py-2 rounded-lg font-semibold"

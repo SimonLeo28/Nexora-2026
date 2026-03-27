@@ -192,15 +192,18 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Rules from "./Pages/Rules";
 import ThemesPage from "./Pages/ThemesPage";
-import AdminLogin from "./Pages/admin/AdminLogin";
 import AdminDashboard from "./Pages/admin/AdminDashboard";
+import AdminLogin from "./Pages/admin/AdminLogin";
+import RegistrationComingSoon from "./pages/register/RegistrationComingSoon";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 // import { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 import TimeLine from "./components/TimeLine";
 import { ToastProvider } from "./components/ui/toast";
 
+const MotionLink = motion(Link);
 
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -216,14 +219,17 @@ const Home = () => {
     <>
       <Hero>
         {!scrolled && (
-          <motion.a
-            href="https://forms.gle/DamccNwnjHAnsFuq5"
-            target="_blank"
-            rel="noopener noreferrer"
+          <MotionLink //after 6th april, change this to registrationcommingsoon to motion.a tag and add href to google form
+            // href="https://forms.gle/WHKsA2tNqgnev9an7"
+            // target="_blank"
+            // rel="noopener noreferrer"
+            to="/registrationcommingsoon"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="bg-orange-500 text-black px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-all duration-300 cursor-pointer"
           >
             Register Now
-          </motion.a>
+          </MotionLink>
         )}
       </Hero>
       <TimeLine />
@@ -267,6 +273,7 @@ export default function App() {
               {/* Admin — hidden routes, not in navbar */}
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route path="/registrationcommingsoon" element={<RegistrationComingSoon />} />
             </Routes>
           </main>
 

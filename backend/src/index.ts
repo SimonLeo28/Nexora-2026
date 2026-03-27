@@ -1,10 +1,11 @@
-import './config/env.js'; // MUST be first — validates all env vars on startup
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
+import './config/env.js'; // MUST be first — validates all env vars on startup
 import { env } from './config/env.js';
 import { errorHandler } from './middleware/errorHandler.js';
-import registrationRoutes from './routes/registration.routes.js';
+import abstractRoutes from './routes/abstract.routes.js';
 import adminRoutes from './routes/admin.routes.js';
+import registrationRoutes from './routes/registration.routes.js';
 
 const app = express();
 
@@ -14,13 +15,14 @@ app.use(
     origin: [env.FRONTEND_URL, 'http://localhost:5173'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // this is for allowig cookies per request 
+    credentials: true, // this is for allowig cookies per request
   })
 );
 
 // ─── Body Parsing ─────────────────────────────────────────────────────────────
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true }));
+
 
 // ─── Request Logging (dev only) ───────────────────────────────────────────────
 if (env.NODE_ENV === 'development') {
@@ -43,6 +45,7 @@ app.get('/api/health', (_req, res) => {
 // ─── Routes ───────────────────────────────────────────────────────────────────
 app.use('/api/register', registrationRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/abstracts', abstractRoutes);
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────────
 app.use((_req, res) => {

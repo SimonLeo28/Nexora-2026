@@ -1,11 +1,11 @@
 import {
+  integer,
+  pgEnum,
   pgTable,
   serial,
   text,
   timestamp,
-  integer,
-  pgEnum,
-  boolean,
+  varchar
 } from 'drizzle-orm/pg-core';
 
 // ─── Enums ────────────────────────────────────────────────────────────────────
@@ -31,6 +31,9 @@ export const teams = pgTable('teams', {
   id: serial('id').primaryKey(),
   teamName: text('team_name').notNull(),
   collegeName: text('college_name').notNull(),
+  leaderName: text('leader').notNull(),
+  contact: varchar('contact', { length: 10}).notNull().unique(),
+  deptYear: varchar('dept_year', { length: 10 }).notNull(),
   theme: text('theme').default('not_selected'),
   status: teamStatusEnum('status').default('registered').notNull(),
   paymentStatus: paymentStatusEnum('payment_status').default('pending').notNull(),
@@ -81,6 +84,22 @@ export const payments = pgTable('payments', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
 
+export const abstracts = pgTable('abstracts', {
+  id: serial('id').primaryKey(),
+  teamId: integer('team_id')
+    .notNull()
+    .references(() => teams.id, { onDelete: 'cascade' }),
+
+  title: text('title').notNull(),
+  description: text('description').notNull(),
+
+  fileUrl: text('file_url'), // optional (PDF link)
+
+  status: text('status').default('submitted'), // submitted | approved | rejected
+
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
 // ─── Admin Sessions (optional audit trail) ────────────────────────────────────
 
 export const adminLogs = pgTable('admin_logs', {
@@ -104,3 +123,6 @@ export type NewTeamMember = typeof teamMembers.$inferInsert;
 
 export type Payment = typeof payments.$inferSelect;
 export type NewPayment = typeof payments.$inferInsert;
+
+export type Abstract = typeof abstracts.$inferSelect;
+export type NewAbstract = typeof abstracts.$inferInsert;

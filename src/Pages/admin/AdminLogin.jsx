@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { apiFetch } from '../../lib/api.js';
 
 export default function AdminLogin() {
@@ -18,7 +18,7 @@ export default function AdminLogin() {
     try {
       const data = await apiFetch('/api/admin/login', {
         method: 'POST',
-        body: JSON.stringify({ username, password }),
+        body: { username, password },
       });
 
       localStorage.setItem('nexora_admin_token', data.token);
