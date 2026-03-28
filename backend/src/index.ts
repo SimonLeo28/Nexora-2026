@@ -10,14 +10,15 @@ import registrationRoutes from './routes/registration.routes.js';
 const app = express();
 
 // CORS
-app.use(
-  cors({
-    origin: [env.FRONTEND_URL, 'http://localhost:5173'],
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // this is for allowig cookies per request
-  })
-);
+const corsOptions = {
+  origin: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
+  credentials: true, // this is for allowig cookies per request
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));    // option added so that it will instantly responf to the preflight 
 
 // ─── Body Parsing ─────────────────────────────────────────────────────────────
 app.use(express.json({ limit: '10kb' }));
