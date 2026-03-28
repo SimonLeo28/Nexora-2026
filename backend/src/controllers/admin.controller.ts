@@ -1,7 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { count, eq, sql } from 'drizzle-orm';
 import type { NextFunction, Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
 import { env } from '../config/env.js';
 import { db } from '../db/index.js';
 import { abstracts, payments, teamLeaders, teamMembers, teams } from '../db/schema.js';
@@ -24,12 +23,11 @@ export async function adminLogin(req: Request, res: Response, next: NextFunction
       return;
     }
 
-    // Support both plaintext and hashed passwords for flexibility, but prioritized bcrypt
+    // Support both plaintext and hashed passwords for flexibility
     let passwordValid = false;
     if (env.ADMIN_PASSWORD_HASH.startsWith('$2')) {
       passwordValid = await bcrypt.compare(password, env.ADMIN_PASSWORD_HASH);
     } else {
-      // Fallback for plaintext configuration (common in early setup)
       passwordValid = (password === env.ADMIN_PASSWORD_HASH || password === 'adminpassis123');
     }
 
@@ -38,16 +36,11 @@ export async function adminLogin(req: Request, res: Response, next: NextFunction
       return;
     }
 
-    const token = jwt.sign(
-      { username, role: 'admin' },
-      env.JWT_SECRET,
-      { expiresIn: env.JWT_EXPIRES_IN as any }
-    );
-
+    // Instead of JWT, we return the password itself as the session "token"
+    // The middleware (requireAdmin) will now verify this directly.
     res.status(200).json({
       success: true,
-      token,
-      expiresIn: env.JWT_EXPIRES_IN,
+      token: password, // Returning the password as the token
       user: {
         username,
         role: 'admin'
