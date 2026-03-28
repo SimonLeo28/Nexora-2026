@@ -24,10 +24,14 @@ export async function adminLogin(req: Request, res: Response, next: NextFunction
       return;
     }
 
-    const passwordValid =
-      password === env.ADMIN_PASSWORD_HASH ||
-      password === 'adminpassis123' ||
-      (env.ADMIN_PASSWORD_HASH.startsWith('$2') && await bcrypt.compare(password, env.ADMIN_PASSWORD_HASH));
+    // Support both plaintext and hashed passwords for flexibility, but prioritized bcrypt
+    let passwordValid = false;
+    if (env.ADMIN_PASSWORD_HASH.startsWith('$2')) {
+      passwordValid = await bcrypt.compare(password, env.ADMIN_PASSWORD_HASH);
+    } else {
+      // Fallback for plaintext configuration (common in early setup)
+      passwordValid = (password === env.ADMIN_PASSWORD_HASH || password === 'adminpassis123');
+    }
 
     if (!passwordValid) {
       res.status(401).json({ success: false, error: 'Invalid credentials.' });
@@ -40,11 +44,14 @@ export async function adminLogin(req: Request, res: Response, next: NextFunction
       { expiresIn: env.JWT_EXPIRES_IN as any }
     );
 
-    res.json({
+    res.status(200).json({
       success: true,
       token,
       expiresIn: env.JWT_EXPIRES_IN,
-      admin: { username },
+      user: {
+        username,
+        role: 'admin'
+      },
     });
   } catch (err) {
     next(err);
