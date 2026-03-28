@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import NeonNodes from '../../Components/NeonNodes.jsx';
+import NeonNodes from '../../components/NeonNodes.jsx';
 import { apiFetch } from '../../lib/api.js';
 
 export default function AdminLogin() {
