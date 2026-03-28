@@ -3,6 +3,7 @@ import { Send } from "lucide-react";
 import { useState } from "react";
 import Footer from "../../components/Footer";
 import GridPattern from '../../components/GridPattern';
+import Header from "../../components/Header";
 import { ShootingStars } from '../../components/ShootingStars';
 import { StarsBackground } from '../../components/StarsBackground';
 import { useToast } from "../../components/ui/toast";
@@ -75,6 +76,7 @@ export default function NotifyMe() {
 
   return (
     <>
+      <Header />
       <section id="notifyme" className="min-h-screen flex items-center justify-center text-white px-4">
         {/* Background */}
         <div className="absolute inset-0 z-0">

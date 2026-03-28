@@ -32,10 +32,15 @@ export async function apiFetch(endpoint, options = {}) {
   });
 
   // const data = await res.json();
-  let data;
+  // 🔥 Read response safely as text first
+  const text = await res.text();
+
+  let data = {};
   try {
-    data = await res.json();
+    // data = await res.json();
+    data = text ? JSON.parse(text) : {};
   } catch (err) {
+    console.error('❌ Raw response:', text);
     throw new Error(`Invalid JSON response from server: ${err.message}`);
   }
 

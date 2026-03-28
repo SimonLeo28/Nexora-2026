@@ -204,12 +204,14 @@
 import { Award, Globe, Lightbulb, Users } from "lucide-react";
 import Footer from "../components/Footer";
 import GridPattern from '../components/GridPattern';
+import Header from "../components/Header";
 import { ShootingStars } from '../components/ShootingStars';
 import { StarsBackground } from '../components/StarsBackground';
 
 export default function About() {
     return (
       <>
+        <Header />
         <div className="w-full overflow-hidden font-normal">
 
             {/* Background */}

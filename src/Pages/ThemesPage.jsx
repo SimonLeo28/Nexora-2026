@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 import { ShootingStars } from "../components/ShootingStars";
 import { StarsBackground } from "../components/StarsBackground";
 
@@ -160,6 +161,7 @@ export default function Themes() {
 
   return (
     <>
+      <Header />
       <section ref={sectionRef} className="relative py-26 bg-neutral-950 overflow-hidden">
         <StarsBackground />
         <ShootingStars />

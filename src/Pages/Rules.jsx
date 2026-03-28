@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Footer from '../components/Footer';
 import GridPattern from '../components/GridPattern';
+import Header from '../components/Header';
 import ShootingStars from '../components/ShootingStars';
 import StarsBackground from '../components/StarsBackground';
 
@@ -48,6 +49,7 @@ export default function Rules() {
 
     return (
         <>
+            <Header />
             {/* <section
                 id="rules"
                 className="relative py-20 md:py-32 container mx-auto px-6 overflow-hidden"
