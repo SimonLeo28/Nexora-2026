@@ -39,7 +39,7 @@ export default function NotifyMe() {
     //     body: JSON.stringify(formData),
     //   });
 
-    const BASE_URL = "http://localhost:5000/backend/waitlist";
+    const BASE_URL = "https://backend-nexora.onrender.com/backend/waitlist";
 
     try {
       const res = await fetch(BASE_URL, {
