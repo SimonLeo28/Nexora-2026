@@ -68,7 +68,7 @@ export default function RegistrationComingSoon() {
         {/* Form / Success Message */}
         {submitted ? (
           <div className="text-green-400 font-medium">
-            ✅ You’ll be notified when registration opens!
+            You’ll be notified when registration opens!
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
