@@ -259,7 +259,7 @@ export default function Hero({ children }) {
     >
       <NeonNodes>
         {/* Background Layers */}
-        <div className="absolute inset-0 z-[-1] w-full h-full opacity-40 pointer-events-none mix-blend-screen">
+        <div className="absolute inset-0 z-[1] w-full h-full opacity-40 pointer-events-none mix-blend-screen">
           <BackgroundPaths />
         </div>
         <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-transparent to-black pointer-events-none" />
