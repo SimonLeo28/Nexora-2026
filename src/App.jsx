@@ -194,7 +194,7 @@ import Rules from "./Pages/Rules";
 import ThemesPage from "./Pages/ThemesPage";
 import AdminDashboard from "./Pages/admin/AdminDashboard";
 import AdminLogin from "./Pages/admin/AdminLogin";
-import NotifyMe from "./pages/register/NotifyMe";
+import NotifyMe from "./Pages/register/NotifyMe";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
