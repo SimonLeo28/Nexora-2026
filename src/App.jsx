@@ -194,7 +194,7 @@ import Rules from "./Pages/Rules";
 import ThemesPage from "./Pages/ThemesPage";
 import AdminDashboard from "./Pages/admin/AdminDashboard";
 import AdminLogin from "./Pages/admin/AdminLogin";
-import RegistrationComingSoon from "./pages/register/RegistrationComingSoon";
+import NotifyMe from "./pages/register/NotifyMe";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -223,7 +223,7 @@ const Home = () => {
             // href="https://forms.gle/WHKsA2tNqgnev9an7"
             // target="_blank"
             // rel="noopener noreferrer"
-            to="/registrationcommingsoon"
+            to="/notifyme"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-orange-500 text-black px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-all duration-300 cursor-pointer"
@@ -273,7 +273,7 @@ export default function App() {
               {/* Admin — hidden routes, not in navbar */}
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
-              <Route path="/registrationcommingsoon" element={<RegistrationComingSoon />} />
+              <Route path="/notifyme" element={<NotifyMe />} />
             </Routes>
           </main>
 

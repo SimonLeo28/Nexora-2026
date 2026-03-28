@@ -5,7 +5,9 @@ import GridPattern from '../../components/GridPattern';
 import { ShootingStars } from '../../components/ShootingStars';
 import { StarsBackground } from '../../components/StarsBackground';
 
-export default function RegistrationComingSoon() {
+const MotionDiv = motion.create('div');
+
+export default function NotifyMe() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,7 +33,7 @@ export default function RegistrationComingSoon() {
 
   return (
   <>
-    <section id="registrationcommingsoon" className="min-h-screen flex items-center justify-center text-white px-4">
+    <section id="notifyme" className="min-h-screen flex items-center justify-center text-white px-4">
       {/* Background */}
         <div className="absolute inset-0 z-0">
             <StarsBackground />
