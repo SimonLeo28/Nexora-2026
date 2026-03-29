@@ -45,7 +45,7 @@ export default function NeonNodes({ children }) {
             // Draw Node
             ctx.beginPath();
             ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(255, 225, 225, 0.96)"; 
+            ctx.fillStyle = "rgba(255, 225, 225, 0.96)";
             ctx.shadowBlur = 10;
             ctx.shadowColor = "#ff6f00ff";
          

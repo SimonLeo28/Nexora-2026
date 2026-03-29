@@ -9,6 +9,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
  * Regular fetch with JSON content-type
  */
 export async function apiFetch(endpoint, options = {}) {
+
   const token = localStorage.getItem('nexora_admin_token');
 
   const url = `${API_URL}${endpoint}`;
@@ -24,11 +25,26 @@ export async function apiFetch(endpoint, options = {}) {
     headers.Authorization = `Bearer ${token}`;
   }
 
+  // console.log('📡 API Request:', {
+  //   url,
+  //   method: options.method || 'GET',
+  //   body: options.body,
+  // });
+  console.log(`📡 ${options.method || 'GET'} → ${url}`, options.body || '');
+
+
+  const method = options.method || 'GET';
+  const isGet = method === 'GET';
+
   const res = await fetch(url, {
     method: options.method || 'GET',
     headers,
-    credentials: 'true', // Best practice for production CORS
-    body: options.body ? JSON.stringify(options.body) : undefined,
+    credentials: 'include', // Best practice for production CORS
+    // body: options.body ? JSON.stringify(options.body) : undefined,
+    body:
+      !isGet && options.body && typeof options.body === 'object'
+        ? JSON.stringify(options.body)
+        : options.body,
   });
 
   // const data = await res.json();
@@ -45,7 +61,7 @@ export async function apiFetch(endpoint, options = {}) {
   }
 
   if (!res.ok) {
-    throw new Error(data.error || `Server error: ${res.status}`);
+    throw new Error(data.error || data.message || `Server error: ${res.status}`);
   }
 
   return data;
@@ -60,8 +76,16 @@ export async function authFetch(endpoint, options = {}) {
     ...options,
     headers: {
       ...options.headers,
-      Authorization: token ? `Bearer ${token}` : '',
+      // Authorization: token ? `Bearer ${token}` : '',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
+  });
+}
+
+export async function registerTeam(data) {
+  return apiFetch('/api/register', {
+    method: 'POST',
+    body: data,
   });
 }
 

@@ -202,10 +202,11 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { apiFetch } from '../../lib/api.js';
+import { registerTeam } from '../../lib/api.js';
 
 export default function RegistrationForm() {
     const [teamName, setTeamName] = useState('');
+    const [theme, setTheme] = useState('');
     const [leaderName, setLeaderName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -238,14 +239,16 @@ export default function RegistrationForm() {
             phone,
             collegeName,
             departmentYear,
+            theme,
             members
         };
 
         try {
-            const data = await apiFetch('/api/register', {
-                method: 'POST',
-                body: JSON.stringify(formData),
-            });
+            // const data = await apiFetch('/api/register', {
+            //     method: 'POST',
+            //     body: formData,
+            // });
+            const data = await registerTeam(formData);
             console.log(data)
             
             setLoading(false);
@@ -253,6 +256,7 @@ export default function RegistrationForm() {
             
             // Reset form
             setTeamName('');
+            setTheme('');
             setLeaderName('');
             setEmail('');
             setPhone('');
@@ -308,6 +312,11 @@ export default function RegistrationForm() {
                 <div>
                     <label className="block text-soft-blue-gray mb-2">Department / Year</label>
                     <input required type="text" value={departmentYear} onChange={(e) => setDepartmentYear(e.target.value)} className="w-full bg-transparent border-2 border-neon-blue/60 rounded-lg p-4 input-glow" />
+                </div>
+
+                <div>
+                    <label className="block text-soft-blue-gray mb-2">Theme</label>
+                    <input required type="text" value={theme} onChange={(e) => setTheme(e.target.value)} className="w-full bg-transparent border-2 border-neon-blue/60 rounded-lg p-4 input-glow" />
                 </div>
 
                 <div className="space-y-4">

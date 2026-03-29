@@ -26,6 +26,8 @@ import { ToastProvider } from "./components/ui/toast";
 import AdminLayout from "./layouts/AdminLayout";
 import UserLayout from "./layouts/UserLayout";
 
+import RegistrationForm from "./Pages/register/RegistrationForm";
+
 const MotionLink = motion.create(Link);
 
 const Home = () => {
@@ -107,6 +109,7 @@ export default function App() {
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
               </Route>
               <Route path="/notifyme" element={<NotifyMe />} />
+              <Route path="/register" element={<RegistrationForm />} />
             </Routes>
           </main>
 

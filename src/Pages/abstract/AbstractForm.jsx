@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { apiFetch } from '../lib/api';
+import { apiFetch } from '../../lib/api';
 
 export default function AbstractForm() {
   const [form, setForm] = useState({
@@ -13,7 +13,7 @@ export default function AbstractForm() {
 
     await apiFetch('/api/abstracts', {
       method: 'POST',
-      body: JSON.stringify(form),
+      body: form,
     });
 
     alert('Abstract submitted!');

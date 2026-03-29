@@ -232,7 +232,7 @@ export default function AdminDashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-white/8 bg-white/[0.03]">
-                    {['#', 'Team', 'College', 'Leader', 'Contact', 'Dept/Year', 'Payment', 'Registered'].map((h) => (
+                    {['#', 'Team', 'College', 'Leader', 'Contact', 'Dept/Year', 'Payment', 'Register At'].map((h) => (
                       <th key={h} className="text-left px-4 py-3 text-gray-500 text-xs uppercase tracking-wider font-medium whitespace-nowrap">
                         {h}
                       </th>
@@ -258,9 +258,10 @@ export default function AdminDashboard() {
                           </td>
                         </tr>
                       )
-                      : teams.map((team, i) => (
+                      : teams.map((team, i) => ( //add i as (team, i)
                         <tr key={team.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                          <td className="px-4 py-3 text-gray-600 text-xs">{team.id}</td>
+                          <td className="px-4 py-3 text-gray-600 text-xs">{i + 1}</td>
+                          {/* <td className="px-4 py-3 text-gray-600 text-xs">{team.id}</td> */}
                           <td className="px-4 py-3">
                             <div className="font-medium text-white">{team.teamName}</div>
                             <div className="text-gray-600 text-xs">{team.theme}</div>
@@ -268,7 +269,7 @@ export default function AdminDashboard() {
                           <td className="px-4 py-3 text-gray-400 max-w-[150px] truncate">{team.collegeName}</td>
                           <td className="px-4 py-3 text-gray-300 whitespace-nowrap">{team.leaderName}</td>
                           <td className="px-4 py-3">
-                            <div className="text-gray-400 text-xs">{team.leaderEmail}</div>
+                            {/* <div className="text-gray-400 text-xs">{team.leaderEmail}</div> */}
                             <div className="text-gray-500 text-xs">{team.leaderPhone}</div>
                           </td>
                           <td className="px-4 py-3 text-gray-500 text-xs whitespace-nowrap">
@@ -299,7 +300,7 @@ export default function AdminDashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-white/8 bg-white/[0.03]">
-                    {['#', 'Team', 'Transaction ID', 'Amount', 'Method', 'Status', 'Paid At', 'Registered'].map((h) => (
+                    {['#', 'Team', 'Name', 'Transaction ID', 'Amount', 'Method', 'Status', 'Paid At'].map((h) => (
                       <th key={h} className="text-left px-4 py-3 text-gray-500 text-xs uppercase tracking-wider font-medium whitespace-nowrap">
                         {h}
                       </th>
@@ -325,10 +326,12 @@ export default function AdminDashboard() {
                           </td>
                         </tr>
                       )
-                      : payments.map((p) => (
-                        <tr key={p.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                      : payments.map((p, i) => (
+                        <tr key={p.id || i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                          <td className="px-4 py-3 text-gray-600 text-xs">{i + 1}</td>
                           <td className="px-4 py-3 text-gray-600 text-xs">{p.id}</td>
                           <td className="px-4 py-3 text-gray-300 whitespace-nowrap">{p.teamName ?? `Team #${p.teamId}`}</td>
+                          <td className="px-4 py-3 text-gray-300 whitespace-nowrap">{p.leaderName ?? '—'}</td>
                           <td className="px-4 py-3 text-gray-500 font-mono text-xs">{p.transactionId ?? '—'}</td>
                           <td className="px-4 py-3 text-white font-semibold">{formatAmount(p.amount)}</td>
                           <td className="px-4 py-3 text-gray-500 text-xs">{p.paymentMethod ?? '—'}</td>
@@ -336,7 +339,7 @@ export default function AdminDashboard() {
                             <Badge status={p.status} />
                           </td>
                           <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">{formatDate(p.paidAt)}</td>
-                          <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">{formatDate(p.createdAt)}</td>
+                          {/* <td className="px-4 py-3 text-gray-600 text-xs whitespace-nowrap">{formatDate(p.createdAt)}</td> */}
                         </tr>
                       ))}
                 </tbody>
@@ -356,13 +359,13 @@ export default function AdminDashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-white/8 bg-white/[0.03]">
-                    {['#', 'Team ID', 'Title', 'Description', 'Status', 'Submitted At'].map((h) => (
+                    {['#', 'Team', 'Theme', 'Title', 'Description', 'Status', 'Submitted At'].map((h) => (
                       <th key={h} className="text-left px-4 py-3 text-gray-500 text-xs uppercase tracking-wider font-medium whitespace-nowrap">
                         {h}
                       </th>
                     ))}
                   </tr>
-                </thead>
+                </thead>  
                 <tbody>
                   {loading
                     ? [...Array(5)].map((_, i) => (
@@ -385,7 +388,9 @@ export default function AdminDashboard() {
                       : abstracts.map((a) => (
                         <tr key={a.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
                           <td className="px-4 py-3 text-gray-600 text-xs">{a.id}</td>
-                          <td className="px-4 py-3 text-gray-400">{a.teamId}</td>
+                          {/* <td className="px-4 py-3 text-gray-400">{a.teamId}</td> */}
+                          <td className="px-4 py-3 text-gray-400">{a.teamName}</td>
+                          <td className="px-4 py-3 text-gray-400">{a.theme}</td>
                           <td className="px-4 py-3 text-white font-medium">{a.title}</td>
                           <td className="px-4 py-3 text-gray-500 max-w-[250px] truncate">{a.description}</td>
                           <td className="px-4 py-3">
