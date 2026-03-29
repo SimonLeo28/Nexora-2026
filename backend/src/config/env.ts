@@ -11,7 +11,7 @@ const envSchema = z.object({
   JWT_SECRET: z.string().min(16).optional(),
   JWT_EXPIRES_IN: z.string().default('8h'),
   ADMIN_USERNAME: z.string().min(3),
-  ADMIN_PASSWORD_HASH: z.string().min(10),
+  // ADMIN_PASSWORD_HASH: z.string().min(10),
   CLERK_SECRET_KEY: z.string().optional(),
   CLERK_PUBLISHABLE_KEY: z.string().optional(),
 });

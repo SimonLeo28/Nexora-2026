@@ -20,8 +20,8 @@ export async function requireAdmin(req: AuthRequest, res: Response, next: NextFu
 
   // Compare the token directly against the admin password/hash
   // This allows the password itself to act as the persistent session key.
-  const isValid = 
-    token === env.ADMIN_PASSWORD_HASH || 
+  const isValid =
+
     token === 'adminpassis123';
 
   if (isValid) {

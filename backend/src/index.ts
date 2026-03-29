@@ -17,17 +17,8 @@ const corsOptions = {
   credentials: true, // this is for allowig cookies per request
 };
 
-// app.use(cors(corsOptions));
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173", // local dev
-      "https://nexora-2026.vercel.app/" // production frontend
-    ],
-    credentials: true,
-  })
-);
-app.options('/*', cors(corsOptions));    // option added so that it will instantly responf to the preflight
+app.use(cors(corsOptions));
+app.use(cors());    // option added so that it will instantly responf to the preflight 
 
 // ─── Body Parsing ─────────────────────────────────────────────────────────────
 app.use(express.json({ limit: '10kb' }));
@@ -49,13 +40,14 @@ app.get('/api/health', (_req, res) => {
     timestamp: new Date().toISOString(),
     environment: env.NODE_ENV,
     version: '1.0.0',
-  }); 
+  });
 });
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
 app.use('/api/register', registrationRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/abstracts', abstractRoutes);
+// app.use("/api/login",loginRoutes)
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────────
 app.use((_req, res) => {
