@@ -12,7 +12,7 @@ export async function apiFetch(endpoint, options = {}) {
   const token = localStorage.getItem('nexora_admin_token');
 
   const url = `${API_URL}${endpoint}`;
-  
+
   // Prepare headers
   const headers = {
     'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ export async function apiFetch(endpoint, options = {}) {
   const res = await fetch(url, {
     method: options.method || 'GET',
     headers,
-    credentials: 'include', // Best practice for production CORS
+    credentials: 'true', // Best practice for production CORS
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
 
