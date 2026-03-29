@@ -24,14 +24,14 @@ function FloatingPaths({ position }) {
                         key={path.id}
                         d={path.d}
                         stroke="white"
-                        // shadowColor="#de4c0eff"
+                        shadowColor="#de4c0eff"
                         strokeWidth={path.width}
                         strokeOpacity={0.1 + path.id * 0.02}
                         strokeDasharray="0.5 1.5"
                         pathLength="1"
-                        style={{
-                            filter: "drop-shadow(0 0 6px #de4c0e)"
-                        }}
+                        // style={{
+                        //     filter: "drop-shadow(0 0 6px #de4c0e)"
+                        // }}
                         initial={{ strokeDashoffset: 0 }}
                         animate={{ strokeDashoffset: -2 }}
                         transition={{
