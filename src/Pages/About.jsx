@@ -210,197 +210,197 @@ import { StarsBackground } from '../components/StarsBackground';
 
 export default function About() {
     return (
-      <>
-        <Header />
-        <div className="w-full overflow-hidden font-normal">
+        <>
+            <Header />
+            <div className="w-full overflow-hidden font-normal">
 
-            {/* Background */}
-            <div className="absolute inset-0 z-0">
-                <StarsBackground />
-                <ShootingStars />
-            </div>
-
-            <GridPattern
-                width={60}
-                height={60}
-                strokeDasharray="4 2"
-                className="opacity-40 -z-10"
-            />
-
-            {/* Hero Section */}
-            <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-orange-900/80 to-transparent">
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
-                    <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+                {/* Background */}
+                <div className="absolute inset-0 z-0">
+                    <StarsBackground />
+                    <ShootingStars />
                 </div>
 
-                <div className="relative z-10 max-w-4xl mx-auto text-center">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                        <span className="text-white">
-                            About
-                        </span>
-                    </h1>
+                <GridPattern
+                    width={60}
+                    height={60}
+                    strokeDasharray="4 2"
+                    className="opacity-40 -z-10"
+                />
 
-                    <p className="text-xl text-slate-300">
-                        <span className="text-orange-400 font-semibold">National-level</span> 24-hour
-                        <span className="text-orange-400 font-semibold"> innovation challenge </span>
-                        bringing together talented students from across the country.
-                    </p>
-                </div>
-            </section>
-
-            {/* Mission Section */}
-            <section className="relative py-20 px-4">
-                <div className="max-w-6xl mx-auto">
-
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-
-                        {/* Vision */}
-                        <div>
-                            <h2 className="text-4xl font-bold mb-6 text-white">
-                                Our Vision
-                            </h2>
-
-                            <p className="text-slate-300 text-lg mb-4 leading-relaxed">
-                                To inspire the next generation of 
-                                <span className="text-orange-400 font-semibold"> innovators </span>
-                                by creating a platform where students 
-                                <span className="text-orange-400 font-semibold"> collaborate, experiment, and build </span>
-                                technology-driven solutions that solve 
-                                <span className="text-orange-400 font-semibold"> real-world challenges</span>.
-                            </p>
-                        </div>
-
-                        {/* Mission */}
-                        <div>
-                            <h2 className="text-4xl font-bold mb-6 text-white">
-                                Our Mission
-                            </h2>
-
-                            <p className="text-slate-300 text-lg mb-4 leading-relaxed">
-                                To foster 
-                                <span className="text-orange-400 font-semibold"> creativity, teamwork, and problem-solving </span>
-                                among students through a 
-                                <span className="text-orange-400 font-semibold"> national-level hackathon </span>
-                                where ideas evolve into impactful innovations within an intense 
-                                <span className="text-orange-400 font-semibold"> 24-hour challenge</span>.
-                            </p>
-                        </div>
-
-                        {/* Info Cards */}
-                        <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                            {[
-                                { 
-                                  title: "Description", 
-                                  text: "A national-level 24-hour innovation challenge bringing together talented students from across India." 
-                                },
-                                { 
-                                  title: "Eligibility", 
-                                  text: "Open nationwide\nInter-college participation\nAll academic levels allowed" 
-                                },
-                                { 
-                                  title: "Team Size", 
-                                  text: "2–4 members per team" 
-                                },
-                                { 
-                                  title: "Participation", 
-                                  text: "Students from any college in India can join" 
-                                },
-                            ].map((item) => (
-                                <div key={item.title} className="group">
-
-                                    <div className="relative h-full p-6 bg-orange-900/20 border border-orange-400/20 rounded-lg group-hover:border-orange-400/50 transition-all duration-300">
-
-                                        <h3 className="text-xl font-bold text-orange-400 mb-2">
-                                            {item.title}
-                                        </h3>
-
-                                        <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
-                                            {item.text}
-                                        </p>
-
-                                    </div>
-
-                                </div>
-                            ))}
-                        </div>
-
+                {/* Hero Section */}
+                <section className="relative min-h-[50vh] flex items-center justify-center px-4 py-20 bg-gradient-to-b from-orange-900/80 to-transparent">
+                    <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" />
+                        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
                     </div>
-                </div>
-            </section>
 
-            {/* Values Section */}
-            <section className="relative py-20 px-4 bg-gradient-to-b from-orange-900/20 via-transparent to-yellow-950/50">
-                <div className="max-w-6xl mx-auto">
+                    <div className="relative z-10 max-w-4xl mx-auto text-center">
+                        <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                            <span className="text-white">
+                                About
+                            </span>
+                        </h1>
 
-                    <h2 className="text-4xl font-bold text-center mb-16 text-orange-400">
-                        Our Core Values
-                    </h2>
+                        <p className="text-xl text-slate-300">
+                            <span className="text-orange-400 font-semibold">National-level</span> 24-hour
+                            <span className="text-orange-400 font-semibold"> innovation challenge </span>
+                            bringing together talented students from across the country.
+                        </p>
+                    </div>
+                </section>
 
-                    <div className="grid md:grid-cols-4 gap-6">
+                {/* Mission Section */}
+                <section className="relative py-20 px-4">
+                    <div className="max-w-6xl mx-auto">
 
-                        {[
-                            {
-                                Icon: Lightbulb,
-                                title: "Innovation",
-                                description:
-                                    "We celebrate creative thinking and bold ideas that push technological boundaries.",
-                            },
-                            {
-                                Icon: Users,
-                                title: "Collaboration",
-                                description:
-                                    "We believe in teamwork and diverse perspectives to build impactful solutions.",
-                            },
-                            {
-                                Icon: Globe,
-                                title: "Impact",
-                                description:
-                                    "We focus on creating technology that makes a real difference in society.",
-                            },
-                            {
-                                Icon: Award,
-                                title: "Excellence",
-                                description:
-                                    "We strive for the highest standards in innovation and execution.",
-                            },
-                        ].map((value, index) => (
+                        <div className="grid md:grid-cols-2 gap-12 items-center">
 
-                            <div key={index} className="group">
-                                <div className="relative h-full">
+                            {/* Vision */}
+                            <div>
+                                <h2 className="text-4xl font-bold mb-6 text-white">
+                                    Our Vision
+                                </h2>
 
-                                    <div className="absolute inset-0 bg-gradient-to-br from-orange-400/10 to-yellow-400/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300" />
+                                <p className="text-slate-300 text-lg mb-4 leading-relaxed">
+                                    To inspire the next generation
+                                    <span className="text-orange-400 font-semibold"> innovators </span>
+                                    by creating a platform where students
+                                    <span className="text-orange-400 font-semibold"> collaborate, experiment, and build </span>
+                                    technology-driven solutions that solve
+                                    <span className="text-orange-400 font-semibold"> real-world challenges</span>.
+                                </p>
+                            </div>
 
-                                    <div className="relative h-full p-6 bg-orange-900/20 border border-orange-400/10 rounded-lg group-hover:border-orange-400/50 transition-all duration-300 text-center">
+                            {/* Mission */}
+                            <div>
+                                <h2 className="text-4xl font-bold mb-6 text-white">
+                                    Our Mission
+                                </h2>
 
-                                        <div className="w-12 h-12 mx-auto rounded-lg bg-gradient-to-br from-orange-400/20 to-yellow-400/10 flex items-center justify-center mb-4">
+                                <p className="text-slate-300 text-lg mb-4 leading-relaxed">
+                                    To foster
+                                    <span className="text-orange-400 font-semibold"> creativity, teamwork, and problem-solving </span>
+                                    among students through a
+                                    <span className="text-orange-400 font-semibold"> national-level hackathon </span>
+                                    where ideas evolve into impactful innovations within an intense
+                                    <span className="text-orange-400 font-semibold"> 24-hour challenge</span>.
+                                </p>
+                            </div>
 
-                                            <value.Icon
-                                                className="text-orange-500 hover:text-orange-300 transition-colors duration-300"
-                                                size={24}
-                                            />
+                            {/* Info Cards */}
+                            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                                {[
+                                    {
+                                        title: "Description",
+                                        text: "A national-level 24-hour innovation challenge bringing together talented students from across India."
+                                    },
+                                    {
+                                        title: "Eligibility",
+                                        text: "Open nationwide\nInter-college participation\nAll academic levels allowed"
+                                    },
+                                    {
+                                        title: "Team Size",
+                                        text: "2–4 members per team"
+                                    },
+                                    {
+                                        title: "Participation",
+                                        text: "Students of Engineering from any college across the nation"
+                                    },
+                                ].map((item) => (
+                                    <div key={item.title} className="group">
+
+                                        <div className="relative h-full p-6 bg-orange-900/20 border border-orange-400/20 rounded-lg group-hover:border-orange-400/50 transition-all duration-300">
+
+                                            <h3 className="text-xl font-bold text-orange-400 mb-2">
+                                                {item.title}
+                                            </h3>
+
+                                            <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
+                                                {item.text}
+                                            </p>
 
                                         </div>
 
-                                        <h3 className="text-xl font-bold mb-2 text-white">
-                                            {value.title}
-                                        </h3>
-
-                                        <p className="text-slate-400 text-sm">
-                                            {value.description}
-                                        </p>
-
                                     </div>
-                                </div>
+                                ))}
                             </div>
 
-                        ))}
-
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Team Section
+                {/* Values Section */}
+                <section className="relative py-20 px-4 bg-gradient-to-b from-orange-900/20 via-transparent to-yellow-950/50">
+                    <div className="max-w-6xl mx-auto">
+
+                        <h2 className="text-4xl font-bold text-center mb-16 text-orange-400">
+                            Our Core Values
+                        </h2>
+
+                        <div className="grid md:grid-cols-4 gap-6">
+
+                            {[
+                                {
+                                    Icon: Lightbulb,
+                                    title: "Innovation",
+                                    description:
+                                        "We celebrate creative thinking and bold ideas that push technological boundaries.",
+                                },
+                                {
+                                    Icon: Users,
+                                    title: "Collaboration",
+                                    description:
+                                        "We believe in teamwork and diverse perspectives to build impactful solutions.",
+                                },
+                                {
+                                    Icon: Globe,
+                                    title: "Impact",
+                                    description:
+                                        "We focus on creating technology that makes a real difference in society.",
+                                },
+                                {
+                                    Icon: Award,
+                                    title: "Excellence",
+                                    description:
+                                        "We strive for the highest standards in innovation and execution.",
+                                },
+                            ].map((value, index) => (
+
+                                <div key={index} className="group">
+                                    <div className="relative h-full">
+
+                                        <div className="absolute inset-0 bg-gradient-to-br from-orange-400/10 to-yellow-400/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                                        <div className="relative h-full p-6 bg-orange-900/20 border border-orange-400/10 rounded-lg group-hover:border-orange-400/50 transition-all duration-300 text-center">
+
+                                            <div className="w-12 h-12 mx-auto rounded-lg bg-gradient-to-br from-orange-400/20 to-yellow-400/10 flex items-center justify-center mb-4">
+
+                                                <value.Icon
+                                                    className="text-orange-500 hover:text-orange-300 transition-colors duration-300"
+                                                    size={24}
+                                                />
+
+                                            </div>
+
+                                            <h3 className="text-xl font-bold mb-2 text-white">
+                                                {value.title}
+                                            </h3>
+
+                                            <p className="text-slate-400 text-sm">
+                                                {value.description}
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            ))}
+
+                        </div>
+                    </div>
+                </section>
+
+                {/* Team Section
             <section className="relative py-20 px-4">
                 <div className="max-w-6xl mx-auto">
 
@@ -456,9 +456,9 @@ export default function About() {
                 </div>
             </section> */}
 
-            <Footer />
+                <Footer />
 
-            <style>{`
+                <style>{`
         @keyframes blob {
           0%, 100% { transform: translate(0,0) scale(1); }
           33% { transform: translate(30px,-50px) scale(1.1); }
@@ -474,7 +474,7 @@ export default function About() {
         }
       `}</style>
 
-        </div>
-      </>
+            </div>
+        </>
     );
 }

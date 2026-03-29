@@ -377,6 +377,23 @@ export default function Footer() {
           </h2>
 
           <div className="space-y-2 text-gray-400 text-sm md:text-base">
+
+            <p className="font-medium text-gray-300">Event Coordinators</p>
+            <p>
+
+              Dr.Kumar B.I.D
+            </p>
+            {/* HOD email */}
+
+            <p>
+              <a
+                href="dr.kumarbid@aiems.edu.in"
+                className="px-6 py-2 hover:text-orange-600 transition-all duration-300 "
+              >
+                dr.kumarbid@aiems.edu.in
+              </a>
+            </p>
+
             <p className="font-medium text-gray-300">Student Coordinators</p>
             <p>
               Shivarama R &bull; Harshavardhana Reddy
@@ -400,7 +417,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-white/5">
+          <div className="mt-16 pt-8 border-t border-white/8">
             <p className="text-[10px] md:text-xs text-gray-300 uppercase tracking-[0.2em]">
               © 2026 National Level Hackathon — All rights reserved.
             </p>

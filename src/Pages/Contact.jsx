@@ -176,8 +176,10 @@ export default function Contact() {
                   className="text-slate-400 text-sm hover:text-orange-400"
                 >
                   Amruta Institute of Engineering and Management Sciences <br />
-                  Bidadi Industrial Town <br />
-                  Bengaluru - 562109
+                  Near Toyota Kirloskar Motors Road, <br />
+                  Bidadi Industrial Town, <br />
+                  Ramanagaram, <br />
+                  Bengaluru, Karnataka - 562109
                 </a>
               </div>
             </div>

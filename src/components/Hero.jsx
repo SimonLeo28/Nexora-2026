@@ -255,7 +255,7 @@ export default function Hero({ children }) {
   return (
     <section
       id="home"
-      className="relative h-screen w-full overflow-hidden bg-black text-white font-sans selection:bg-orange-500/30 pt-6"
+      className="relative h-screen w-full overflow-hidden bg-black text-white font-sans selection:bg-orange-500/30 pt-4"
     >
       <NeonNodes>
         {/* Background Layers */}
@@ -266,7 +266,7 @@ export default function Hero({ children }) {
 
         {/* Main Content Container - Forced to 100vh with flex-col */}
         <div className="relative z-10 flex flex-col items-center justify-between h-screen w-full px-4 py-6 md:py-10 text-center">
-          
+
           {/* 1. Header Area (Logos & College) */}
           <div className="flex flex-col items-center gap-4 w-full">
             <motion.div
@@ -296,64 +296,78 @@ export default function Hero({ children }) {
               <p className="text-[10px] sm:text-xs md:text-sm font-medium tracking-[0.2em] text-gray-300 uppercase">
                 Bidadi, Bengaluru - 562 109
               </p>
-              <p className="text-[9px] sm:text-[11px] md:text-xs font-light tracking-widest text-white/80">
+              <p className="text-[9px] sm:text-[11px] md:text-xs font-light tracking-widest text-white/80 pb-2">
                 Recognized & Approved by Govt. of Karnataka, AICTE & UGC, New Delhi, Accredited by NAAC with <span className="text-orange-400 font-bold">B++</span>
               </p>
             </motion.div>
           </div>
 
           {/* 2. Hero Core (NEXORA 2026) */}
-          <div className="flex flex-col items-center justify-center flex-grow py-2">
+          <div className="flex flex-col items-center justify-center flex-grow">
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase text-orange-500 mb-2"
+              className="text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase text-orange-500"
             >
               Presents
             </motion.p>
-            
+
             <motion.h1
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               className="text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] font-black tracking-tighter leading-none"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 mb-7">
                 NEXORA
               </span>
-              <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-orange-500 tracking-[0.2em] sm:mt-2">
+              {/* <span><p  className="text-xs sm:text-sm md:text-xl font-light tracking-[0.3em] text-gray-400 " >Bringing together innovators to tackle real challenges</p></span> */}
+              <p className=" text-xs mb-2 sm:text-sm md:text-[13spx] font-light tracking-[0.2em] uppercase">
+                Bringing   together
+                {/* <span className="text-orange-400 font-semibold"> </span> */}
+
+                <span className="text-orange-400 font-semibold"> innovators </span>
+                to tackle
+                <span className="text-orange-400 font-semibold">  real challenges</span>.
+              </p>
+              <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-orange-500 tracking-[0.2em]">
                 2026
               </span>
             </motion.h1>
 
-            <motion.div className="mt-4 space-y-2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mt-4 space-y-2"
+            >
               <p className="text-xs sm:text-sm md:text-xl font-light tracking-[0.3em] text-gray-400 uppercase">
                 National Level Hackathon
               </p>
               <div className="flex items-center justify-center gap-3 text-[9px] sm:text-xs md:text-sm font-bold tracking-widest text-white/90 uppercase">
-                <span>Code</span>
-                <span className="w-1 h-1 rounded-full bg-orange-500" />
                 <span>Innovate</span>
+                <span className="w-1 h-1 rounded-full bg-orange-500" />
+                <span>Code</span>
                 <span className="w-1 h-1 rounded-full bg-orange-500" />
                 <span>Conquer</span>
               </div>
             </motion.div>
 
             {/* DATE ADDITION */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
-                  className="px-4 py-1 border-y border-white/10"
-                >
-                  <p className="text-[11px] sm:text-sm md:text-lg font-bold tracking-[0.1em] text-orange-500 uppercase">
-                    24<sup className="lowercase">th</sup> & 25<sup className="lowercase">th</sup>, April 2026
-                  </p>
-                </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="px-4 py-1 border-y border-white/10"
+            >
+              <p className="text-[11px] sm:text-sm md:text-lg font-bold tracking-[0.1em] text-orange-500 uppercase">
+                24<sup className="lowercase">th</sup> & 25<sup className="lowercase">th</sup>, April 2026
+              </p>
+            </motion.div>
           </div>
 
           {/* 3. Footer Area (CTA & Countdown) */}
-          <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16 pb-4 sm:pb-8">
+          <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16 pb-4 sm:pb-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

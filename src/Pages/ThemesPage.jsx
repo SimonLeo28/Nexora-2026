@@ -21,6 +21,12 @@ const problems = [
       This theme challenges participants to build deployable AI solutions that solve real societal
       or industrial problems while adhering to responsible AI principles. Teams should focus on
       developing solutions that are not only innovative but also practical and scalable.`,
+
+    note:
+      `All participating teams are required to bear their own expenses, including components, laptops,
+      chargers, and other necessary resources. Accommodation will be arranged by the organizing committee.
+      Teams participating in Civil, Robotics, and Mechanical themes must demonstrate their innovation through
+      a functional prototype rather than static models.`,
   },
   {
     id: 2,
@@ -37,6 +43,10 @@ const problems = [
       solutions, FPGA or microcontroller-based innovations, signal processing applications, or low-
       power electronic designs. The goal is to create practical and efficient systems that address real-
       world technological challenges.`,
+    note:
+      `All participating teams are required to bear their own expenses, including components, laptops, chargers,
+      and other necessary resources. Accommodation will be arranged by the organizing committee. Teams participating
+      in Civil, Robotics, and Mechanical themes must demonstrate their innovation through a functional prototype rather than static models.`,
   },
   {
     id: 3,
@@ -55,6 +65,11 @@ const problems = [
       auditing systems. Projects should demonstrate how blockchain and cybersecurity principles
       can enhance trust, transparency, and resilience in industries like finance, healthcare, supply
       chain, government, and IoT networks.`,
+    note:
+      `All participating teams are required to bear their own expenses, including components, laptops,
+      chargers, and other necessary resources. Accommodation will be arranged by the organizing committee.
+      Teams participating in Civil, Robotics, and Mechanical themes must demonstrate their innovation through
+      a functional prototype rather than static models.`,
   },
   {
     id: 4,
@@ -70,6 +85,11 @@ const problems = [
       inspection systems, or AI-driven robotics applications. The focus should be on building
       systems that enhance manufacturing, logistics, inspection, maintenance, or human–robot
       collaboration in industrial environments.`,
+    note:
+      `All participating teams are required to bear their own expenses, including components,
+      laptops, chargers, and other necessary resources. Accommodation will be arranged by the organizing
+      committee. Teams participating in Civil, Robotics, and Mechanical themes must demonstrate their
+      innovation through a functional prototype rather than static models.`,
   },
   {
     id: 5,
@@ -84,6 +104,11 @@ const problems = [
       The competition encourages students to think creatively about how infrastructure such as
       bridges, dams, buildings, transportation systems, and water management systems can be
       designed for the future while minimizing environmental impact.`,
+    note:
+      `All participating teams are required to bear their own expenses, including components, laptops,
+      chargers, and other necessary resources. Accommodation will be arranged by the organizing committee.
+      Teams participating in Civil, Robotics, and Mechanical themes must demonstrate their innovation through
+      a functional prototype rather than static models.`,
   },
 
   // {
@@ -216,7 +241,7 @@ export default function Themes() {
               </motion.div>
             ))}
           </div> */}
-          
+
           {/* Cards grid */}
           <div
             ref={cardsRef}
@@ -227,8 +252,8 @@ export default function Themes() {
               <motion.div
                 key={problem.id}
                 className={`w-full sm:w-[48%] lg:w-[31%] max-w-sm group relative h-[420px] rounded-2xl overflow-hidden border-2 transition-all duration-500 ${selectedId === problem.id
-                    ? "border-[#ff6200]/  90 shadow-[0_0_40px_#ff620070] scale-[1.03]"
-                    : "border-white/30 hover:border-[#ff6200]/70 hover:shadow-[0_0_30px_#ff620050]"
+                  ? "border-[#ff6200]/  90 shadow-[0_0_40px_#ff620070] scale-[1.03]"
+                  : "border-white/30 hover:border-[#ff6200]/70 hover:shadow-[0_0_30px_#ff620050]"
                   }`}
                 whileHover={{ scale: selectedId === problem.id ? 1.03 : 1.04 }}
               >
@@ -236,7 +261,7 @@ export default function Themes() {
                   src={problem.image}
                   alt={problem.title}
                   className="absolute inset-0 w-full h-full object-cover brightness-140 transition-transform duration-700 group-hover:scale-100 group-hover:brightness-100"
-                  // loading="lazy"
+                // loading="lazy"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pointer-events-none" />
@@ -296,6 +321,10 @@ export default function Themes() {
 
                   <p className="text-gray-200 text-lg md:text-xl leading-relaxed">
                     {selectedProblem.longDescription}
+                  </p>
+
+                  <p className="text-orange-400 text-lg md:text-xl leading-relaxed">
+                    {selectedProblem.note}
                   </p>
 
                   {/* You can add more structured content here later */}

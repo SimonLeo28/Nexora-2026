@@ -47,9 +47,9 @@ function PrizeCounter({ end, duration = 2.8 }) {
 
 export default function Prizes() {
   const prizes = [
-    { place: '1st Runner-up', amount: 15000, img: '/1stRunner.png', items: "Cash + Certificates + Recognition", highlights: ["Cash", "Certificates"] },
-    { place: 'Winner',        amount: 25000, img: '/winner.png',     items: "Cash + Certificates + Trophy + Medals", highlights: ["Cash", "Trophy"] },
-    { place: '2nd Runner-up', amount: 10000, img: '/2ndRunner.png',  items: "Cash + Certificates + Recognition", highlights: ["Cash", "Recognition"] },
+    { place: '1st Runner-up', amount: 15000, img: '/1stRunner.png', items: "Cash + Certificates", highlights: ["Certificates"] },
+    { place: 'Winner',        amount: 25000, img: '/winner.png',     items: "Cash + Certificates + Trophy", highlights: ["Cash", "Trophy"] },
+    { place: '2nd Runner-up', amount: 10000, img: '/2ndRunner.png',  items: "Cash + Certificates", highlights: ["Certificates"] },
   ];
 
   return (
