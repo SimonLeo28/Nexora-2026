@@ -290,10 +290,10 @@ export default function Hero({ children }) {
               transition={{ delay: 0.2 }}
               className="space-y-1"
             >
-              <h2 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold tracking-tight uppercase text-orange-500">
+              <h2 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold tracking-tight uppercase text-white">
                 Amruta Institute of Engineering and Management Sciences
               </h2>
-              <p className="text-[10px] sm:text-xs md:text-sm font-medium tracking-[0.2em] text-gray-300 uppercase">
+              <p className="text-[10px] sm:text-xs md:text-lg font-medium tracking-[0.2em] text-orange-500 uppercase">
                 Bidadi, Bengaluru - 562 109
               </p>
               <p className="text-[9px] sm:text-[11px] md:text-xs font-light tracking-widest text-white/80 pb-2">
@@ -307,6 +307,7 @@ export default function Hero({ children }) {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
               className="text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase text-orange-500"
             >
               Presents
@@ -318,7 +319,7 @@ export default function Hero({ children }) {
               transition={{ duration: 0.8 }}
               className="text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] font-black tracking-tighter leading-none"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 mb-7">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-orange-500 to-orange-500 mb-7">
                 NEXORA
               </span>
               {/* <span><p  className="text-xs sm:text-sm md:text-xl font-light tracking-[0.3em] text-gray-400 " >Bringing together innovators to tackle real challenges</p></span> */}
@@ -330,7 +331,7 @@ export default function Hero({ children }) {
                 to tackle
                 <span className="text-orange-400 font-semibold">  real challenges</span>.
               </p>
-              <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-orange-500 tracking-[0.2em]">
+              <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-white tracking-[0.2em]">
                 2026
               </span>
             </motion.h1>
@@ -341,7 +342,7 @@ export default function Hero({ children }) {
               transition={{ duration: 0.8 }}
               className="mt-4 space-y-2"
             >
-              <p className="text-xs sm:text-sm md:text-xl font-light tracking-[0.3em] text-gray-400 uppercase">
+              <p className="text-xs sm:text-sm md:text-xl font-bold tracking-[0.3em] text-orange-500 uppercase">
                 National Level Hackathon
               </p>
               <div className="flex items-center justify-center gap-3 text-[9px] sm:text-xs md:text-sm font-bold tracking-widest text-white/90 uppercase">
@@ -367,7 +368,7 @@ export default function Hero({ children }) {
           </div>
 
           {/* 3. Footer Area (CTA & Countdown) */}
-          <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16 pb-4 sm:pb-6">
+          <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

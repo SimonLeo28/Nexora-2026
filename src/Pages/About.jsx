@@ -241,10 +241,10 @@ export default function About() {
                             </span>
                         </h1>
 
-                        <p className="text-xl text-slate-300">
+                        <p className="text-2xl text-slate-300">
                             <span className="text-orange-400 font-semibold">National-level</span> 24-hour
                             <span className="text-orange-400 font-semibold"> innovation challenge </span>
-                            bringing together talented students from across the country.
+                            bringing together talented students across the nation.
                         </p>
                     </div>
                 </section>
@@ -292,7 +292,7 @@ export default function About() {
                                 {[
                                     {
                                         title: "Description",
-                                        text: "A national-level 24-hour innovation challenge bringing together talented students from across India."
+                                        text: "A national-level 24-hour innovation challenge bringing together talented students across the nation."
                                     },
                                     {
                                         title: "Eligibility",

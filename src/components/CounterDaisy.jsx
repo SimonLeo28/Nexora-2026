@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CounterDaisy = () => {
   const [time, setTime] = useState({ d: 0, h: 0, m: 0, s: 0 });
@@ -25,7 +25,7 @@ const CounterDaisy = () => {
 
   return (
     <>
-      <div className="grid grid-flow-col gap-5 text-center auto-cols-max mt-12 sm:mt-2">
+      <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
         <div className="flex flex-col p-2 bg-neutral/40 backdrop-blur-sm border border-orange-500/30 rounded-box text-neutral-content shadow-[0_0_15px_rgba(255,107,0,0.3)]">
           <span className="countdown font-mono text-5xl text-orange-500 drop-shadow-[0_0_10px_rgba(255,107,0,0.6)]">
             <span style={{ "--value": time.d }} aria-live="polite">{time.d.toString().padStart(2, '0')}</span>

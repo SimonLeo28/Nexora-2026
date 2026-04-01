@@ -19,9 +19,9 @@ export default function Rules() {
             id: 1,
             title: "General Rules",
             content: [
-                "No plagiarism or pre-built code allowed",
-                "Teams must consist of original work only",
-                "Follow the MLH / event code of conduct",
+                "No plagiarism or No pre-built code allowed",
+                "Teams must present their original work only",
+                // "Follow the MLH / event code of conduct",
                 "Respect mentors, judges and other participants"
             ]
         },
@@ -29,7 +29,7 @@ export default function Rules() {
             id: 2,
             title: "Submission Guidelines",
             content: [
-                "Submit code + demo video via Devpost / provided platform",
+                // "Submit code + demo video via Devpost / provided platform",
                 "Code must be pushed to public GitHub repo by deadline",
                 "Include README with setup instructions",
                 "Late submissions not accepted"
