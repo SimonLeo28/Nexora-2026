@@ -83,6 +83,9 @@ export default function AdminDashboard() {
       setTeams(teamsData.data);
       setPayments(paymentsData.data);
       setAbstracts(abstractsData.data);
+      
+      // Debug: Log payments data to see structure
+      console.log('Payments data:', paymentsData.data);
     } catch (err) {
       if (err.message?.includes('401') || err.message?.includes('Unauthorized') || err.message?.toLowerCase().includes('invalid') || err.message?.toLowerCase().includes('expired')) {
         logout();
@@ -119,6 +122,29 @@ export default function AdminDashboard() {
     });
   };
 
+  // Calculate total revenue from paid payments
+  const calculateTotalRevenue = () => {
+    if (!payments || payments.length === 0) {
+      console.log('No payments available');
+      return 0;
+    }
+    
+    console.log('All payments:', payments);
+    console.log('Sample payment:', payments[0]);
+    
+    const paidPayments = payments.filter(p => {
+      // Check both 'status' and 'paymentStatus' fields
+      const status = p.status || p.paymentStatus;
+      const isPaid = status === 'paid' || status === 'Paid';
+      console.log(`Payment ${p.id}: status=${status}, isPaid=${isPaid}, amount=${p.amount}`);
+      return isPaid;
+    });
+    
+    console.log('Paid payments:', paidPayments);
+    const total = paidPayments.reduce((sum, p) => sum + (Number(p.amount) || 0), 0);
+    console.log('Total revenue calculated:', total);
+    return total;
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -192,7 +218,7 @@ export default function AdminDashboard() {
             <StatCard title="Pending" value={stats?.pendingTeams} icon="⏳" accent="red" delay={0.1} />
             <StatCard
               title="Revenue"
-              value={formatAmount(stats?.totalRevenue)}
+              value={formatAmount(calculateTotalRevenue())}
               subtitle="Paid registrations"
               icon="₹"
               accent="blue"
