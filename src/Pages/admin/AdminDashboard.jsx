@@ -103,9 +103,13 @@ export default function AdminDashboard() {
     fetchData();
   }, [fetchData, navigate]);
 
-  const formatAmount = (paise) => {
-    if (!paise) return '₹0';
-    return `₹${(paise / 1).toLocaleString('en-IN')}`;
+  // const formatAmount = (paise) => {
+  //   if (!paise) return '₹0';
+  //   return `₹${(paise / 1).toLocaleString('en-IN')}`;
+  // };
+  const formatAmount = (amount) => {
+    if (amount === null || amount === undefined) return '₹0';
+    return `₹${Number(amount).toLocaleString('en-IN')}`;
   };
 
   const formatDate = (dateStr) => {
@@ -365,7 +369,7 @@ export default function AdminDashboard() {
                       </th>
                     ))}
                   </tr>
-                </thead>  
+                </thead>
                 <tbody>
                   {loading
                     ? [...Array(5)].map((_, i) => (
