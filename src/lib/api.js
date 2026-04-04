@@ -2,7 +2,7 @@
 // All API calls go through here — handles base URL and auth headers automatically.
 
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://nexora-backend-admin.onrender.com';
 
 
 /**
