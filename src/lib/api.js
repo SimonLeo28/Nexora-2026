@@ -2,7 +2,11 @@
 // All API calls go through here — handles base URL and auth headers automatically.
 
 
+<<<<<<< HEAD
 const API_URL = import.meta.env.VITE_API_URL;
+=======
+const API_URL = import.meta.env.VITE_API_URL || 'https://nexora-backend-admin.onrender.com';
+>>>>>>> 9c81454058d7ef6d3390adb87d6562190c27a75e
 
 
 /**
