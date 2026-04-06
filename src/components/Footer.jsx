@@ -308,13 +308,13 @@ import { motion } from "framer-motion";
 
 // Import Logos
 import aictelogo from "../logos/AICTE_logo.png";
-import logo5 from "../logos/logo5.jpg";
+// import logo5 from "../logos/logo5.jpg";
 import logo6 from "../logos/logo6.jpg";
 import logo7 from "../logos/logo7.jpg";
 import naaclogo from "../logos/NAAC_LOGO.png";
 
 export default function Footer() {
-  const logos = [aictelogo, naaclogo, logo5, logo6, logo7];
+  const logos = [aictelogo, naaclogo, logo6, logo7];
 
   return (
     <footer
@@ -358,7 +358,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-3 sm:grid-cols-5 gap-6 items-center justify-items-center max-w-4xl mx-auto mb-12 px-6"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center justify-items-center max-w-4xl mx-auto mb-12 px-6"
         >
           {logos.map((logo, index) => (
             <img
@@ -378,10 +378,10 @@ export default function Footer() {
 
           <div className="space-y-2 text-gray-400 text-sm md:text-base">
 
-            <p className="font-medium text-gray-300">Event Coordinators</p>
+            <p className="font-medium text-gray-300">Event Chief Coordinator</p>
             <p>
 
-              Dr.Kumar B.I.D
+              Dr. Kumar B. I. D
             </p>
             {/* HOD email */}
 
@@ -396,7 +396,7 @@ export default function Footer() {
 
             <p className="font-medium text-gray-300">Student Coordinators</p>
             <p>
-              Shivarama R &bull; Harshavardhana Reddy
+              Shivarama R | Harshavardhana Reddy C
             </p>
             <p className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 mt-4">
               <a href="tel:+919148672650" className="hover:text-orange-500 transition-colors">

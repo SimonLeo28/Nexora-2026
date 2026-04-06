@@ -198,28 +198,28 @@ export default function Header() {
 
           {/* On home page: show Register only after scrolling. On other pages: always show it. */}
           {(location.pathname !== "/" || scrolled) && (
-          // <motion.a
-          //   href="https://forms.gle/WHKsA2tNqgnev9an7"
-          //   target="_blank"
-          //   rel="noopener noreferrer"
-          //   className="bg-orange-500 text-black px-6 py-2 rounded-lg font-semibold"
-          //   initial={{ opacity: 0, scale: 0.5 }}
-          //   animate={{ opacity: 1, scale: 1 }}
-          //   transition={{ duration: 0.3 }}
-          // >
-          //   Register
-          // </motion.a>
-          <MotionLink //after 1th april, change this to registrationcommingsoon to motion.a tag and add href to google form
-            // href="https://forms.gle/WHKsA2tNqgnev9an7"
-            // target="_blank"
-            // rel="noopener noreferrer"
-            to="/notifyme"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <motion.a
+            href="https://forms.gle/zHTv3Cats32VdVLN7"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-orange-500 text-black px-6 py-2 rounded-lg font-semibold"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
           >
             Register
-          </MotionLink>
+          </motion.a>
+          // <MotionLink //after 1th april, change this to registrationcommingsoon to motion.a tag and add href to google form
+          //   // href="https://forms.gle/WHKsA2tNqgnev9an7"
+          //   // target="_blank"
+          //   // rel="noopener noreferrer"
+          //   to="/notifyme"
+          //   whileHover={{ scale: 1.05 }}
+          //   whileTap={{ scale: 0.95 }}
+          //   className="bg-orange-500 text-black px-6 py-2 rounded-lg font-semibold"
+          // >
+          //   Register
+          // </MotionLink>
 
           )}
         </div>
