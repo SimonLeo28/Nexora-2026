@@ -60,6 +60,7 @@ export default function AdminDashboard() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const [abstracts, setAbstracts] = useState([]);
+  const [expandedTeamId, setExpandedTeamId] = useState(null);
 
   const adminUser = localStorage.getItem('nexora_admin_user') ?? 'Admin';
 
@@ -83,6 +84,13 @@ export default function AdminDashboard() {
       setTeams(teamsData.data);
       setPayments(paymentsData.data);
       setAbstracts(abstractsData.data);
+      
+      // Debug: Log teams data to see structure
+      console.log('Teams data:', teamsData.data);
+      if (teamsData.data && teamsData.data.length > 0) {
+        console.log('Sample team object:', teamsData.data[0]);
+        console.log('Sample team keys:', Object.keys(teamsData.data[0]));
+      }
       
       // Debug: Log payments data to see structure
       console.log('Payments data:', paymentsData.data);
@@ -144,6 +152,27 @@ export default function AdminDashboard() {
     const total = paidPayments.reduce((sum, p) => sum + (Number(p.amount) || 0), 0);
     console.log('Total revenue calculated:', total);
     return total;
+  };
+
+  // Helper function to extract team members from various field name patterns
+  const getTeamMembers = (team) => {
+    // Check if members array exists
+    if (team.members && Array.isArray(team.members)) {
+      return team.members;
+    }
+    
+    // Check for individual member fields (member1Name, member1Phone, etc.)
+    const members = [];
+    let memberIndex = 1;
+    while (team[`member${memberIndex}Name`] || team[`member${memberIndex}name`]) {
+      members.push({
+        name: team[`member${memberIndex}Name`] || team[`member${memberIndex}name`],
+        phone: team[`member${memberIndex}Phone`] || team[`member${memberIndex}phone`] || team[`member${memberIndex}Contact`] || '—',
+      });
+      memberIndex++;
+    }
+    
+    return members;
   };
 
   return (
@@ -262,7 +291,7 @@ export default function AdminDashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-white/8 bg-white/[0.03]">
-                    {['#', 'Team', 'College', 'Leader', 'Contact', 'Dept/Year', 'Payment', 'Register At'].map((h) => (
+                    {['#', 'Team', 'College', 'Leader', 'Team Members', 'Dept/Year', 'Payment', 'Register At'].map((h) => (
                       <th key={h} className="text-left px-4 py-3 text-gray-500 text-xs uppercase tracking-wider font-medium whitespace-nowrap">
                         {h}
                       </th>
@@ -297,10 +326,27 @@ export default function AdminDashboard() {
                             <div className="text-gray-600 text-xs">{team.theme}</div>
                           </td>
                           <td className="px-4 py-3 text-gray-400 max-w-[150px] truncate">{team.collegeName}</td>
-                          <td className="px-4 py-3 text-gray-300 whitespace-nowrap">{team.leaderName}</td>
                           <td className="px-4 py-3">
-                            {/* <div className="text-gray-400 text-xs">{team.leaderEmail}</div> */}
+                            <div className="text-gray-300 whitespace-nowrap">{team.leaderName}</div>
                             <div className="text-gray-500 text-xs">{team.leaderPhone}</div>
+                          </td>
+                          <td className="px-4 py-3">
+                            {(() => {
+                              const members = getTeamMembers(team);
+                              if (members && members.length > 0) {
+                                return (
+                                  <div className="space-y-1.5">
+                                    {members.map((member, idx) => (
+                                      <div key={idx} className="text-xs">
+                                        <div className="text-gray-300">{member.name || member.memberName || `Member ${idx + 1}`}</div>
+                                        <div className="text-gray-600">{member.phone || member.memberPhone || '—'}</div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                );
+                              }
+                              return <div className="text-gray-600 text-xs">No members</div>;
+                            })()}
                           </td>
                           <td className="px-4 py-3 text-gray-500 text-xs whitespace-nowrap">
                             {team.department}{team.year ? ` · ${team.year}` : ''}

@@ -98,12 +98,11 @@ const problems = [
     description:
       "Create next-generation solutions for unbanked and underbanked populations.",
     longDescription:
-      `Sustainable infrastructure is essential for building resilient and environmentally responsible
-      cities. Under this theme, participants will design scale models of civil infrastructure projects
-      that demonstrate innovation, sustainability, and engineering feasibility.
-      The competition encourages students to think creatively about how infrastructure such as
-      bridges, dams, buildings, transportation systems, and water management systems can be
-      designed for the future while minimizing environmental impact.`,
+      `Teams can showcase their engineering skills by constructing small-scale working model of any infrastructure which involves sustainable, durable, and innovative thinking.
+
+The theme encourages innovative problem-solving, practical design thinking, and the 
+adoption of digital transformation to build safer, smarter, and more resilient infrastructure
+ for the future.`,
     note:
       `All participating teams are required to bear their own expenses, including components, laptops,
       chargers, and other necessary resources. Accommodation will be arranged by the organizing committee.
