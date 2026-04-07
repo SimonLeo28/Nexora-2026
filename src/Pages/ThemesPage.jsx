@@ -98,11 +98,10 @@ const problems = [
     description:
       "Create next-generation solutions for unbanked and underbanked populations.",
     longDescription:
-      `Teams can showcase their engineering skills by constructing small-scale working model of any infrastructure which involves sustainable, durable, and innovative thinking.
-
-The theme encourages innovative problem-solving, practical design thinking, and the 
-adoption of digital transformation to build safer, smarter, and more resilient infrastructure
- for the future.`,
+      `Teams can showcase their engineering skills by constructing small-scale working model of any
+      infrastructure which involves sustainable, durable, and innovative thinking. The theme encourages
+      innovative problem-solving, practical design thinking, and the adoption of digital transformation
+      to build safer, smarter, and more resilient infrastructure for the future.`,
     note:
       `All participating teams are required to bear their own expenses, including components, laptops,
       chargers, and other necessary resources. Accommodation will be arranged by the organizing committee.

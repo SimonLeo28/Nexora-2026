@@ -99,7 +99,7 @@ export default function AdminDashboard() {
         logout();
         return;
       }
-      setError(err.message || 'Failed to fetch data. Is the backend running?');
+      setError(err.message || 'Failed to fetch data. Is the backend running ?');
     } finally {
       setLoading(false);
     }
