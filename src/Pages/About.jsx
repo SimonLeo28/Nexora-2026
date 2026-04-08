@@ -400,61 +400,122 @@ export default function About() {
                     </div>
                 </section>
 
-                {/* Team Section
-            <section className="relative py-20 px-4">
-                <div className="max-w-6xl mx-auto">
+                {/* Team Section */}
+                {/* <section className="relative py-20 px-4">
+                    <div className="max-w-6xl mx-auto">
 
-                    <h2 className="text-4xl font-bold text-center mb-16 text-orange-400">
-                        Meet Our Team
-                    </h2>
+                        <h2 className="text-4xl font-bold text-center mb-16 text-orange-400">
+                            Meet Our Team
+                        </h2>
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="grid md:grid-cols-3 gap-8">
 
-                        {[
-                            {
-                                name: "Alex Johnson",
-                                role: "Founder & CEO",
-                                image: "👨‍💼",
-                            },
-                            {
-                                name: "Sarah Chen",
-                                role: "Chief Technology Officer",
-                                image: "👩‍💻",
-                            },
-                            {
-                                name: "Mike Davis",
-                                role: "Head of Operations",
-                                image: "👨‍💻",
-                            },
-                        ].map((member) => (
+                            {[
+                                {
+                                    name: "Alex Johnson",
+                                    role: "Founder & CEO",
+                                    image: "👨‍💼",
+                                },
+                                {
+                                    name: "Sarah Chen",
+                                    role: "Chief Technology Officer",
+                                    image: "👩‍💻",
+                                },
+                                {
+                                    name: "Mike Davis",
+                                    role: "Head of Operations",
+                                    image: "👨‍💻",
+                                },
+                            ].map((member) => (
 
-                            <div key={member.name} className="group text-center">
+                                <div key={member.name} className="group text-center">
 
-                                <div className="relative">
+                                    <div className="relative">
 
-                                    <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-yellow-400/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300" />
+                                        <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-yellow-400/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300" />
 
-                                    <div className="relative p-8 bg-orange-900/10 border border-orange-400/20 rounded-lg group-hover:border-yellow-400/50 transition-all duration-300">
+                                        <div className="relative p-8 bg-orange-900/10 border border-orange-400/20 rounded-lg group-hover:border-yellow-400/50 transition-all duration-300">
 
-                                        <div className="text-6xl mb-4">{member.image}</div>
+                                            <div className="text-6xl mb-4">{member.image}</div>
 
-                                        <h3 className="text-xl font-bold text-white mb-1">
-                                            {member.name}
-                                        </h3>
+                                            <h3 className="text-xl font-bold text-white mb-1">
+                                                {member.name}
+                                            </h3>
 
-                                        <p className="text-orange-400">{member.role}</p>
+                                            <p className="text-orange-400">{member.role}</p>
+
+                                        </div>
 
                                     </div>
 
                                 </div>
 
+                            ))}
+
+                        </div>
+                    </div>
+                </section> */}
+                {/* Coordinators Section */}
+                <section className="relative py-20 px-4">
+                    <div className="max-w-5xl mx-auto">
+
+                        <h2 className="text-4xl font-bold text-center mb-16 text-orange-400">
+                            Co-ordinators
+                        </h2>
+
+                        <div className="grid md:grid-cols-2 gap-12">
+
+                            {/* Student Coordinators */}
+                            <div>
+                                <h3 className="text-2xl font-semibold mb-6 text-yellow-400 text-center">
+                                    Student Co-ordinators
+                                </h3>
+
+                                <ul className="space-y-3 text-center">
+                                    {[
+                                        "Srujana Deshpande",
+                                        "Yogeshwari R",
+                                        "Bhaskar",
+                                        "Hitesh R",
+                                    ].map((name) => (
+                                        <li
+                                            key={name}
+                                            className="text-lg text-white hover:text-orange-400 transition"
+                                        >
+                                            {name}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
 
-                        ))}
+                            {/* Faculty Coordinators */}
+                            <div>
+                                <h3 className="text-2xl font-semibold mb-6 text-yellow-400 text-center">
+                                    Faculty Co-ordinators
+                                </h3>
 
+                                <ul className="space-y-3 text-center">
+                                    {[
+                                        "Dr. Pratibhadevi Tapasetti",
+                                        "Dr. Vinodkumar Biradar",
+                                        "Prof. Sangeetha N",
+                                        "Prof. Kavya B K",
+                                        "Prof. Kavya A D",
+                                        "Prof. Rakshitha G",
+                                    ].map((name) => (
+                                        <li
+                                            key={name}
+                                            className="text-lg text-white hover:text-orange-400 transition"
+                                        >
+                                            {name}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-            </section> */}
+                </section>
 
                 <Footer />
 

@@ -409,10 +409,10 @@ export default function Footer() {
             </p>
             <div className="pt-4">
               <a
-                href="mailto:infonexora2026@gmail.com"
+                href="mailto:infonexora26@gmail.com"
                 className="px-6 py-2 border border-orange-500/20 rounded-full hover:bg-orange-500/10 hover:border-orange-500/50 transition-all duration-300"
               >
-                infonexora2026@gmail.com
+                infonexora26@gmail.com
               </a>
             </div>
           </div>
