@@ -131,10 +131,10 @@ export default function Contact() {
                 <h3 className="font-bold text-slate-100 mb-2">Email</h3>
 
                 <a
-                  href="mailto:infonexora2026@gmail.com"
+                  href="mailto:infonexora26@gmail.com"
                   className="text-slate-400 hover:text-orange-400 transition-colors"
                 >
-                  infonexora2026@gmail.com
+                  infonexora26@gmail.com
                 </a>
               </div>
 
