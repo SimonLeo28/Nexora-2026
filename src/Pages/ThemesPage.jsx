@@ -24,7 +24,7 @@ const problems = [
 
     note:
       `All participating teams are required to bear their own expenses, including components, laptops,
-      chargers, and other necessary resources. Accommodation will be arranged by the organizing committee.
+      chargers, and other necessary resources. Food & Accommodation will be arranged by the organizing committee.
       Teams participating in Civil, Robotics, and Mechanical themes must demonstrate their innovation through
       a functional prototype rather than static models.`,
   },
@@ -45,7 +45,7 @@ const problems = [
       world technological challenges.`,
     note:
       `All participating teams are required to bear their own expenses, including components, laptops, chargers,
-      and other necessary resources. Accommodation will be arranged by the organizing committee. Teams participating
+      and other necessary resources. Food & Accommodation will be arranged by the organizing committee. Teams participating
       in Civil, Robotics, and Mechanical themes must demonstrate their innovation through a functional prototype rather than static models.`,
   },
   {
@@ -67,7 +67,7 @@ const problems = [
       chain, government, and IoT networks.`,
     note:
       `All participating teams are required to bear their own expenses, including components, laptops,
-      chargers, and other necessary resources. Accommodation will be arranged by the organizing committee.
+      chargers, and other necessary resources.Food & Accommodation will be arranged by the organizing committee.
       Teams participating in Civil, Robotics, and Mechanical themes must demonstrate their innovation through
       a functional prototype rather than static models.`,
   },
@@ -87,7 +87,7 @@ const problems = [
       collaboration in industrial environments.`,
     note:
       `All participating teams are required to bear their own expenses, including components,
-      laptops, chargers, and other necessary resources. Accommodation will be arranged by the organizing
+      laptops, chargers, and other necessary resources.Food & Accommodation will be arranged by the organizing
       committee. Teams participating in Civil, Robotics, and Mechanical themes must demonstrate their
       innovation through a functional prototype rather than static models.`,
   },
@@ -104,7 +104,7 @@ const problems = [
       to build safer, smarter, and more resilient infrastructure for the future.`,
     note:
       `All participating teams are required to bear their own expenses, including components, laptops,
-      chargers, and other necessary resources. Accommodation will be arranged by the organizing committee.
+      chargers, and other necessary resources.Food & Accommodation will be arranged by the organizing committee.
       Teams participating in Civil, Robotics, and Mechanical themes must demonstrate their innovation through
       a functional prototype rather than static models.`,
   },
@@ -189,9 +189,19 @@ export default function Themes() {
         <StarsBackground />
         <ShootingStars />
         <div className="container mx-auto px-6 relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-16 tracking-tight">
-            Problem <span className="text-[#ff5f00]">Statements</span>
-          </h2>
+          <div className="relative z-10 max-w-4xl mx-auto text-center mb-6">
+
+            <h2 className="text-5xl md:text-6xl font-bold text-center text-white mb-6 tracking-tight">
+              Themes
+              {/* <span className="text-[#ff5f00]">Statements</span> */}
+            </h2>
+
+            <p className="text-2xl text-slate-300"> Choose one
+              <span className="text-orange-400 font-semibold"> theme </span>and define your own
+              <span className="text-orange-400 font-semibold"> real-world problem </span>
+              that aligns with it.
+            </p>
+          </div>
 
           {/* Cards grid */}
           {/* <div
