@@ -473,10 +473,10 @@ export default function About() {
 
                                 <ul className="space-y-3 text-center">
                                     {[
-                                        "Srujana Deshpande",
-                                        "Yogeshwari R",
-                                        "Bhaskar",
-                                        "Hitesh R",
+                                        "Srujana Deshpande (ISE)",
+                                        "Hitesh R (ISE)",
+                                        "Poorvika Gowda (ECE)",
+                                        "Aaiman Fhalak (CSE)",
                                     ].map((name) => (
                                         <li
                                             key={name}
@@ -496,12 +496,12 @@ export default function About() {
 
                                 <ul className="space-y-3 text-center">
                                     {[
-                                        "Dr. Pratibhadevi Tapasetti",
-                                        "Dr. Vinodkumar Biradar",
-                                        "Prof. Sangeetha N",
-                                        "Prof. Kavya B K",
-                                        "Prof. Kavya A D",
-                                        "Prof. Rakshitha G",
+                                        "Dr. Pratibhadevi Tapasetti (ECE)",
+                                        "Dr. Vinodkumar Biradar (MECH)",
+                                        "Prof. Sangeetha N (AIML)",
+                                        "Prof. Kavya B K (CSE)",
+                                        "Prof. Kavya A D (ISE)",
+                                        "Prof. Rakshitha G (CIVIL)",
                                     ].map((name) => (
                                         <li
                                             key={name}
