@@ -87,7 +87,7 @@ export default function Rules() {
                     </h1>
 
                     <p className="text-xl text-slate-300">
-                        Have questions? We'd love to hear from you. Contact us anytime.
+                        Adhere to the guidelines to maintain fairness, creativity, and a collaborative hackathon environment.
                     </p>
                 </div>
             </section>
