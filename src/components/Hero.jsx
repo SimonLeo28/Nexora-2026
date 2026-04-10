@@ -236,7 +236,7 @@
 //       </NeonNodes>
 //     </section>
 //   );
-// }  
+// }
 
 
 
@@ -253,143 +253,152 @@ export default function Hero({ children }) {
   const logos = [bvvlogo, vtulogo, aiemslogo];
 
   return (
-    <section
-      id="home"
-      className="relative h-screen w-full overflow-hidden bg-black text-white font-sans selection:bg-orange-500/30 pt-4"
-    >
-      <NeonNodes>
-        {/* Background Layers */}
-        <div className="absolute inset-0 z-[1] w-full h-full opacity-40 pointer-events-none mix-blend-screen">
-          <BackgroundPaths />
-        </div>
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-transparent to-black pointer-events-none" />
-
-        {/* Main Content Container - Forced to 100vh with flex-col */}
-        <div className="relative z-10 flex flex-col items-center justify-between h-screen w-full px-4 py-6 md:py-10 text-center">
-
-          {/* 1. Header Area (Logos & College) */}
-          <div className="flex flex-col items-center gap-4 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex items-center justify-center gap-4 md:gap-8"
-            >
-              {logos.map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt="Partner Logo"
-                  className="h-8 sm:h-12 md:h-14 lg:h-16 w-auto object-contain brightness-110"
-                />
-              ))}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-1"
-            >
-              <h2 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold tracking-tight uppercase text-white">
-                Amruta Institute of Engineering and Management Sciences
-              </h2>
-              <p className="text-[10px] sm:text-xs md:text-lg font-medium tracking-[0.2em] text-orange-500 uppercase">
-                Bidadi, Bengaluru - 562 109
-              </p>
-              <p className="text-[9px] sm:text-[11px] md:text-xs font-light tracking-widest text-white/80 pb-2">
-                Recognized & Approved by Govt. of Karnataka, AICTE & UGC, New Delhi, Accredited by NAAC with <span className="text-orange-400 font-bold">B++</span>
-              </p>
-            </motion.div>
+    <>
+      <section
+        id="home"
+        className="relative h-screen w-full overflow-hidden bg-black text-white font-sans selection:bg-orange-500/30 pt-4"
+      >
+        <NeonNodes>
+          {/* Background Layers */}
+          <div className="absolute inset-0 z-[1] w-full h-full opacity-40 pointer-events-none mix-blend-screen">
+            <BackgroundPaths />
           </div>
+          <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/40 via-transparent to-black pointer-events-none" />
 
-          {/* 2. Hero Core (NEXORA 2026) */}
-          <div className="flex flex-col items-center justify-center flex-grow">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase text-orange-500"
-            >
-              Presents
-            </motion.p>
+          {/* Main Content Container - Forced to 100vh with flex-col */}
+          <div className="relative z-10 flex flex-col items-center justify-between h-screen w-full px-4 py-6 md:py-10 text-center">
 
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] font-black tracking-tighter leading-none"
-            >
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-orange-500 to-orange-500 mb-7">
-                NEXORA
-              </span>
-              {/* <span><p  className="text-xs sm:text-sm md:text-xl font-light tracking-[0.3em] text-gray-400 " >Bringing together innovators to tackle real challenges</p></span> */}
-              <p className=" text-xs mb-2 sm:text-sm md:text-[13spx] font-light tracking-[0.2em] uppercase">
-                Bringing   together
-                {/* <span className="text-orange-400 font-semibold"> </span> */}
+            {/* 1. Header Area (Logos & College) */}
+            <div className="flex flex-col items-center gap-4 w-full">
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center justify-center gap-4 md:gap-8"
+              >
+                {logos.map((logo, index) => (
+                  <img
+                    key={index}
+                    src={logo}
+                    alt="Partner Logo"
+                    className="h-8 sm:h-12 md:h-14 lg:h-16 w-auto object-contain brightness-110"
+                  />
+                ))}
+              </motion.div>
 
-                <span className="text-orange-400 font-semibold"> innovators </span>
-                to tackle
-                <span className="text-orange-400 font-semibold">  real challenges</span>.
-              </p>
-              <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-white tracking-[0.2em]">
-                2026
-              </span>
-            </motion.h1>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="space-y-1"
+              >
+                <h2 className="text-sm sm:text-lg md:text-2xl lg:text-3xl font-extrabold tracking-tight uppercase text-white">
+                  Amruta Institute of Engineering and Management Sciences
+                </h2>
+                <p className="text-[10px] sm:text-xs md:text-lg font-medium tracking-[0.2em] text-orange-500 uppercase">
+                  Bidadi, Bengaluru - 562 109
+                </p>
+                <p className="text-[9px] sm:text-[11px] md:text-xs font-light tracking-widest text-white/80 pb-2">
+                  Recognized & Approved by Govt. of Karnataka, AICTE & UGC, New Delhi, Accredited by NAAC with <span className="text-orange-400 font-bold">B++</span>
+                </p>
+              </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="mt-4 space-y-2"
-            >
-              <p className="text-xs sm:text-sm md:text-xl font-bold tracking-[0.3em] text-orange-500 uppercase">
-                National Level Hackathon
-              </p>
-              <div className="flex items-center justify-center gap-3 text-[9px] sm:text-xs md:text-sm font-bold tracking-widest text-white/90 uppercase">
-                <span>Innovate</span>
-                <span className="w-1 h-1 rounded-full bg-orange-500" />
-                <span>Code</span>
-                <span className="w-1 h-1 rounded-full bg-orange-500" />
-                <span>Conquer</span>
-              </div>
-            </motion.div>
+            {/* 2. Hero Core (NEXORA 2026) */}
+            <div className="flex flex-col items-center justify-center flex-grow">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-[10px] sm:text-xs font-bold tracking-[0.5em] uppercase text-orange-500"
+              >
+                Presents
+              </motion.p>
 
-            {/* DATE ADDITION */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="px-4 py-1 border-y border-white/10"
-            >
-              <p className="text-[11px] sm:text-sm md:text-lg font-bold tracking-[0.1em] text-orange-500 uppercase">
-                24<sup className="lowercase">th</sup> & 25<sup className="lowercase">th</sup>, April 2026
-              </p>
-            </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] font-black tracking-tighter leading-none"
+              >
+                <span className="bg-clip-text text-transparent bg-gradient-to-b from-orange-500 to-orange-500 mb-7">
+                  NEXORA
+                </span>
+                {/* <span><p  className="text-xs sm:text-sm md:text-xl font-light tracking-[0.3em] text-gray-400 " >Bringing together innovators to tackle real challenges</p></span> */}
+                <p className=" text-xs mb-2 sm:text-sm md:text-[13spx] font-light tracking-[0.2em] uppercase">
+                  Bringing   together
+                  {/* <span className="text-orange-400 font-semibold"> </span> */}
+
+                  <span className="text-orange-400 font-semibold"> innovators </span>
+                  to tackle
+                  <span className="text-orange-400 font-semibold">  real challenges</span>.
+                </p>
+                <span className="block text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-thin text-white tracking-[0.2em]">
+                  2026
+                </span>
+              </motion.h1>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="mt-4 space-y-2"
+              >
+                <p className="text-xs sm:text-sm md:text-xl font-bold tracking-[0.3em] text-orange-500 uppercase">
+                  National Level Hackathon
+                </p>
+                <div className="flex items-center justify-center gap-3 text-[9px] sm:text-xs md:text-sm font-bold tracking-widest text-white/90 uppercase">
+                  <span>Innovate</span>
+                  <span className="w-1 h-1 rounded-full bg-orange-500" />
+                  <span>Code</span>
+                  <span className="w-1 h-1 rounded-full bg-orange-500" />
+                  <span>Conquer</span>
+                </div>
+              </motion.div>
+
+              {/* DATE ADDITION */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+                className="px-4 py-1 border-y border-white/10"
+              >
+                <p className="text-[11px] sm:text-sm md:text-lg font-bold tracking-[0.1em] text-orange-500 uppercase">
+                  24<sup className="lowercase">th</sup> & 25<sup className="lowercase">th</sup>, April 2026
+                </p>
+              </motion.div>
+            </div>
+
+            {/* 3. Footer Area (CTA & Countdown) */}
+            <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="z-20 transform scale-90 sm:scale-100"
+              >
+                {children}
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="w-full md:w-auto flex justify-center scale-75 sm:scale-90 md:scale-100"
+              >
+                <CounterDaisy />
+              </motion.div>
+            </div>
+
           </div>
-
-          {/* 3. Footer Area (CTA & Countdown) */}
-          <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="z-20 transform scale-90 sm:scale-100"
-            >
-              {children}
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="w-full md:w-auto flex justify-center scale-75 sm:scale-90 md:scale-100"
-            >
-              <CounterDaisy />
-            </motion.div>
+          {/* 🔔 Floating Notice */}
+          <div className="fixed bottom-5 right-5 z-50">
+            <div className="notice-box">
+              ⚠️ Hurry up !<br/>
+              Registration closes on 15<sup className="lowercase">th</sup> April 2026
+            </div>
           </div>
-
-        </div>
-      </NeonNodes>
-    </section>
+        </NeonNodes>
+      </section>
+    </>
   );
 }
