@@ -20,6 +20,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TimeLine from "./components/TimeLine";
+import RegistrationProcess from "./components/RegistrationProcess";
 import { ToastProvider } from "./components/ui/toast";
 // import { Toaster } from "react-hot-toast";
 
@@ -69,6 +70,7 @@ const Home = () => {
         )}
       </Hero>
       <TimeLine />
+      <RegistrationProcess />
       <Prizes />
       <Footer />
     </>

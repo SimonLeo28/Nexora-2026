@@ -396,15 +396,15 @@ export default function Footer() {
 
             <p className="font-medium text-gray-300">Student Coordinators</p>
             <p>
-              Shivarama R | Harshavardhana Reddy C
+              Harsha Reddy C| Shivarama R  
             </p>
             <p className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 mt-4">
-              <a href="tel:+919148672650" className="hover:text-orange-500 transition-colors">
-                +91 9148672650
-              </a>
-              <span className="hidden sm:inline text-gray-600">|</span>
               <a href="tel:+917019022248" className="hover:text-orange-500 transition-colors">
                 +91 7019022248
+              </a>
+              <span className="hidden sm:inline text-gray-600">|</span>
+              <a href="tel:+919148672650" className="hover:text-orange-500 transition-colors">
+                +91 9148672650
               </a>
             </p>
             <div className="pt-4">
