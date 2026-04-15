@@ -394,7 +394,7 @@ export default function Hero({ children }) {
           <div className="fixed bottom-5 right-5 z-50">
             <div className="notice-box">
               ⚠️ Hurry up !<br/>
-              Registration closes on 15<sup className="lowercase">th</sup> April 2026
+              Registration closes on 18<sup className="lowercase">th</sup> April 2026
             </div>
           </div>
         </NeonNodes>

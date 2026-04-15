@@ -1,5 +1,5 @@
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
 import { ShootingStars } from "./ShootingStars";
 import { StarsBackground } from "./StarsBackground";
 
@@ -118,7 +118,7 @@ function DeadlineBadge() {
               }}
               transition={{ duration: 1.2, repeat: Infinity }}
             >
-              April 15th
+              April 18<sup className="lowercase">th</sup> 2026
             </motion.span>
           </p>
 
