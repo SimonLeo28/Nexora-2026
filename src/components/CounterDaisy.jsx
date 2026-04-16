@@ -4,7 +4,7 @@ const CounterDaisy = () => {
   const [time, setTime] = useState({ d: 0, h: 0, m: 0, s: 0 });
 
   useEffect(() => {
-    const target = new Date('2026-04-23T00:00:00').getTime();
+    const target = new Date('2026-04-24T09:00:00').getTime();
     const tick = () => {
       const diff = target - Date.now();
       if (diff <= 0) {

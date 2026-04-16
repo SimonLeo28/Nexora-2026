@@ -4,7 +4,7 @@ export default function CountdownTimer() {
     const [time, setTime] = useState({ d: '00', h: '00', m: '00', s: '00' });
 
     useEffect(() => {
-        const target = new Date('2026-04-23T00:00:00').getTime();
+        const target = new Date('2026-04-24T09:00:00').getTime();
         const tick = () => {
             const diff = target - Date.now();
             if (diff <= 0) {
